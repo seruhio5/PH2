@@ -1,6 +1,6 @@
 function mostrarentradas(){
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Sesion2/rest/entrada/';
+		url = 'http://localhost/PH2/Practica2/rest/entrada/';
 
 	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
@@ -14,7 +14,7 @@ function mostrarentradas(){
 			let html= '';
 			for(let i=0; i<v.FILAS.length; i++){
 				let e = v.FILAS[i],
-					foto = 'http://localhost/PH2/Sesion2/fotos/' + e.fichero;
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
 				html += '<article>'
 				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
 				html +=	'<div>'
@@ -39,7 +39,7 @@ function mostrarentrada(){
 	var id = getParameterByName('entrada');
 	console.log(id);
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Sesion2/rest/entrada/';
+		url = 'http://localhost/PH2/Practica2/rest/entrada/';
 
 	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
@@ -55,7 +55,7 @@ function mostrarentrada(){
 				
 					let e = v.FILAS[i];
 				if(e.id==id){ //buscamos la id que nos piden
-					let foto = 'http://localhost/PH2/Sesion2/fotos/' + e.fichero;
+					let foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
 					html += '<article>'
 					html +=	'<h3>'+ e.nombre + '</h3>'
 					html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
