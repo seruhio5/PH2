@@ -55,7 +55,7 @@ function mostrarentrada(){
 				
 					let e = v.FILAS[i];
 				if(e.id==id){ //buscamos la id que nos piden
-					let foto = 'http://localhost/PH2/fotos/' + e.fichero;
+					let foto = 'http://localhost/PH2/Sesion2/fotos/' + e.fichero;
 					html += '<article>'
 					html +=	'<h3>'+ e.nombre + '</h3>'
 					html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
