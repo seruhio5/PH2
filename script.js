@@ -1,6 +1,6 @@
 function mostrarentradas(frm){
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/practica2/rest/entrada/',
+		url = 'http://localhost/PH2/rest/entrada/',
 		section = frm.parentNode.parentNode;
 
 	xhr.open('GET', url, true);
@@ -15,13 +15,12 @@ function mostrarentradas(frm){
 			let html= '';
 			for(let i=0; i<v.FILAS.length; i++){
 				let e = v.FILAS[i],
-					foto = 'http://localhost/practica2/fotos/' + e.fichero;
+					foto = 'http://localhost/PH2/fotos/' + e.fichero;
 				html += '<article>'
 				html +=	'<h3>'+ e.nombre + '</h3>'
 				html +=	'<div>'
 				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
-				html +=		'<h4>' + e.descripcion + '</h4>'
-				html +=     '<aside><a>"Ver mas"</a></aside>' 
+				html +=		'<p>' + e.descripcion + '</p>'
 				html +=	'</div>'
 				html +=	'<footer>'
 				html +=		'<p>'+ e.login +'</p>'
