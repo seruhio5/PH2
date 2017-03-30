@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 10-03-2017 a las 12:13:24
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.20
+-- Host: 127.0.0.1
+-- Generation Time: Mar 30, 2017 at 12:20 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,22 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ph2`
+-- Database: `ph2`
 --
-CREATE DATABASE IF NOT EXISTS `ph2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `ph2`;
 
---
--- Creación y asignación de permisos para el usuario 'ph2' con password 'ph2'
---
-GRANT ALL PRIVILEGES ON ph2.* to 'ph2'127.0.0.1' identified by 'ph2';
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentario`
+-- Table structure for table `comentario`
 --
 
-DROP TABLE IF EXISTS `comentario`;
 CREATE TABLE `comentario` (
   `id` int(11) NOT NULL,
   `id_entrada` int(11) NOT NULL,
@@ -43,7 +36,7 @@ CREATE TABLE `comentario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `comentario`
+-- Dumping data for table `comentario`
 --
 
 INSERT INTO `comentario` (`id`, `id_entrada`, `login`, `titulo`, `texto`, `fecha`) VALUES
@@ -55,10 +48,9 @@ INSERT INTO `comentario` (`id`, `id_entrada`, `login`, `titulo`, `texto`, `fecha
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `entrada`
+-- Table structure for table `entrada`
 --
 
-DROP TABLE IF EXISTS `entrada`;
 CREATE TABLE `entrada` (
   `id` int(11) NOT NULL,
   `login` varchar(20) NOT NULL,
@@ -68,7 +60,7 @@ CREATE TABLE `entrada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `entrada`
+-- Dumping data for table `entrada`
 --
 
 INSERT INTO `entrada` (`id`, `login`, `nombre`, `descripcion`, `fecha`) VALUES
@@ -79,10 +71,9 @@ INSERT INTO `entrada` (`id`, `login`, `nombre`, `descripcion`, `fecha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `foto`
+-- Table structure for table `foto`
 --
 
-DROP TABLE IF EXISTS `foto`;
 CREATE TABLE `foto` (
   `id` int(11) NOT NULL,
   `id_entrada` int(11) NOT NULL,
@@ -91,7 +82,7 @@ CREATE TABLE `foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `foto`
+-- Dumping data for table `foto`
 --
 
 INSERT INTO `foto` (`id`, `id_entrada`, `texto`, `fichero`) VALUES
@@ -106,10 +97,9 @@ INSERT INTO `foto` (`id`, `id_entrada`, `texto`, `fichero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `login` varchar(20) NOT NULL,
   `pwd` varchar(20) NOT NULL,
@@ -120,7 +110,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`login`, `pwd`, `nombre`, `email`, `clave`, `ultimo_acceso`) VALUES
@@ -132,11 +122,11 @@ INSERT INTO `usuario` (`login`, `pwd`, `nombre`, `email`, `clave`, `ultimo_acces
 ('usu6', 'usu6', 'Usuario 6', 'usu6@gmail.com', NULL, '2017-03-08 08:49:32');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comentario`
+-- Indexes for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id`),
@@ -144,63 +134,63 @@ ALTER TABLE `comentario`
   ADD KEY `login_usuario` (`login`) USING BTREE;
 
 --
--- Indices de la tabla `entrada`
+-- Indexes for table `entrada`
 --
 ALTER TABLE `entrada`
   ADD PRIMARY KEY (`id`),
   ADD KEY `login` (`login`);
 
 --
--- Indices de la tabla `foto`
+-- Indexes for table `foto`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_articulo` (`id_entrada`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`login`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `comentario`
+-- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT de la tabla `entrada`
+-- AUTO_INCREMENT for table `entrada`
 --
 ALTER TABLE `entrada`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
--- AUTO_INCREMENT de la tabla `foto`
+-- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comentario`
+-- Constraints for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`login`) REFERENCES `usuario` (`login`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_entrada`) REFERENCES `entrada` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `entrada`
+-- Constraints for table `entrada`
 --
 ALTER TABLE `entrada`
   ADD CONSTRAINT `entrada_ibfk_1` FOREIGN KEY (`login`) REFERENCES `usuario` (`login`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `foto`
+-- Constraints for table `foto`
 --
 ALTER TABLE `foto`
   ADD CONSTRAINT `foto_ibfk_2` FOREIGN KEY (`id_entrada`) REFERENCES `entrada` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
