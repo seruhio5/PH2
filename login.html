@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="CSS/480_3.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="CSS/font-barra-nav.css" rel="stylesheet" type="text/css" />
+
+    <link href="CSS/font-iconos-sueltos.css" rel="stylesheet" type="text/css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+
+	<header>
+
+			<a href="index.html"><img id="logo" src="logoph2.png" width="300" height="150"  alt="logo"></a>
+		
+			<h1 id=descripcion>
+				Forojinx, tu foro donde compartir tus ideas mas locas. pium pium
+			</h1>	
+		
+	</header>
+	<div id="separador"></div>
+	<input type="checkbox" id="ckb-menu">
+	<nav>
+			
+		
+		
+			<ul id="menu">
+					<li>
+						<label for="ckb-menu">&equiv;</label>
+					</li>
+					<li class="menu">
+						<a href="index.html">
+							<i class="demo-icon icon-home-1"></i>Inicio
+						</a>
+					</li>
+					<li class="menu" id="active">
+						<a href="login.html">
+							<i class="demo-icon icon-login"></i>Login
+						</a>
+					</li>
+					<li class="menu">
+						<a href="registro.html">
+							<i class="demo-icon icon-user-plus"></i>Registro
+						</a>
+					</li>
+					<li class="menu">
+						<a href="buscar.html">
+							<i class="demo-icon icon-search-1"></i>Buscar
+						</a>
+					</li>
+					<li class="menu">
+						<a href="#">
+							<i class="demo-icon icon-logout-1"></i>Logout
+						</a>
+					</li>
+					<li class="menu">
+						<a href="nueva-entrada.html">
+							<i class="demo-icon icon-doc"></i>Nueva entrada
+						</a>
+					</li>
+			</ul>
+		
+	</nav>
+
+<!-- Formulario de login -->
+
+	<section id="content_login">
+		<h2>Iniciar Sesion</h2>
+		<form>
+			<ul class="formu">
+			    
+			    <li>
+			        <label>Usuario <span class="required">*</span></label>
+			        <input type="text" title="Sólo se pueden utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número." placeholder="Serukey69" name="field3" class="field-long" required="" pattern="[a-zA-Z][a-zA-Z0-9]" autofocus=""/>
+			    </li>
+
+			    <li>
+			        <label>Contraseña <span class="required">*</span></label>
+			        <input type="password" title="Todos los carácteres permitidos" placeholder="_xPeke96&&" name="field3" class="field-long" required="" />
+			    </li>
+			    
+			    <li>
+			        <input type="submit" value="Iniciar Sesion" />
+			    </li>
+			    
+			</ul>
+		</form>
+		<p>¿No tienes una cuenta? <a href="registro.html">Crear una nueva cuenta</a></p>
+	</section>
+
+	<hr>
+	<footer>
+		
+        
+			<p>
+				&copy; Sergio Molero Garcia y Francisco Jose Lavale Narciso - <a href="acerca.html">Acerca de los autores</a> - <time datetime="2017">Año 2017</time>
+			</p>
+   
+	</footer>
+
+</body>
+</html>

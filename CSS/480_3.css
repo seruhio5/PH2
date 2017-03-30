@@ -1,0 +1,463 @@
+h3>a{
+    text-decoration: none;
+}
+
+/*-------------------------------------------Barra de navegacion-------------------------------------------------*/
+body{
+	background-color: #F2F2F2;
+}
+
+header{
+	background-color: #333;
+    background-size: cover;
+    text-align: center;
+    overflow: hidden;
+    padding: 1.5em;
+    min-width: 320px;
+}
+[id=menu]{
+    max-height: 2em;
+    margin-left: -2.5em;
+    overflow: hidden;
+    transition: max-height .5s;
+}
+#active>a{
+    background: #4CAF50;
+    color: white;
+    border-radius: 0.4em;
+}
+.menu{
+    position: top;
+    float: block;
+}
+*{
+    font-family: 'Gloria Hallelujah';
+}
+.menu a:hover {
+    background: #DA00FF;
+    border-radius: 0.4em;
+    color: white;
+}
+
+[id=logo]{
+	float: left;
+}
+[id=descripcion]{
+	float: none;
+    color: #89c4d1;
+    text-align: center;
+}
+
+ body>nav>ul>li:first-of-type>label{ /*Primer hijo del tipo li*/
+            
+            display: inline-block;
+            transform: rotate(-90deg);
+            transition: transform .5s;
+        }
+
+        body>nav>ul>li{
+            list-style: none;
+            display: block;
+            width: 100%;
+        }
+
+            body>nav>ul>li>a{
+                display: block;
+                text-decoration:none;
+                font-weight: bold;
+                color: white;
+                border-radius: 0.4em;
+                background: #333;
+            }
+
+/*MENU HAMBURGUESA*/
+
+/*Oculta el checkbox*/
+#ckb-menu{
+    display: none;
+}
+
+#ckb-menu:checked+nav>ul>li:first-of-type>label{
+    transform: rotate(0);
+}
+
+#ckb-menu:checked+nav>ul{
+    max-height: 20em;
+}
+
+
+
+/*--------------------------------Pantallas superiores con resoluciones a 480-----------------------------------*/
+@media all and (min-width: 480px){
+    
+    nav{
+        text-align: center;
+    }
+    
+    body>nav>ul{
+        display: inline-block;
+        height: 1.5em;
+        margin: 1em;
+        padding: 1em;
+    }
+
+    body>nav>ul>li:first-of-type{
+        display: none;
+    }
+
+    body>nav>ul>li{
+        display: inline-block;
+        width: auto;
+    }
+}
+
+/*Fin de la barra de navegacion*/
+
+/*-------------------------------------------------BODY FLEX BOX---------------------------------------------------------------------*/
+
+body{
+    min-width:320px;
+}
+
+    body>section>div{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+        body>section>div>article{
+            margin:.4em 0;
+            overflow:hidden;
+            background-color:#fff;
+            padding: .5em;
+            display:flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 35px 0px 35px 0px;
+            -moz-border-radius: 35px 0px 35px 0px;
+            -webkit-border-radius: 35px 0px 35px 0px;
+            border: 2px solid #333;
+        }
+
+            body>section>div>article>p{
+                flex-grow:2;
+            }
+
+@media all and (min-width:480px){
+    body>section>div{
+        justify-content: space-around;
+    }
+
+        body>section>div>article{
+            width:44%;
+        }
+}
+
+@media all and (min-width:960px){
+    body>section>div>article{
+        width:28%;
+    }
+}
+
+
+
+
+
+/*----------------------------------------------------Formularios---------------------------------------------------------------*/
+
+input:focus{
+	color:#DA00FF
+}
+input:hover{
+	background-color: pink;
+}
+
+.formu {
+    margin-top: 10em;
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+}
+.formu li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.formu label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.formu input[type=text],
+.formu input[type=password]
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    outline: none;  
+}
+.formu input[type=email]:focus,
+.formu input[type=text]:focus,
+.formu input[type=password]:focus,
+.formu textarea:focus, 
+.formu select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+
+.formu .field-long{
+    width: 100%;
+}
+.formu input[type=submit], .formu input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.formu input[type=submit]:hover, .formu input[type=button]:hover{
+    background: #DA00FF;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.formu .required{
+    color:red;
+}
+
+
+/*----------------------------------------------Transiciones----------------------------------------*/
+div{/*usar margin para posicionarlo*/
+    border .2em solid #234;
+    overflow:hidden;
+    position:relative;
+}
+
+
+/*al ponerlo como absulte se pone en la posicion 0 0 y al ponerle al padre el relative hace que el hijo se adapte a esa posicion*/
+
+h4{
+    position: absolute;
+    top:-1.3em;
+    left:10%;
+    opacity:0;
+    transition:opacity 1s;
+}
+
+div:hover>h4{
+    opacity: 1;
+}
+
+div>img{
+/*no es necesario poner el valor pero si se pone es mejor porque asi se establece el color de origen*/
+    width: 80%;
+    height: 100%; 
+    opacity:1; 
+    transition: opacity .5s;
+}
+
+div:hover>img{
+    opacity: .3;
+}
+
+div>aside{
+    position:absolute;
+    bottom:0;
+    left:0;
+    transition: opacity 1s;
+    opacity: 0;
+    padding:.2em;
+    width: 100%;
+
+}
+
+div:hover>aside{
+    opacity: 1;
+}
+
+div>aside{
+    display: block;
+}
+
+
+/*-------------------------------------------- Footer----------------------------------------------------------- */
+footer{
+    background-color: #A4A4A4;
+    display: block;
+    width: 100%;
+    position: relative;
+    bottom: 0px;
+}
+/* Fin de Footer */
+
+/*-------------------------------------------------LOGIN/REGISTRO/BUSCAR-------------------------------------------------------*/
+[id=content_login] p, [id=content_login] h2, [id=content_register] h2, [id=buscador] h2{
+    text-align: center;
+}
+
+/*-------------------------------------------------REGISTRO---------------------------------------------------*/
+[id=content_register]>p{
+    text-align: center;
+}
+/*-----------------------------------------------ACERCA DE ------------------------------------------------------*/
+[id=alumnos]>ul>li{
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 5px solid #333;
+}
+
+/*-------------------------------------------INDEX--------------------------------------------------------------*/
+/*cuando una linea es demasiado grande*/
+.menos h3,.menos p{
+    display:inline;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    line-height: 28px;
+    max-height: 48px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+[id=pie_pagina] li{
+    list-style: none;
+    display: inline-block;
+    width: 50px;
+    background: #333;
+    border-radius: 0.5em;
+}
+[id=pie_pagina] li:hover{
+    background: #DA00FF;
+}
+[id=pie_pagina] a{
+    text-decoration:none;
+    font-weight: bold;
+    color: white;
+}
+[id=pie_pagina]{
+        text-align: center;
+    }
+    
+[id=pie_pagina] ul{
+    display: inline-block;
+    height: 1.5em;
+    margin: 1em;
+    padding: 1em;
+}
+/*------------------------------------------ Buscar --------------------------------------------------------------*/
+[id=result]>article{
+    display: inline-block;
+    width: 97%;
+    text-align: center;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 5px solid #333;
+}
+/*------------------------------------------Entrada----------------------------------------------------------------*/
+
+[id=entrada]>article{
+    display: inline-block;
+    width: 97%;
+    text-align: center;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 5px solid #333;
+}
+[id=comentarios]>article{
+    text-align: left;
+    margin:0 0 25px;
+    overflow:hidden;
+    padding:20px;
+    background-color:#CEE3F6;
+    border:1px solid #afcde3;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+    [id=fotos]>div{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+        [id=fotos]>div>figure{
+            margin:.4em 0;
+            overflow:hidden;
+            background-color:#fff;
+            padding: .5em;
+            display:flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 35px 0px 35px 0px;
+            -moz-border-radius: 35px 0px 35px 0px;
+            -webkit-border-radius: 35px 0px 35px 0px;
+            border: 2px solid #333;
+        }
+
+            [id=fotos]>div>figure>p{
+                flex-grow:2;
+            }
+
+.contestar{
+        background: #333;
+        border-radius: 0.5em;
+        width: 5em;
+        text-align: center;
+        text-decoration:none;
+        font-weight: bold;
+        color: white;
+        display: inline-block;
+        height: 1.5em;
+        padding: 1em;
+}
+.contestar:hover{
+    background: #DA00FF;
+}
+#form>form>h2{
+    text-align:center;
+}
+
+
+@media all and (min-width:480px){
+    [id=fotos]>div{
+        justify-content: space-around;
+    }
+
+        [id=fotos]>div>article{
+            width:auto;
+        }
+}
+
+@media all and (min-width:960px){
+    [id=fotos]>div>article{
+        width:auto;
+    }
+}
+
+/*---------------------------------------------Nueva entrada---------------------------------------------------------*/
+
+[id=nueva_entrada]>form{
+    display: inline-block;
+    width: 97%;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 5px solid #333;
+    }
+
+/*---------------------------------------------------Boton Arriba--------------------------------------------------------------------*/
+[id=arriba]{
+    position: fixed; 
+    bottom: 10px; 
+    right: 2%;
+    z-index: +1;
+}

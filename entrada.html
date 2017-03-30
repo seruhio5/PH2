@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="CSS/480_3.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="CSS/font-barra-nav.css" rel="stylesheet" type="text/css" />
+
+    <link href="CSS/font-iconos-sueltos.css" rel="stylesheet" type="text/css" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <title>Entrada</title>
+</head>
+<body>
+
+	<header>
+
+			<a href="index.html"><img id="logo" src="logoph2.png" width="300" height="150"  alt="logo"></a>
+		
+			<h1 id=descripcion>
+				Forojinx, tu foro donde compartir tus ideas mas locas. pium pium
+			</h1>	
+		
+	</header>
+	<hr>
+	<input type="checkbox" id="ckb-menu">
+	<nav>
+			
+		
+		
+			<ul id="menu">
+					<li>
+						<label for="ckb-menu">&equiv;</label>
+					</li>
+					<li class="menu">
+						<a href="index.html">
+							<i class="demo-icon icon-home-1"></i>Inicio
+						</a>
+					</li>
+					<li class="menu">
+						<a href="login.html">
+							<i class="demo-icon icon-login"></i>Login
+						</a>
+					</li>
+					<li class="menu">
+						<a href="registro.html">
+							<i class="demo-icon icon-user-plus"></i>Registro
+						</a>
+					</li>
+					<li class="menu">
+						<a href="buscar.html">
+							<i class="demo-icon icon-search-1"></i>Buscar
+						</a>
+					</li>
+					<li class="menu">
+						<a href="#">
+							<i class="demo-icon icon-logout-1"></i>Logout
+						</a>
+					</li>
+					<li class="menu">
+						<a href="nueva-entrada.html">
+							<i class="demo-icon icon-doc"></i>Nueva entrada
+						</a>
+					</li>
+			</ul>
+		
+	</nav>
+	<hr>
+	<section id="entrada">
+		<h2>Nombre de entrada</h2>
+			<article>
+				<h3>Nombre: Lorem ipsum</h3>
+				<p>Autor: Lorem ipsum dolor.</p>
+				<p><i class="demo-icon icon-calendar"></i> Fecha: fecha de ejemplo</p>
+				<p><i class="demo-icon icon-picture"></i> Numero de fotos: <a href="#fotos">2</a></p>
+				<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: <a href="#comentarios">6</a></p>
+			</article>
+	</section>
+
+	<hr>
+
+	<section id="comentarios">
+				<h2>Seccion de comentarios <i class="demo-icon icon-comment-empty"></i></h2>
+				<article>
+					<h3><i class="demo-icon icon-user"></i> Sergio</h3>
+					<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
+					<p>Título: Lorem ipsum</p>
+					<p>Loañlksd jfñlakj dfñlakj sdfñlkaj sdñlfkj alñksdfj akldjs fklad jsvoaiphdg poais dfñlakj dflk asdlkñg aoiñsdhg aoñisf djalpks dfjañlkds fa sdgjhapo sdfgañlsk jfdñla jsdflka jsdfñlk ajspdogh apfi alsñdkf jañlsd falksdhg añlsdkjf ñlakdsjoa gdhp qaoehtoip alña sfjasd ñlfjadsglk añdlgk asdpigoh qpweoiht qpuewh ahsñldkgj aslkdhg añoidfjasdfg ñasdghad slñghpqehtgpqowe itaoi dhsgasdhgfpori ehgopaihgdadg poihweq eg.</p>
+					<a href="#form" class="contestar">contestar</a>
+				</article>
+
+				<article>
+					<h3><i class="demo-icon icon-user"></i> Sergio</h3>
+					<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
+					<p>Título: Lorem ipsum</p>
+					<p>alñs dkjfñlak dfñka jdfpqwieh tgpoai sdhgals dghñoaks dgñlak hsdgpioa hdgpo qweopitgh paoihg poaishd g oahsdg 
+					 asñldkg pqhiewgpoi sadgfn añsdgn ashdgpoah wegoiq sadoñ hajsdghv aijhg apowh fepoiaseh dgpoiah gpoah epog h</p>
+					<a href="#form" class="contestar">contestar</a>
+				</article>
+				<article>
+					<h3><i class="demo-icon icon-user"></i> Sergio</h3>
+					<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
+					<p>Título: Lorem ipsum</p>
+					<p>ljkz ñds hf akjsdgh apdhf opaih gpoaidersgfoiadhjgropi aopieg haoiñhd gpoia sdhgpouiah dpoug ahopsg hapouisdhg opasdgha oisdgapoih gash dgopiuah gpoaih sgdopiahsñodig apoishdg paoiish dgpoiahs dgpoas hdgpoi hasodhgaposidghapous ghashu  fhapoig aio hg ihoy</p>
+					<a href="#form" class="contestar">contestar</a>
+				</article>
+	</section>
+
+
+	<hr>
+
+	<section id="form">
+		<form>
+			<h2>Responder</h2>
+			<ul class="formu">
+			    
+			    <li>
+			        <label>Titulo <span class="required">*</span></label>
+			        <input type="text" maxlength="50" name="field3" class="field-long" id="titulo" required=""/>
+			    </li>
+
+			    <li>
+			        <label>Descripcion <span class="required">*</span></label>
+			        <textarea cols="30" rows="5" maxlength="200" class="field-long" required="" id="texto"></textarea>
+			    </li>
+			    
+			    <li>
+			        <input type="submit" value="Responder" />
+			    </li>
+			    
+			</ul>
+
+		</form>
+	</section>
+
+	<hr>
+
+
+	<section id="fotos">
+		
+				<h2>Seccion de Fotos</h2>
+		<div>
+				<figure>
+					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zed_10.jpg" width="200" height="200" alt="Zed_10">
+					<p>Texto descriptivo</p>
+				</figure>
+				<figure>
+					<img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-warwick-update-2017/es_ES/411e2fd1e1a0eed5a4d23dd7f9c1b4c0065a10d0/assets/img/ww_base_logo.jpg" width="200" height="200" alt="ww_base_logo">
+					<p>Texto descriptivo</p>
+				</figure>
+				<figure>
+					<img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-warwick-update-2017/es_ES/411e2fd1e1a0eed5a4d23dd7f9c1b4c0065a10d0/assets/img/ww_base_logo.jpg" width="200" height="200" alt="ww_base_logo">
+					<p>Texto descriptivo</p>
+				</figure>
+				<figure>
+					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zed_10.jpg" width="200" height="200" alt="Zed_10">
+					<p>Texto descriptivo</p>
+				</figure>
+				<figure>
+					<img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-warwick-update-2017/es_ES/411e2fd1e1a0eed5a4d23dd7f9c1b4c0065a10d0/assets/img/ww_base_logo.jpg" width="200" height="200" alt="ww_base_logo">
+					<p>Texto descriptivo</p>
+				</figure>
+				<figure>
+					<img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-warwick-update-2017/es_ES/411e2fd1e1a0eed5a4d23dd7f9c1b4c0065a10d0/assets/img/ww_base_logo.jpg" width="200" height="200" alt="ww_base_logo">
+					<p>Texto descriptivo</p>
+				</figure>
+		</div>
+	</section>
+	<a href="#"><img id="arriba" src="https://ugc.kn3.net/i/origin/http://2.bp.blogspot.com/_U8ODEZi-HMk/TTiZIebtWkI/AAAAAAAAASI/Omatvm1ouVA/s1600/1295550917_go-up.png" title="Ir arriba" alt="arriba"/></a>
+	<hr>
+	<footer>
+		
+        
+			<p>
+				&copy; Sergio Molero Garcia y Francisco Jose Lavale Narciso - <a href="acerca.html">Acerca de los autores</a> - <time datetime="2017">Año 2017</time>
+			</p>
+   
+	</footer>
+
+</body>
+</html>

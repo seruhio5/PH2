@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<tittle>Ejemplo de peticiones AJAX</tittle>
+<link rel="stylesheet" href="estilo01.css">
+<script src="codigo01.js"></script>
+</head>
+<body>
+	<h1>Ejemplo de peticiones AJAX</h1>
+	<section>
+	<h2>Peticion GET con readyStateChange</h2>
+	<form onsubmit="return pedirEntrada(this);">
+	<div><label for="identrada">ID entrada:</label><input type="text" id="identrada" name="id"></div>
+	<input type="submit">
+	</form>
+	<article>
+	<h3>Respuesta:</h3>
+	<p></p>
+	</article>
+	</section>
+	<section>
+	<h2>Peticion de POST</h2>
+	<form onsubmit="return hacerlogin(this);">
+	<div><label for="login">ID entrada:</label><input type="text" id="login" name="login"></div>
+	<div><label for="pwd">ID entrada:</label><input type="password" id="pwd" name="pwd"></div>
+	<input type="submit">
+	</form>
+	<article>
+	<h3>Respuesta:</h3>
+	<p></p>
+	</article>
+	</section>
+</body>
