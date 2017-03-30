@@ -25,7 +25,7 @@ USE `ph2`;
 --
 -- Creación y asignación de permisos para el usuario 'ph2' con password 'ph2'
 --
-GRANT ALL PRIVILEGES ON ph2.* to 'ph2'127.0.0.1'%' identified by 'ph2';
+GRANT ALL PRIVILEGES ON ph2.* to 'ph2'127.0.0.1' identified by 'ph2';
 -- --------------------------------------------------------
 
 --
