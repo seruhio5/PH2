@@ -1,11 +1,10 @@
 function mostrarentradas(frm){
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/rest/entrada/',
-		section = frm.parentNode.parentNode;
+		url = 'http://localhost/PH2/rest/entrada/';
 
 	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
-	url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
 	xhr.onload = function(){
 		console.log(xhr.responseText);
 		let v = JSON.parse(xhr.responseText);
@@ -30,7 +29,7 @@ function mostrarentradas(frm){
 				html +=	'</footer>'
 				html +='</article>'
 			} //End for
-			section.querySelector('div').innerHTML = html;
+			document.querySelector('h2+div').innerHTML = html;
 		}//end if
 	}
 	xhr.send();

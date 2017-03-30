@@ -17,7 +17,7 @@
 
     <title>Iniciar Sesion</title>
 </head>
-<body>
+<body onload="mostrarentradas(this);">
 
 	<header>
 
@@ -76,10 +76,6 @@
 		<section id="entradas" class="menos" onload="mostrarentradas(this)">
 		<h2>Entradas</h2>
 		<div>
-
-			<form onsubmit="return mostrarentradas(this);">
-				<div><span>Pagina:</span> <input type="text" name="pag" value="0"><span>de</span> <input type="text" name="lpag" value="4"><input type="submit"></div>				
-			</form>
 			
 		</div>
 		</section>
