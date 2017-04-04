@@ -87,7 +87,7 @@ function getParameterByName(name) {
 
 function mostrarcomentarios(){
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Practica2/rest/comentario/';
+		url = 'http://localhost/PH2/Practica2/rest/comentario/?u=10';
 
 	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
@@ -97,7 +97,7 @@ function mostrarcomentarios(){
 		let v = JSON.parse(xhr.responseText);
 		console.log(v);
 
-		/*if(v.RESULTADO == 'ok'){
+		if(v.RESULTADO == 'ok'){
 			let html= '';
 			for(let i=0; i<v.FILAS.length; i++){
 				let e = v.FILAS[i];
@@ -116,7 +116,7 @@ function mostrarcomentarios(){
 				html +='</article>'
 			} //End for
 			document.getElementById('comentarios').innerHTML = html;
-		}//end if*/
+		}//end if
 	}
 	xhr.send();
 	return false;
