@@ -2,11 +2,12 @@ function hacerlogin(frm){
 
 
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost:4443/ph2/rest/login/',	//Puesto para mi ruta
+		url = 'http://localhost/PH2/Practica2/rest/login/',	//Puesto para mi ruta
 		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
 
 	xhr.open('POST', url, true);
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
+	console.log("xhr");
 		console.log(xhr.responseText);	//Muestra la respuesta del proceso por consola
 		let du = JSON.parse(xhr.responseText);	
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
