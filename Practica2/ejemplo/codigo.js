@@ -7,11 +7,11 @@ function hacerlogin(frm){
 
 	xhr.open('POST', url, true);
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
-	console.log("xhr");
 		console.log(xhr.responseText);	//Muestra la respuesta del proceso por consola
 		let du = JSON.parse(xhr.responseText);	
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
 		if(du.RESULTADO == 'ok'){
+			console.log(du);
 			sessionStorage['du'] = xhr.responseText; //se podria utilizar la funcion stringiflay!
 		}
 		
