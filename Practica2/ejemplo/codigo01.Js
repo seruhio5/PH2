@@ -62,7 +62,7 @@ function hacerLogin(frm){
 
 	let xhr = new XMLHttpRequest(), 
 		
-		url = 'http://localhost:4443/PH2/Practica2/rest/login/',
+		url = 'http://localhost/PH2/Practica2/rest/login/',
 
 
 		login = frm.login.value,
