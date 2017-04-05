@@ -390,6 +390,7 @@ footer{
     }
 
         [id=fotos]>div>figure{
+            max-width: 16%;
             margin:.4em 0;
             overflow:hidden;
             background-color:#fff;
