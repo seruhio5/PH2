@@ -186,7 +186,7 @@ function mostrar_fotos_entrada(){
 
 		if(v.RESULTADO == 'ok'){
 
-			let []foto = 'http://localhost/PH2/Practica2/rest/entrada/'+id+'/fotos';
+			let foto = 'http://localhost/PH2/Practica2/rest/entrada/'+id+'/fotos';
 			console.log(foto[1]);
 			let html= '';
 			/*for(let i=0; i<v.FILAS.length; i++){
