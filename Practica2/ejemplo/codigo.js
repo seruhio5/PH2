@@ -1,6 +1,10 @@
 function hacerlogin(frm){
+    
 
-
+		console.log(sessionStorage['algo']);
+	if (sessionStorage.getItem('algo') == null){
+		console.log("algoooooooooooooooooooooo");
+    }
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/login/',	//Puesto para mi ruta
 		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
@@ -11,15 +15,16 @@ function hacerlogin(frm){
 		let du = JSON.parse(xhr.responseText);	
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
 		if(du.RESULTADO == 'ok'){
-			console.log(du);
-			sessionStorage['du'] = xhr.responseText; //se podria utilizar la funcion stringiflay!
+			//console.log(du);
+			sessionStorage['algo'] = "algo"; //se podria utilizar la funcion stringiflay!
 		}
 		
 		else{
 
 		}
-
-		frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
+	
+        frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
+		
 	};
 	xhr.send(fd);
 	return false;

@@ -74,12 +74,12 @@
 
 	<section id="content_login">
 		<h2>Iniciar Sesion</h2>
-		<form>
-			<ul class="formu">
+		<form onsubmit="return hacerlogin(this);">
+			<ul class="formu" >
 			    
 			    <li>
 			        <label>Usuario <span class="required">*</span></label>
-			        <input type="text" title="Sólo se pueden utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número." placeholder="Serukey69" name="field3" class="field-long" required="" pattern="[a-zA-Z][a-zA-Z0-9]" autofocus=""/>
+			        <input type="text" title="Sólo se pueden utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número." placeholder="Serukey69" name="field3" class="field-long" required="" pattern="[a-zA-Z][a-zA-Z0-9]{1,9}" autofocus=""/>
 			    </li>
 
 			    <li>

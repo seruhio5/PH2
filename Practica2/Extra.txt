@@ -27,4 +27,5 @@ P2:
 -Redireccionar el registro al hacerlo correctamente hacia el login
 -donde pone % sustituir por 127.0.0.1-->linea 28
 -SHIFT F5 para recargar
+-En las paginas en las que se tiene que comprobar que esta logueado o no se pone la funcion en el head en vez del body
 -GRANT ALL PRIVILEGES ON ph2.* TO 'ph2'@'127.0.0.1' identified by 'ph2'
