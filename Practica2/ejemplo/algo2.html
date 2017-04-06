@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="algoes2.css">
+	<script src="algojs2.js"></script>
+</head>
+<body>
+	<h1>Ejemplos de APIs</h1>
+	<section>
+		<h2>Video y audio</h2>
+		<video controlswidth="360" height="240" onplay="empezar();" onpause="pausado();">
+		<source src="video/elephants.mp4" type="video/mp4">
+		<source src="video/elephants.webm" type="video/webm">
+		</video>
+	</section>
+	<section>
+		<h2>Canvas:</h2>
+		<canvas id="cv1" width="480" height="360"></canvas>
+		<footer>
+			<button onclick="Limpiar();">Limpiar</button>
+			<button onclick="pintarRect();">Rectangulo</button>
+			<button onclick="pintarTexto();">Texto</button>
+			<button onclick="pintarLinea();">Linea</button>
+			<button onclick="pintarCirculo();">Circulo</button>
+			<button onclick="pintarImagen();">Imagen</button>
+		</footer>
+	</section>
+</body>
+</html>

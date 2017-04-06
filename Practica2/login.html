@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head onload="comprobar();">
     <meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,11 +13,13 @@
     
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
+    <script src="script.js"></script>
+
     <title>Iniciar Sesión</title>
 </head>
 <body>
 
-	<header>
+	<header onload="comprobar()";>
 
 			<a href="index.html"><img id="logo" src="logoph2.png" width="300" height="150"  alt="logo"></a>
 		
@@ -74,8 +76,8 @@
 
 	<section id="content_login">
 		<h2>Iniciar Sesion</h2>
-		<form onsubmit="return hacerlogin(this);">
-			<ul class="formu" >
+		<form >
+			<ul class="formu" onsubmit="return hacerlogin(this);">
 			    
 			    <li>
 			        <label>Usuario <span class="required">*</span></label>

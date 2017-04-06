@@ -204,13 +204,16 @@ function mostrar_fotos_entrada(){
 	return false;
 }
 function hacerlogin(frm){
+	console.log("asñldfjañlsdkjf");
 	if (sessionStorage.getItem('usu') == null){
 		console.log(sessionStorage['usu']);
+    }else{
+    	console.log(sessionStorage['usu']);
     }
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/login/',	//Puesto para mi ruta
 		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
-
+	console.log(xhr);
 	xhr.open('POST', url, true);
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
 		console.log(xhr.responseText);	//Muestra la respuesta del proceso por consola
@@ -227,6 +230,12 @@ function hacerlogin(frm){
         frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
 		
 	};
-	xhr.send(fd);
 	return false;
+}
+function comprobar(){
+	console.log("añsldkfj");
+	console.log(sessionStorage['usu']);
+	if(sessionStorage.getItem('usu')!=null){
+		//window.location="http://localhost/PH2/Practica2/index.html";
+	}
 }

@@ -1,0 +1,10 @@
+*{
+	box-sizing: border-box;
+}
+section{
+	border:.1em solid #234;
+	padding: .5em;
+}
+canvas{
+	border:.1em solid #234;
+}
