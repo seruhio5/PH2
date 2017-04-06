@@ -26,4 +26,5 @@ P2:
 -Query Selector para comprobar que campos son incorrectos
 -Redireccionar el registro al hacerlo correctamente hacia el login
 -donde pone % sustituir por 127.0.0.1-->linea 28
+-SHIFT F5 para recargar
 -GRANT ALL PRIVILEGES ON ph2.* TO 'ph2'@'127.0.0.1' identified by 'ph2'
