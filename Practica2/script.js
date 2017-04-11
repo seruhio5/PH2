@@ -17,9 +17,10 @@ function mostrarentradas(){
 					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
 				html += '<article>'
 				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
-				html +=	'<div>'
+				html +=	'<div class="menos">'
 				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
-				html +=		'<p>' + e.descripcion + '</p>'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
 				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
@@ -27,6 +28,7 @@ function mostrarentradas(){
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
 			} //End for
+
 			document.querySelector('h2+div').innerHTML = html;
 		}//end if
 	}
@@ -204,38 +206,34 @@ function mostrar_fotos_entrada(){
 	return false;
 }
 function hacerlogin(frm){
-	console.log("asñldfjañlsdkjf");
-	if (sessionStorage.getItem('usu') == null){
-		console.log(sessionStorage['usu']);
-    }else{
-    	console.log(sessionStorage['usu']);
+    
+	if (sessionStorage.getItem('algo') == null){
     }
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/login/',	//Puesto para mi ruta
 		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
-	console.log(xhr);
+
 	xhr.open('POST', url, true);
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
 		console.log(xhr.responseText);	//Muestra la respuesta del proceso por consola
 		let du = JSON.parse(xhr.responseText);	
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
 		if(du.RESULTADO == 'ok'){
-			sessionStorage['usu'] = xhr.responseText; //se podria utilizar la funcion stringiflay!
+			//console.log(du);
+			sessionStorage['algo'] = "algo"; //se podria utilizar la funcion stringiflay!
 		}
 		
 		else{
 
 		}
-	
-        frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
-		
 	};
+	xhr.send(fd);
 	return false;
 }
 function comprobar(){
-	console.log("añsldkfj");
+	/*console.log("añsldkfj");
 	console.log(sessionStorage['usu']);
 	if(sessionStorage.getItem('usu')!=null){
 		//window.location="http://localhost/PH2/Practica2/index.html";
-	}
+	}*/
 }

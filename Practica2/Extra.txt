@@ -1,3 +1,5 @@
+-GRANT ALL PRIVILEGES ON ph2.* TO 'ph2'@'127.0.0.1' identified by 'ph2'
+
 section>h2[href="algo.html"]>lorem10^article*6>h3{Articulo $}-->+ para mismo nivel
 -Preguntar acerca del input type data quen en chrome funciona pero no en firefox -->Simplemente mencionarlo en el acerca.html
 -Preguntar que es y como implementar el mobile first -->Empezar con el diseño 320 y conforme se va ensanchando la pagina ir variando con los mediaquerys los cambios necesarios
@@ -11,13 +13,7 @@ A partir de transiciones, hay que ponerla en el elemento base en vez de ponerlo 
 
 
 P2:
--usar un div para juntar el label y input de un formulario
--No se pueden usar frameworks
--copiar 2 carpetas a la practica 2
--Nosotros consultamos desde sus programas y obtenemos los datos
--Las peticiones ajax se hacen a recursos, no usar php
 -Para validar hay que validar junto a lo de javascript para ello copiarlo desde la consola con lo de inspeccionar elemento
--para saber si esta logueado se consulta en la session store
 -3 input para el dia/mes/año
 -una misma funcion de mensaje pero que cambia la clase en funcion de el tipo de mensaje
 -Para el formulario se coge el formulario y se pone en un fichero de texto al cual se llama mediante ajax
@@ -25,7 +21,9 @@ P2:
 -En cada pulsacion del campo se hace una llamada al ajax mostrando al usuario para ver si esta disponible.
 -Query Selector para comprobar que campos son incorrectos
 -Redireccionar el registro al hacerlo correctamente hacia el login
--donde pone % sustituir por 127.0.0.1-->linea 28
 -SHIFT F5 para recargar
 -En las paginas en las que se tiene que comprobar que esta logueado o no se pone la funcion en el head en vez del body
--GRANT ALL PRIVILEGES ON ph2.* TO 'ph2'@'127.0.0.1' identified by 'ph2'
+
+
+
+-PREGUNTAR reducir texto de la foto.
