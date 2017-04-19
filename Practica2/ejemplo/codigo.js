@@ -1,12 +1,10 @@
 function hacerlogin(frm){
     
 
-		console.log(sessionStorage['algo']);
 	if (sessionStorage.getItem('algo') == null){
-		console.log("algoooooooooooooooooooooo");
     }
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Practica2/rest/login/',	//Puesto para mi ruta
+		url = 'http://localhost/PH2/Practica2/rest/usuario/',	//Puesto para mi ruta
 		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
 
 	xhr.open('POST', url, true);
@@ -26,6 +24,7 @@ function hacerlogin(frm){
         frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
 		
 	};
+	console.log(fd);
 	xhr.send(fd);
 	return false;
 }

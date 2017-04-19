@@ -242,6 +242,20 @@ function hacerlogin(frm){
 	xhr.send(fd);
 	return false;
 }
+function registro(frm){
+    
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/usuario/',	//Puesto para mi ruta
+		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
+
+	xhr.open('POST', url, true);
+	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
+		let du = JSON.parse(xhr.responseText);	
+		//Lo que hace es guardarlo en el sesion storage si ha funcionado
+	};
+	xhr.send(fd);
+	return false;
+}
 function comprobar(){
 	if(sessionStorage.getItem('login')!=null){
 		window.location="http://localhost/PH2/Practica2/index.html";
