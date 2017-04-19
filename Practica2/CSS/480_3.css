@@ -318,13 +318,24 @@ footer{
 
 /*-------------------------------------------INDEX--------------------------------------------------------------*/
 /*cuando una linea es demasiado grande*/
-.menos h3,.menos p,.menos h4{
+.menos h3,.menos p{
     display:inline;
     overflow:hidden;
     text-overflow:ellipsis;
     display: -webkit-box;
     line-height: 28px;
     max-height: 48px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.menos h4{
+    display:inline;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    line-height: 28px;
+    max-height: 48px;
+    max-width: 300px;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
