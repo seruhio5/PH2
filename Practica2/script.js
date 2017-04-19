@@ -37,6 +37,8 @@ function mostrarentradas(){
 }
 function mostrarentrada(){
 	var id = getParameterByName('entrada');
+	console.log(id);
+	if(id!=null && id!=""){
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/entrada/';
 
@@ -71,11 +73,16 @@ function mostrarentrada(){
 					//html +=	'</footer>'
 					html +='</article>'
 				}
-			} //End for
+			} //End for.
 			document.getElementById('entrada').innerHTML = html;
 		}//end if
 	}
 	xhr.send();
+	}
+	else
+		{
+			window.location="http://localhost/PH2/Practica2/index.html";
+		}
 	return false;
 }
 function getParameterByName(name) {
@@ -158,7 +165,9 @@ function mostrarcomentariosid(){
 				//html +=		'<a href="entrada.html?entrada=' +e.id_entrada+ '"><p><i class="demo-icon icon-doc-text"></i> ' + e.titulo + '</p></a>'
 				html +=		'<p>Titulo Comentario: ' + e.titulo + '</p>'
 				html +=		'<p>'+ e.texto+' </p>'
-				html +=     '<a href="#form" class="contestar">Contestar</a>'
+					if(sessionStorage['nombre']!=null){
+						html +=     '<a href="#form" class="contestar">Contestar</a>'
+					}
 				//html +=	'</footer>'
 				html +='</article>'
 
@@ -205,8 +214,7 @@ function mostrar_fotos_entrada(){
 	xhr.send();
 	return false;
 }
-function hacerlogin(frm){
-    
+function hacerlogin(frm){    
 	
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/login/',	//Puesto para mi ruta
@@ -265,9 +273,13 @@ function comprobar2(){
 		window.location="http://localhost/PH2/Practica2/index.html";
 	}
 }
+function logout(){
+	sessionStorage.clear();
+}
 function menuindex(){
 	let html="";
-	if(sessionStorage['nombre']!=null){
+	
+	if(sessionStorage['nombre']!=undefined){
 	html +='<li>';
 	html +='<label for="ckb-menu">&equiv;</label>';
 	html +='</li>';
@@ -282,7 +294,7 @@ function menuindex(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -336,7 +348,7 @@ function menulogin(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -390,7 +402,7 @@ function menuregistro(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -444,7 +456,7 @@ function menubuscar(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -498,7 +510,7 @@ function menulogout(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu" id="active">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -552,7 +564,7 @@ function menunuevaentrada(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -606,7 +618,7 @@ function menuentrada(){
 	html +='</a>';
 	html +='</li>';
 	html +='<li class="menu">';
-	html +='<a href="#">';
+	html +='<a onclick="logout();" href="index.html">';
 	html +='<i class="demo-icon icon-logout-1"></i>Logout';
 	html +='</a>';
 	html +='</li>';
@@ -642,4 +654,32 @@ function menuentrada(){
 	html +='</li>';
 	}
 	document.getElementById('menu').innerHTML = html;					
+}
+
+function formulario(){
+
+	let html= '';
+	if(sessionStorage['nombre']!=undefined){
+		html += '<form>'
+		html +=	'<h2>Responder</h2>'
+		html +=	'<ul class="formu">'
+		html +=	'<li>'
+		html +=	' <label>Titulo <span class="required">*</span></label>'
+		html += 	'<input type="text" maxlength="50" name="field3" class="field-long" id="titulo" required=""/>'
+		html +=	'</li>'
+		html +=	'<li>'
+		html +=		' <label>Descripcion <span class="required">*</span></label>'
+		html +=		' <textarea cols="30" rows="5" maxlength="200" class="field-long" required="" id="texto"></textarea>'
+		html +=	'</li>'
+		html +='<li>'
+		html +=' <input type="submit" value="Responder" />'
+		html +='</li>'
+		html +='</ul>'
+		html +='</form>'
+	}
+	else{
+		html += '<h2>Para dejar un comentario debes estar <a href="login.html">logueado</a></h2'
+	}
+
+	document.getElementById('form').innerHTML = html;
 }
