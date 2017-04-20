@@ -163,9 +163,11 @@ body{
 
 
 /*----------------------------------------------------Formularios---------------------------------------------------------------*/
-
+[id=fail_pwd]{
+    color: #DA00FF;
+}
 input:focus{
-	color:#DA00FF
+	color:#DA00FF;
 }
 input:hover{
 	background-color: pink;

@@ -243,18 +243,35 @@ function hacerlogin(frm){
 	return false;
 }
 function registro(frm){
-    
+	if(frm.pwd.value==frm.pwd2.value){
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/usuario/',	//Puesto para mi ruta
 		fd  = new FormData(frm);	//Mete todos los valores del formulario automaticamente
-
 	xhr.open('POST', url, true);
+	
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
 		let du = JSON.parse(xhr.responseText);	
+		if(du.RESULTADO=='ok'){
+		mostrarMensajeRegistro();
+		}
+		else{
+		mostrarMensajeRegistroFail();
+		}
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
 	};
 	xhr.send(fd);
+	}
+	else{
+		mostrarMensajeRegistroFailPwd();
+	}
 	return false;
+}
+function mostrarMensajeRegistroFailPwd(){
+	let html="";
+
+	html +='<p id="fail_pwd">Las contraseñas no coinciden<p>';
+
+	document.getElementById('fallo_pwd').innerHTML = html;
 }
 function comprobar(){
 	if(sessionStorage.getItem('login')!=null){
@@ -281,6 +298,37 @@ function mostrarMensajeLogin(){
 	capa_frente.classList.add('capa-frente');
 
 	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeRegistro(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>Usuario registrado correctamente</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();mensaje_login();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeRegistroFail(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>El nombre de usuario que ha introducido ya existe</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mensaje_login(){
+	window.location="http://localhost/PH2/Practica2/login.html";
 }
 function comprobar2(){
 	if(sessionStorage.getItem('login')==null){

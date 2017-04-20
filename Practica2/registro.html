@@ -44,7 +44,7 @@
 
 	<section id="content_register">
 		<h2>Crear Cuenta</h2>
-		<form onsubmit="return registro(this);">
+		<form method="POST" onsubmit="return registro(this);">
 			<ul class="formu">
 			    
 			    <li>
@@ -54,12 +54,13 @@
 
 			    <li>
 			        <label>Contraseña <span class="required">*</span></label>
-			        <input type="password" title="No se permiten espacios en blanco. Sólo se pueden utilizar letras mayúsculas, minúsculas, números y los caracteres “_” y “-”. Longitud menor de 20 caracteres." placeholder="-4forojinx5_" name="pwd" pattern="[a-zA-Z\_\-][a-zA-Z0-9\_\-]{1,20}" class="field-long" required="" />
+			        <input type="password" title="No se permiten espacios en blanco. Sólo se pueden utilizar letras mayúsculas, minúsculas, números y los caracteres “_” y “-”. Longitud menor de 20 caracteres." placeholder="-4forojinx5_" name="pwd" pattern="[a-zA-Z/_/-][a-zA-Z0-9/_/-]{1,20}" class="field-long" required="" />
 			    </li>
 
 			    <li>
 			        <label>Repetir contraseña <span class="required">*</span></label>
-			        <input type="password" title="No se permiten espacios en blanco. Sólo se pueden utilizar letras mayúsculas, minúsculas, números y los caracteres “_” y “-”. Longitud menor de 20 caracteres." placeholder="-4forojinx5_" name="pwd2"  pattern="[a-zA-Z\_\-][a-zA-Z0-9\_\-]{1,20}" class="field-long" required="" />
+			        <input type="password" title="No se permiten espacios en blanco. Sólo se pueden utilizar letras mayúsculas, minúsculas, números y los caracteres “_” y “-”. Longitud menor de 20 caracteres." placeholder="-4forojinx5_" name="pwd2"  pattern="[a-zA-Z/_/-][a-zA-Z0-9/_/-]{1,20}" class="field-long" required="" />
+			        <span id="fallo_pwd"></span>
 			    </li>
 				<li>
 			        <label>Nombre: <span class="required">*</span></label>
