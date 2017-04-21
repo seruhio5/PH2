@@ -266,6 +266,35 @@ function registro(frm){
 	}
 	return false;
 }
+function hacercomentario(frm){
+	let id=getParameterByName('entrada');
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/comentario/';	//Puesto para mi ruta
+			//Mete todos los valores del formulario automaticamente
+	xhr.open('POST', url, true);/*
+	xhr.setRequestHeader('Authorization', sessionStorage['clave']);
+	xhr.setRequestHeader('login', sessionStorage['login']);
+	xhr.setRequestHeader('titulo', frm.titulo.value);
+	xhr.setRequestHeader('texto', frm.texto.value);
+	xhr.setRequestHeader('id_entrada', id);*/
+	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
+		let du = JSON.parse(xhr.responseText);	
+		console.log(du);
+		console.log(fd);
+		if(du.RESULTADO=='ok'){
+		mostrarMensajeRegistro();
+		}
+		else{
+		mostrarMensajeRegistroFail();
+		}
+		//Lo que hace es guardarlo en el sesion storage si ha funcionado
+	};
+	let headers = 'Authorization=' + sessionStorage['clave'] + '&login=' + sessionStorage['login'] + '&titulo=' + frm.titulo.value + '&texto=' + frm.texto.value + '&id_entrada=' + id;
+	let fd  = new FormData(headers);
+	console.log(headers);
+	xhr.send(headers);
+	return false;
+}
 function mostrarMensajeRegistroFailPwd(){
 	let html="";
 
@@ -722,16 +751,16 @@ function formulario(){
 
 	let html= '';
 	if(sessionStorage['nombre']!=undefined){
-		html += '<form>'
+		html += '<form method="POST" onsubmit="return hacercomentario(this);">'
 		html +=	'<h2>Responder</h2>'
 		html +=	'<ul class="formu">'
 		html +=	'<li>'
 		html +=	' <label>Titulo <span class="required">*</span></label>'
-		html += 	'<input type="text" maxlength="50" name="field3" class="field-long" id="titulo" required=""/>'
+		html += 	'<input type="text" maxlength="50" name="titulo" class="field-long" id="titulo" required=""/>'
 		html +=	'</li>'
 		html +=	'<li>'
 		html +=		' <label>Descripcion <span class="required">*</span></label>'
-		html +=		' <textarea cols="30" rows="5" maxlength="200" class="field-long" required="" id="texto"></textarea>'
+		html +=		' <textarea cols="30" rows="5" maxlength="200" class="field-long" name="texto" required="" id="texto"></textarea>'
 		html +=	'</li>'
 		html +='<li>'
 		html +=' <input type="submit" value="Responder" />'
