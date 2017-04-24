@@ -146,7 +146,6 @@ function mostrarcomentariosid(){
 		console.log(xhr.responseText);
 		let v = JSON.parse(xhr.responseText);
 		console.log(v);
-
 		if(v.RESULTADO == 'ok'){
 			let html= '';
 			html += '<h2>Seccion de comentarios <i class="demo-icon icon-comment-empty"></i></h2>'
@@ -166,7 +165,7 @@ function mostrarcomentariosid(){
 				html +=		'<p>Titulo Comentario: ' + e.titulo + '</p>'
 				html +=		'<p>'+ e.texto+' </p>'
 					if(sessionStorage['nombre']!=null){
-						html +=     '<a href="#form" class="contestar">Contestar</a>'
+						html +=     '<a href="#form" onclick="formularioRespuesta('+e.titulo+');" class="contestar">Contestar</a>'
 					}
 				//html +=	'</footer>'
 				html +='</article>'
@@ -271,28 +270,26 @@ function hacercomentario(frm){
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/comentario/';	//Puesto para mi ruta
 			//Mete todos los valores del formulario automaticamente
-	xhr.open('POST', url, true);/*
+	xhr.open('POST', url, true);
+
+	let fd  = new FormData(frm);
+	fd.append('login',sessionStorage['login']);
+	fd.append('id_entrada',id);
 	xhr.setRequestHeader('Authorization', sessionStorage['clave']);
-	xhr.setRequestHeader('login', sessionStorage['login']);
-	xhr.setRequestHeader('titulo', frm.titulo.value);
-	xhr.setRequestHeader('texto', frm.texto.value);
-	xhr.setRequestHeader('id_entrada', id);*/
+
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
 		let du = JSON.parse(xhr.responseText);	
 		console.log(du);
 		console.log(fd);
 		if(du.RESULTADO=='ok'){
-		mostrarMensajeRegistro();
+		mostrarMensajeComentario(id);
 		}
 		else{
-		mostrarMensajeRegistroFail();
+		mostrarMensajeComentarioFail();
 		}
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
 	};
-	let headers = 'Authorization=' + sessionStorage['clave'] + '&login=' + sessionStorage['login'] + '&titulo=' + frm.titulo.value + '&texto=' + frm.texto.value + '&id_entrada=' + id;
-	let fd  = new FormData(headers);
-	console.log(headers);
-	xhr.send(headers);
+	xhr.send(fd);
 	return false;
 }
 function mostrarMensajeRegistroFailPwd(){
@@ -355,6 +352,37 @@ function mostrarMensajeRegistroFail(){
 	capa_frente.classList.add('capa-frente');
 
 	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeComentario(id){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>Comentario registrado correctamente</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();mensaje_comentario('+id+');">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeComentarioFail(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>ERROR: No se ha podido crear el comentario</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mensaje_comentario(id){
+	window.location="http://localhost/PH2/Practica2/entrada.html?entrada="+id;
 }
 function mensaje_login(){
 	window.location="http://localhost/PH2/Practica2/login.html";
@@ -757,6 +785,33 @@ function formulario(){
 		html +=	'<li>'
 		html +=	' <label>Titulo <span class="required">*</span></label>'
 		html += 	'<input type="text" maxlength="50" name="titulo" class="field-long" id="titulo" required=""/>'
+		html +=	'</li>'
+		html +=	'<li>'
+		html +=		' <label>Descripcion <span class="required">*</span></label>'
+		html +=		' <textarea cols="30" rows="5" maxlength="200" class="field-long" name="texto" required="" id="texto"></textarea>'
+		html +=	'</li>'
+		html +='<li>'
+		html +=' <input type="submit" value="Responder" />'
+		html +='</li>'
+		html +='</ul>'
+		html +='</form>'
+	}
+	else{
+		html += '<h2>Para dejar un comentario debes estar <a href="login.html">logueado</a></h2'
+	}
+
+	document.getElementById('form').innerHTML = html;
+}
+function formularioRespuesta(comentario){
+console.log("aqui no llega");
+	let html= '';
+	if(sessionStorage['nombre']!=undefined){
+		html += '<form method="POST" onsubmit="return hacercomentario(this);">'
+		html +=	'<h2>Responder</h2>'
+		html +=	'<ul class="formu">'
+		html +=	'<li>'
+		html +=	' <label>Titulo <span class="required">*</span></label>'
+		html += 	'<input type="text" maxlength="50" disabled placeholder="Re:'+comentario+'" name="titulo" class="field-long" id="titulo" required=""/>'
 		html +=	'</li>'
 		html +=	'<li>'
 		html +=		' <label>Descripcion <span class="required">*</span></label>'
