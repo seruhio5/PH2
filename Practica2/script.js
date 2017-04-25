@@ -165,7 +165,8 @@ function mostrarcomentariosid(){
 				html +=		'<p>Titulo Comentario: ' + e.titulo + '</p>'
 				html +=		'<p>'+ e.texto+' </p>'
 					if(sessionStorage['nombre']!=null){
-						html +=     '<a href="#form" onclick="formularioRespuesta('+e.titulo+');" class="contestar">Contestar</a>'
+						var algo='\''+e.titulo+'\'';
+						html +=     '<a href="#form" onclick="formularioRespuesta('+algo+');" class="contestar">Contestar</a>'
 					}
 				//html +=	'</footer>'
 				html +='</article>'
@@ -266,6 +267,7 @@ function registro(frm){
 	return false;
 }
 function hacercomentario(frm){
+	console.log(frm.titulo.value);
 	let id=getParameterByName('entrada');
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/comentario/';	//Puesto para mi ruta
@@ -275,6 +277,35 @@ function hacercomentario(frm){
 	let fd  = new FormData(frm);
 	fd.append('login',sessionStorage['login']);
 	fd.append('id_entrada',id);
+	xhr.setRequestHeader('Authorization', sessionStorage['clave']);
+
+	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
+		let du = JSON.parse(xhr.responseText);	
+		console.log(du);
+		console.log(fd);
+		if(du.RESULTADO=='ok'){
+		mostrarMensajeComentario(id);
+		}
+		else{
+		mostrarMensajeComentarioFail();
+		}
+		//Lo que hace es guardarlo en el sesion storage si ha funcionado
+	};
+	xhr.send(fd);
+	return false;
+}
+function hacercomentarioRe(frm,titulo){
+	console.log(frm.titulo.value);
+	let id=getParameterByName('entrada');
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/comentario/';	//Puesto para mi ruta
+			//Mete todos los valores del formulario automaticamente
+	xhr.open('POST', url, true);
+
+	let fd  = new FormData(frm);
+	fd.append('login',sessionStorage['login']);
+	fd.append('id_entrada',id);
+	fd.append('titulo',titulo);
 	xhr.setRequestHeader('Authorization', sessionStorage['clave']);
 
 	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
@@ -803,10 +834,10 @@ function formulario(){
 	document.getElementById('form').innerHTML = html;
 }
 function formularioRespuesta(comentario){
-console.log("aqui no llega");
+console.log(comentario);
 	let html= '';
 	if(sessionStorage['nombre']!=undefined){
-		html += '<form method="POST" onsubmit="return hacercomentario(this);">'
+		html += '<form method="POST" onsubmit="return hacercomentarioRe(this,\'Re:'+comentario+'\');">'
 		html +=	'<h2>Responder</h2>'
 		html +=	'<ul class="formu">'
 		html +=	'<li>'
