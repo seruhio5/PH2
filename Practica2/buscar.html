@@ -47,32 +47,52 @@
 
 	<section id="buscador">
 		<h2>Buscar</h2>
-		<form>
+		<form method="GET" onsubmit="return Busqueda(this);">
 			<ul class="formu">
 			    
 			    <li>
 			        <label>Titulo</label>
-			        <input type="text" placeholder="Mejores Posts" name="field3" class="field-long" autofocus=""/>
+			        <input type="text" placeholder="Mejores Posts" name="titulo" class="field-long" autofocus=""/>
 			    </li>
 
 			    <li>
-			        <label>Texto</label>
-			        <input type="text" placeholder="Top 10 fotos" name="field3" class="field-long"/>
+			        <label>Descripcion</label>
+			        <input type="text" placeholder="Top 10 fotos" name="descripcion" class="field-long"/>
 			    </li>
 			    
 			    <li>
 			        <label>Autor</label>
-			        <input type="text" placeholder="Sergio Lavale Quinto" name="field3" class="field-long"/>
+			        <input type="text" placeholder="Sergio Lavale Quinto" name="autor" class="field-long"/>
 			    </li>
 
 			    <li>
-			        <label>Fecha (Desde)</label>
-			        <input type="date" name="field3" class="field-long"/>
+			        <label>Fecha (Desde)(año)</label>
+			        <input type="text" name="fechai_a" class="field-long" pattern="[0-9]{4,4}"/>
 			    </li>
 
 			    <li>
-			        <label>Fecha (Hasta)</label>
-			        <input type="date" name="field3" class="field-long"/>
+			        <label>Fecha (Desde)(mes)</label>
+			        <input type="text" name="fechai_m" class="field-long" tittle="En el caso de ser un mes entre el 1 y el 9 poner un cero delante" pattern="[0-9]{2,2}"/>
+			    </li>
+
+			    <li>
+			        <label>Fecha (Desde)(dia)</label>
+			        <input type="text" name="fechai_d" class="field-long" tittle="En el caso de ser un dia entre el 1 y el 9 poner un cero delante" pattern="[0-9]{2,2}"/>
+			    </li>
+
+			    <li>
+			        <label>Fecha (Hasta)(año)</label>
+			        <input type="text" name="fechaf_a" class="field-long" pattern="[0-9]{4,4}"/>
+			    </li>
+
+			    <li>
+			        <label>Fecha (Hasta)(mes)</label>
+			        <input type="text" name="fechaf_m" class="field-long" pattern="[0-9]{2,2}"/>
+			    </li>
+
+			    <li>
+			        <label>Fecha (Hasta)(dia)</label>
+			        <input type="text" name="fechaf_d" class="field-long" pattern="[0-9]{2,2}"/>
 			    </li>
 
 			    <li>
@@ -86,79 +106,8 @@
 
 	<section id="entradas" class="menos">
 		<h2>Resultados</h2>
-		<div>
-			<article>
-				<h3><a href="entrada.html">Nombre: Lorlñaksj dfñlkaj sñdlfkj añlsdk fjñalksd jfñlaksjd fñlkajñsdlfk</a></h3>
-				<div>
-				<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zed_10.jpg"  alt="Zed campeonato">
-				<h4>Descripcion de la foto</h4>
-				<aside><a href="entrada.html">Ver más</a></aside>
-				</div>
-				<p><i class="demo-icon icon-user"></i> Lorem ipsum dolor.</p>
-				<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
-				<p><i class="demo-icon icon-picture"></i> Fotos: <a href="entrada.html#fotos">1</a></p>
-				<p><i class="demo-icon icon-comment-empty"></i> Comentarios: <a href="entrada.html#comentarios">1</a></p>
-			</article>
-			<article>
-				<h3><a href="entrada.html">Nombre: Lorlñaksj dfñlkaj sñdlfkj añlsdk fjñalksd jfñlaksjd fñlkajñsdlfk</a></h3>
-				<div>
-				<img src="http://ih0.redbubble.net/image.30416963.4324/sticker,375x360-bg,ffffff.u7.png" width="320" height="320" alt="css is awesome">
-				<h4>Descripcion de la foto</h4>
-				<aside><a href="entrada.html">Ver más</a></aside>
-				</div>
-				<p><i class="demo-icon icon-user"></i> Lorem ipsum dolor.</p>
-				<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
-				<p><i class="demo-icon icon-picture"></i> Fotos: <a href="entrada.html#fotos">1</a></p>
-				<p><i class="demo-icon icon-comment-empty"></i> Comentarios: <a href="entrada.html#comentarios">1</a></p>
-			</article>
-			<article>
-				<h3><a href="entrada.html">Nombre: Lorlñaksj dfñlkaj sñdlfkj añlsdk fjñalksd jfñlaksjd fñlkajñsdlfk</a></h3>
-				<div>
-				<img src="https://i.blogs.es/6015fb/logo-forocoches/original.jpg" width="320" height="320" alt="cara rara">
-				<h4>Descripcion de la foto</h4>
-				<aside><a href="entrada.html">Ver más</a></aside>
-				</div>
-				<p><i class="demo-icon icon-user"></i> Lorem ipsum dolor.</p>
-				<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
-				<p><i class="demo-icon icon-picture"></i> Fotos: <a href="entrada.html#fotos">1</a></p>
-				<p><i class="demo-icon icon-comment-empty"></i> Comentarios: <a href="entrada.html#comentarios">1</a></p>
-			</article>
-			<article>
-				<h3><a href="entrada.html">Nombre: Lorlñaksj dfñlkaj sñdlfkj añlsdk fjñalksd jfñlaksjd fñlkajñsdlfk</a></h3>
-				<div>
-				<img src="http://www.videojuegosadiario.com/wp-content/uploads/2016/09/League-of-Legends.jpg" width="320" height="320" alt="lol">
-				<h4>Descripcion de la foto</h4>
-				<aside><a href="entrada.html">Ver más</a></aside>
-				</div>
-				<p><i class="demo-icon icon-user"></i> Lorem ipsum dolor.</p>
-				<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
-				<p><i class="demo-icon icon-picture"></i> Fotos: <a href="entrada.html#fotos">1</a></p>
-				<p><i class="demo-icon icon-comment-empty"></i> Comentarios: <a href="entrada.html#comentarios">1</a></p>
-			</article>
-			<article>
-				<h3><a href="entrada.html">Nombre: Lorlñaksj dfñlkaj sñdlfkj añlsdk fjñalksd jfñlaksjd fñlkajñsdlfk</a></h3>
-				<div>
-				<img src="http://diit.cz/sites/default/files/styles/large/public/images/3988/opengl_logo_velke.png?itok=Vclx7CQH" width="320" height="320" alt="opengl_logo_velke">
-				<h4>Descripcion de la foto</h4>
-				<aside><a href="entrada.html">Ver más</a></aside>
-				</div>
-				<p><i class="demo-icon icon-user"></i> Lorem ipsum dolor.</p>
-				<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
-				<p><i class="demo-icon icon-picture"></i> Fotos: <a href="entrada.html#fotos">1</a></p>
-				<p><i class="demo-icon icon-comment-empty"></i> Comentarios: <a href="entrada.html#comentarios">1</a></p>
-			</article>
-			<article>
-				<h3><a href="entrada.html">Nombre: Lorlñaksj dfñlkaj sñdlfkj añlsdk fjñalksd jfñlaksjd fñlkajñsdlfk</a></h3>
-				<div>
-				<img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/star_guardian-2016/en_US/b6961f5d4203993bc3800b026535c6119f21ad11/assets/downloads/Jinx_1920x1200.jpg" width="320" height="320" alt="Jinx_1920x1200">
-				<h4>Descripcion de la foto</h4>
-				<aside><a href="entrada.html">Ver más</a></aside>
-				</div>
-				<p><i class="demo-icon icon-user"></i> Lorem ipsum dolor.</p>
-				<p><i class="demo-icon icon-calendar"></i> Miercoles, 14/01/1995, 03:24h</p>
-				<p><i class="demo-icon icon-picture"></i> Fotos: <a href="entrada.html#fotos">1</a></p>
-				<p><i class="demo-icon icon-comment-empty"></i> Comentarios: <a href="entrada.html#comentarios">1</a></p>
-			</article>
+		<div id="resultados">
+			
 		</div>
 		</section>
 

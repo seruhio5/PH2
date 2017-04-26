@@ -860,3 +860,69 @@ console.log(comentario);
 
 	document.getElementById('form').innerHTML = html;
 }
+
+function Busqueda(frm){
+
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/';
+
+	/*Recojo los parámetros del formulario*/
+	let titulo_value = frm.titulo.value;
+	let descripcion_value =frm.descripcion.value;
+	let autor_value = frm.autor.value;
+
+	//Alternativa a input date
+	let fi_value,ff_value;
+	if(frm.fechai_a.value!="" && frm.fechai_m.value!="" && frm.fechai_d.value!=""){
+	fi_value =frm.fechai_a.value+'-'+frm.fechai_m.value+'-'+frm.fechai_d.value;
+	}else if(frm.fechai_a.value!="" || frm.fechai_m.value!="" || frm.fechai_d.value!=""){
+		alert("¡Rellena correctamente la fecha de inicio!");
+	}
+	if(frm.fechaf_a.value!=null && frm.fechaf_m.value!=null && frm.fechaf_d.value!=null){
+	ff_value = frm.fechaf_a.value+'-'+frm.fechaf_m.value+'-'+frm.fechaf_d.value;
+	}else if(frm.fechaf_a.value!="" || frm.fechaf_m.value!="" || frm.fechaf_d.value!=""){
+		alert("¡Rellena correctamente la fecha final!");
+	}
+
+
+	url += '?n=' + titulo_value + '&d=' + descripcion_value + '&l=' + autor_value + '&fi=' + fi_value + '&ff=' + ff_value;
+
+
+	xhr.open('GET', url, true);
+
+	xhr.onload = function(){
+		let v = JSON.parse(xhr.responseText);
+
+		if(v.RESULTADO == 'ok'){
+			let html = '';
+			if((titulo_value==null && descripcion_value==null && autor_value==null && fi_value==null && ff_value==null))
+			{console.log(fi_value);
+				alert("Ningún resultado. Revisa los parámetros de búsqueda");}
+			for(let i=0; i<v.FILAS.length; i++){
+				let e = v.FILAS[i];
+
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
+				html += '<article>'
+				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
+				html +=	'<div class="menos">'
+				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
+				html +=	'</div>'
+				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
+				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
+				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
+				html +='</article>'
+
+			}
+			document.getElementById('resultados').innerHTML = html;
+
+		}
+
+	};
+
+	xhr.send();
+
+	return false;
+}
