@@ -1,4 +1,4 @@
-sds<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -43,41 +43,25 @@ sds<!DOCTYPE html>
 
 <section id="nueva_entrada">
 		<h2>Crear Entrada</h2>
-		<form>
+		<form method="POST" onsubmit="return nuevaEntrada(this);">
 
 			<ul class="formu">
 			    
 			    <li>
 			        <label>Titulo <span class="required">*</span></label>
-			        <input type="text" maxlength="200" placeholder="Título" name="field3" class="field-long" required=""/>
+			        <input type="text" maxlength="200" placeholder="Título" name="nombre" class="field-long" required=""/>
 			    </li>
 
 			    <li>
 			        <label>Descripcion de la entrada <span class="required">*</span></label>
-			        <textarea name="field3" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>
-			    </li>
-			    
-			    <li>
-			        <label>Foto <span class="required">*</span></label>
-			        <input type="file" name="field3" class="field-long" required=""/>
-			        <img src="http://pre14.deviantart.net/26bb/th/pre/i/2015/362/2/7/jinx_by_nad4r-d9lrqss.jpg" width="200" height="200" alt="jinx_by_nad4r-d9lrqss">
+			        <textarea name="descripcion" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>
 			    </li>
 
-			    <li>
-			        <label>Descripcion de la foto <span class="required">*</span></label>
-			        <textarea name="field3" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>
-			    </li>
+			    <a href="" onclick="return anyadirfoto(0);">Añadir foto</a>
 
-			    <li>
-			        <label>Foto <span class="required">*</span></label>
-			        <input type="file" name="field3" class="field-long" required=""/>
-			        <img src="http://pre02.deviantart.net/fc4e/th/pre/i/2015/340/1/6/jinx_chibi_by_teheehappy-d9j78it.jpg" width="200" height="200" alt="jinx_chibi_by_teheehappy-d9j78it">
-			    </li>
-
-			    <li>
-			        <label>Descripcion de la foto <span class="required">*</span></label>
-			        <textarea name="field3" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>
-			    </li>
+			    <div id="foto_entrada0">
+			    	
+			    </div>
 
 			    <li>
 			        <input type="submit" value="Crear Entrada" />

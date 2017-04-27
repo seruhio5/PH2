@@ -418,6 +418,9 @@ function mensaje_comentario(id){
 function mensaje_login(){
 	window.location="http://localhost/PH2/Practica2/login.html";
 }
+function mensaje_nueva_entrada(){
+	window.location="http://localhost/PH2/Practica2/index.html";
+}
 function comprobar2(){
 	if(sessionStorage.getItem('login')==null){
 		window.location="http://localhost/PH2/Practica2/index.html";
@@ -925,4 +928,99 @@ function Busqueda(frm){
 	xhr.send();
 
 	return false;
+}
+
+function nuevaEntrada(frm){
+	console.log(frm.nombre.value);
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/';	
+
+	xhr.open('POST', url, true);
+
+	let fd  = new FormData(frm);
+	fd.append('login',sessionStorage['login']);
+
+	xhr.setRequestHeader('Authorization', sessionStorage['clave']);
+
+	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
+		let du = JSON.parse(xhr.responseText);	
+		console.log(du);
+		console.log(fd);
+		if(du.RESULTADO=='ok'){
+		//METER AQUI LAS FOTOS
+		let algo = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/foto/';
+		algo.open('POST', url, true);	
+		let algofm = new FormData();
+		algofm.append('login',sessionStorage['login']);
+		algofm.append('texto',frm.texto.value);
+		algofm.append('id_entrada',du.id);
+		algo.setRequestHeader('Authorization', sessionStorage['clave']);
+		algo.onload = function(){
+			let al = JSON.parse(xhr.responseText);	
+			console.log(al);
+			console.log(algofm);
+			if(al.RESULTADO=='ok'){
+				mostrarMensajeNuevaEntrada();
+			}
+			};
+			algo.send(algofm);		
+		}
+		else{
+		mostrarMensajeNuevaEntradaFail();
+		}
+		//Lo que hace es guardarlo en el sesion storage si ha funcionado
+	};
+	xhr.send(fd);
+	return false;
+}
+function anyadirfoto(id){
+	let nid=id+1;
+	console.log(nid);
+	let html="";
+	 	html+='<li>';
+		html+='<label>Foto <span class="required">*</span></label>';	
+		html+='<input type="file" name="foto" class="field-long" required=""/>';
+		html+='<img src="http://pre14.deviantart.net/26bb/th/pre/i/2015/362/2/7/jinx_by_nad4r-d9lrqss.jpg" width="200" height="200" alt="jinx_by_nad4r-d9lrqss">';
+		html+='</li>';
+		html+='<li>';
+		html+='<label>Descripcion de la foto <span class="required">*</span></label>';
+		html+='<textarea name="texto" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>';
+		html+='<li>';
+		html+= '<a href="" onclick="anyadirfoto('+nid+');">Añadir foto</a>';
+		html+='<div id="foto_entrada'+nid+'">';
+		html+='</div>';
+		console.log(html);
+		let string='foto_entrada'+id+'';
+		console.log(string);
+		document.getElementById(string).innerHTML = html;
+		return false;
+}
+function mostrarMensajeNuevaEntrada(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>Entrada creada correctamente</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();mensaje_nueva_entrada();">Ir a Inicio</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeNuevaEntradaFail(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>Error:Entrada no creada, compruebe los parametros</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
 }
