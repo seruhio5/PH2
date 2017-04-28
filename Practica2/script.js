@@ -2,39 +2,116 @@ var pag=0;
 var pag_total=0; //numero de entradas total
 var pag2=0; //paginas totales por numero de entradas por pagina
 
-function mostrarentradas(num){
-	console.log("añsldfjañlsdkjfñalskdjfñlasjfd");
-	console.log(num);
-	console.log(pag);	
-	let xhr1 = new XMLHttpRequest(),
-		url1 = 'http://localhost/PH2/Practica2/rest/entrada/',
+//inicializar variables para la paginacion
+function paginacion_ini(){
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/',
 		pag1=0;
-	xhr1.open('GET', url1, true);
+	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
 	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
-	xhr1.onload = function(){
-		let v = JSON.parse(xhr1.responseText);
+	xhr.onload = function(){
+		let v = JSON.parse(xhr.responseText);
 
 		if(v.RESULTADO == 'ok'){
 			pag_total=v.FILAS.length;
-			console.log(pag_total);
+			console.log("Numero de entradas: "+pag_total);
 			pag1=pag_total/3;
 			pag2=parseInt(pag_total/3);
 			if(pag1>pag2){
-				pag2+=1;
+				pag2=pag2+1;
 			}
-			let html= '';
-			console.log("añlkj");
-			console.log(pag2);
-			html += ' Página '+(pag)+' de '+(pag2)+' ';
-			document.getElementById('paginacion').innerHTML = html;			
-			console.log(pag2);
+			console.log("Paginas totales: "+pag2);
 		}
 	};
-	xhr1.send();
+	xhr.send();
+}
+function mostrarentradas_inicio(){
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag=0&lpag=3';
+	pag=0;
+	xhr.open('GET', url, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+		let v = JSON.parse(xhr.responseText);
+		console.log(v);
+
+		if(v.RESULTADO == 'ok'){
+			let html= '';
+			for(let i=0; i<v.FILAS.length; i++){
+				let e = v.FILAS[i],
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
+				html += '<article>'
+				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
+				html +=	'<div class="menos">'
+				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
+				html +=	'</div>'
+				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
+				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
+				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
+				html +='</article>'
+			} //End for
+
+			document.querySelector('h2+div').innerHTML = html;
+		}//end if
+	}
+	xhr.send();
+	paginacion();
+	return false;
+}
+function mostrarentradas_final(){
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag='+(pag2-1)+'&lpag=3';
+	pag=pag2-1;
+	xhr.open('GET', url, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+		let v = JSON.parse(xhr.responseText);
+		console.log(v);
+
+		if(v.RESULTADO == 'ok'){
+			let html= '';
+			for(let i=0; i<v.FILAS.length; i++){
+				let e = v.FILAS[i],
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
+				html += '<article>'
+				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
+				html +=	'<div class="menos">'
+				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
+				html +=	'</div>'
+				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
+				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
+				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
+				html +='</article>'
+			} //End for
+
+			document.querySelector('h2+div').innerHTML = html;
+		}//end if
+	}
+	xhr.send();
+	paginacion();
+	return false;
+}
+function mostrarentradas(num){
+	console.log("añsldfjañlsdkjfñalskdjfñlasjfd");
+	console.log("Parametro pasado por parametro: "+num);
+	console.log("Pagina actual: "+pag);	
+
+	pag=pag+num;// con esto se soluciona la pagina actual
+
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag='+pag+'&lpag=3';
-	pag=pag+num;
+	
 	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
 	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
@@ -70,8 +147,9 @@ function mostrarentradas(num){
 	return false;
 }
 function paginacion(){
+	console.log("Paginas totales metodo paginacion: "+pag2);
 	let html= '';
-	html += ' Página '+(pag)+' de '+(pag2)+' ';
+	html += ' Página '+(pag+1)+' de '+(pag2)+' ';
 	document.getElementById('paginacion').innerHTML = html;
 }
 function mostrarentrada(){

@@ -17,7 +17,7 @@
 
     <title>ForoJinx</title>
 </head>
-<body onload="mostrarentradas(1);mostrarcomentarios(); menuindex();">
+<body onload="paginacion_ini();mostrarentradas(0);mostrarcomentarios();menuindex();">
 
 	<header>
 
@@ -51,18 +51,18 @@
 		<hr>
 		<div id="pie_pagina">
 				<ul>
-					<li>
-						<a href="#" > &lt;&lt; </a>
+					<li onclick="return mostrarentradas_inicio()">
+						<a> &lt;&lt; </a>
 					</li>
 					<li onclick="return mostrarentradas(-1)">
-						<a href="" > &lt; </a>
+						<a> &lt; </a>
 					</li>
 					<span id=paginacion> </span>
 					<li onclick="return mostrarentradas(1)">
-						<a href="" >   >   </a>
+						<a>   >   </a>
 					</li>
-					<li>
-						<a href="#"> >> </a>
+					<li onclick="return mostrarentradas_final()">
+						<a> >> </a>
 					</li>
 				</ul>
 		</div>
