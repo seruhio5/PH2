@@ -1,7 +1,40 @@
-function mostrarentradas(){
-	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Practica2/rest/entrada/';
+var pag=0;
+var pag_total=0; //numero de entradas total
+var pag2=0; //paginas totales por numero de entradas por pagina
 
+function mostrarentradas(num){
+	console.log("añsldfjañlsdkjfñalskdjfñlasjfd");
+	console.log(num);
+	console.log(pag);	
+	let xhr1 = new XMLHttpRequest(),
+		url1 = 'http://localhost/PH2/Practica2/rest/entrada/',
+		pag1=0;
+	xhr1.open('GET', url1, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr1.onload = function(){
+		let v = JSON.parse(xhr1.responseText);
+
+		if(v.RESULTADO == 'ok'){
+			pag_total=v.FILAS.length;
+			console.log(pag_total);
+			pag1=pag_total/3;
+			pag2=parseInt(pag_total/3);
+			if(pag1>pag2){
+				pag2+=1;
+			}
+			let html= '';
+			console.log("añlkj");
+			console.log(pag2);
+			html += ' Página '+(pag)+' de '+(pag2)+' ';
+			document.getElementById('paginacion').innerHTML = html;			
+			console.log(pag2);
+		}
+	};
+	xhr1.send();
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag='+pag+'&lpag=3';
+	pag=pag+num;
 	xhr.open('GET', url, true);
 	//Cuando es get no se pasa nada por parametros, se concatena con la url
 	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
@@ -33,7 +66,13 @@ function mostrarentradas(){
 		}//end if
 	}
 	xhr.send();
+	paginacion();
 	return false;
+}
+function paginacion(){
+	let html= '';
+	html += ' Página '+(pag)+' de '+(pag2)+' ';
+	document.getElementById('paginacion').innerHTML = html;
 }
 function mostrarentrada(){
 	var id = getParameterByName('entrada');
@@ -933,7 +972,9 @@ function Busqueda(frm){
 function nuevaEntrada(frm){
 	console.log(frm.nombre.value);
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Practica2/rest/entrada/';	
+		url = 'http://localhost/PH2/Practica2/rest/entrada/',
+		text= frm.texto.value;
+
 
 	xhr.open('POST', url, true);
 
@@ -942,29 +983,31 @@ function nuevaEntrada(frm){
 
 	xhr.setRequestHeader('Authorization', sessionStorage['clave']);
 
-	xhr.onload = function(){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
+	xhr.onload = function(frm){	//Cuando llega al paso 4 realiza la ejecudion de este codigo
 		let du = JSON.parse(xhr.responseText);	
 		console.log(du);
-		console.log(fd);
+		console.log(frm);
 		if(du.RESULTADO=='ok'){
 		//METER AQUI LAS FOTOS
 		let algo = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/foto/';
-		algo.open('POST', url, true);	
+		algo.open('POST', url, true);
 		let algofm = new FormData();
 		algofm.append('login',sessionStorage['login']);
-		algofm.append('texto',frm.texto.value);
-		algofm.append('id_entrada',du.id);
+		console.log(frm);
+		fd.append('texto',text);
+		fd.append('id_entrada',du.id);
+		//fd.append('foto',frm.foto.value);
 		algo.setRequestHeader('Authorization', sessionStorage['clave']);
-		algo.onload = function(){
-			let al = JSON.parse(xhr.responseText);	
+		algo.onload = function(algofm){
+			let al = JSON.parse(algo.responseText);	
 			console.log(al);
 			console.log(algofm);
 			if(al.RESULTADO=='ok'){
 				mostrarMensajeNuevaEntrada();
 			}
 			};
-			algo.send(algofm);		
+			algo.send(fd);		
 		}
 		else{
 		mostrarMensajeNuevaEntradaFail();
@@ -987,7 +1030,7 @@ function anyadirfoto(id){
 		html+='<label>Descripcion de la foto <span class="required">*</span></label>';
 		html+='<textarea name="texto" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>';
 		html+='<li>';
-		html+= '<a href="" onclick="anyadirfoto('+nid+');">Añadir foto</a>';
+		html+= '<a href="" onclick="return anyadirfoto('+nid+');">Añadir foto</a>';
 		html+='<div id="foto_entrada'+nid+'">';
 		html+='</div>';
 		console.log(html);
