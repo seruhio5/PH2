@@ -1,6 +1,9 @@
 var pag=0;
 var pag_total=0; //numero de entradas total
 var pag2=0; //paginas totales por numero de entradas por pagina
+var pag_b=0;
+var pag_total_b=0; //numero de entradas total
+var pag2_b=0;
 
 //inicializar variables para la paginacion
 function paginacion_ini(){
@@ -22,6 +25,7 @@ function paginacion_ini(){
 				pag2=pag2+1;
 			}
 			console.log("Paginas totales: "+pag2);
+			mostrarentradas(0);
 		}
 	};
 	xhr.send();
@@ -984,8 +988,8 @@ console.log(comentario);
 function Busqueda(frm){
 
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/PH2/Practica2/rest/entrada/';
-
+		//url = 'http://localhost/PH2/Practica2/rest/entrada/';
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag=0&lpag=3';
 	/*Recojo los parámetros del formulario*/
 	let titulo_value = frm.titulo.value;
 	let descripcion_value =frm.descripcion.value;
@@ -995,10 +999,11 @@ function Busqueda(frm){
 	let fi_value,ff_value;
 	if(frm.fechai_a.value!="" && frm.fechai_m.value!="" && frm.fechai_d.value!=""){
 	fi_value =frm.fechai_a.value+'-'+frm.fechai_m.value+'-'+frm.fechai_d.value;
+	console.log(fi_value);
 	}else if(frm.fechai_a.value!="" || frm.fechai_m.value!="" || frm.fechai_d.value!=""){
 		alert("¡Rellena correctamente la fecha de inicio!");
 	}
-	if(frm.fechaf_a.value!=null && frm.fechaf_m.value!=null && frm.fechaf_d.value!=null){
+	if(frm.fechaf_a.value!="" && frm.fechaf_m.value!="" && frm.fechaf_d.value!=""){
 	ff_value = frm.fechaf_a.value+'-'+frm.fechaf_m.value+'-'+frm.fechaf_d.value;
 	}else if(frm.fechaf_a.value!="" || frm.fechaf_m.value!="" || frm.fechaf_d.value!=""){
 		alert("¡Rellena correctamente la fecha final!");
@@ -1012,12 +1017,28 @@ function Busqueda(frm){
 
 	xhr.onload = function(){
 		let v = JSON.parse(xhr.responseText);
+		console.log(v);
 
 		if(v.RESULTADO == 'ok'){
 			let html = '';
-			if((titulo_value==null && descripcion_value==null && autor_value==null && fi_value==null && ff_value==null))
-			{console.log(fi_value);
-				alert("Ningún resultado. Revisa los parámetros de búsqueda");}
+
+			mostrar_piedepagina();
+
+			pag_total_b=v.FILAS.length;
+			console.log("Numero de entradas: "+pag_total_b);
+			pag1_b=pag_total_b/3;
+			pag2_b=parseInt(pag_total_b/3);
+			if(pag1_b>pag2_b){
+				pag2_b=pag2_b+1;
+			}
+			console.log("Paginas totales: "+pag2_b);
+			//mostrarentradas_b(0);
+
+			if(((titulo_value=="" || titulo_value==null) && (descripcion_value==""||descripcion_value==null) && (autor_value==""||autor_value==null) && (fi_value==""||fi_value==null) && (ff_value==""||ff_value==null)))
+			{
+				alert("Ningún resultado. Revisa los parámetros de búsqueda");
+			}
+
 			for(let i=0; i<v.FILAS.length; i++){
 				let e = v.FILAS[i];
 
@@ -1046,9 +1067,179 @@ function Busqueda(frm){
 
 	return false;
 }
+//inicializar variables para la paginacion
+function paginacion_ini_(){
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/',
+		pag1=0;
+	xhr.open('GET', url, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr.onload = function(){
+		let v = JSON.parse(xhr.responseText);
+
+		if(v.RESULTADO == 'ok'){
+			pag_total_b=v.FILAS.length;
+			console.log("Numero de entradas: "+pag_total_b);
+			pag1_b=pag_total_b/3;
+			pag2_b=parseInt(pag_total_b/3);
+			if(pag1_b>pag2_b){
+				pag2_b=pag2_b+1;
+			}
+			console.log("Paginas totales: "+pag2_b);
+			mostrarentradas_b(0);
+		}
+	};
+	xhr.send();
+}
+function mostrarentradas_inicio_b(){
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag=0&lpag=3';
+	pag=0;
+	xhr.open('GET', url, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+		let v = JSON.parse(xhr.responseText);
+		console.log(v);
+
+		if(v.RESULTADO == 'ok'){
+			let html= '';
+			for(let i=0; i<v.FILAS.length; i++){
+				let e = v.FILAS[i],
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
+				html += '<article>'
+				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
+				html +=	'<div class="menos">'
+				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
+				html +=	'</div>'
+				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
+				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
+				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
+				html +='</article>'
+			} //End for
+
+			document.querySelector('h2+div').innerHTML = html;
+		}//end if
+	}
+	xhr.send();
+	paginacion();
+	return false;
+}
+function mostrar_piedepagina(){
+	let html="";
+	html+='<ul>';
+	html+='<li onclick="return mostrarentradas_inicio_b()">';
+	html+='<a> &lt;&lt; </a>';
+	html+='</li>';
+	html+='<li onclick="return mostrarentradas_b(-1)">';
+	html+='<a> &lt; </a>';
+	html+='</li>';
+	html+='<span id=paginacion> </span>';
+	html+='<span id=paginacion> </span>';
+	html+='<li onclick="return mostrarentradas_b(1)">';
+	html+='<a>   >   </a>';
+	html+='</li>';
+	html+='<li onclick="return mostrarentradas_final_b()">';
+	html+='<a> >> </a>';
+	html+='</li>';
+	html+='</ul>';
+	document.getElementById('pie_pagina').innerHTML = html;
+}
+function mostrarentradas_final_b(){
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag='+(pag2-1)+'&lpag=3';
+	pag=pag2-1;
+	xhr.open('GET', url, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+		let v = JSON.parse(xhr.responseText);
+		console.log(v);
+
+		if(v.RESULTADO == 'ok'){
+			let html= '';
+			for(let i=0; i<v.FILAS.length; i++){
+				let e = v.FILAS[i],
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
+				html += '<article>'
+				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
+				html +=	'<div class="menos">'
+				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
+				html +=	'</div>'
+				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
+				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
+				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
+				html +='</article>'
+			} //End for
+
+			document.querySelector('h2+div').innerHTML = html;
+		}//end if
+	}
+	xhr.send();
+	paginacion();
+	return false;
+}
+function mostrarentradas_b(num){
+	console.log("añsldfjañlsdkjfñalskdjfñlasjfd");
+	console.log("Parametro pasado por parametro: "+num);
+	console.log("Pagina actual: "+pag);	
+
+	pag=pag+num;// con esto se soluciona la pagina actual
+
+	let xhr = new XMLHttpRequest(),
+		url = 'http://localhost/PH2/Practica2/rest/entrada/?pag='+pag+'&lpag=3';
+	
+	xhr.open('GET', url, true);
+	//Cuando es get no se pasa nada por parametros, se concatena con la url
+	//url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value;
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+		let v = JSON.parse(xhr.responseText);
+		console.log(v);
+
+		if(v.RESULTADO == 'ok'){
+			let html= '';
+			for(let i=0; i<v.FILAS.length; i++){
+				let e = v.FILAS[i],
+					foto = 'http://localhost/PH2/Practica2/fotos/' + e.fichero;
+				html += '<article>'
+				html +=	'<h3><a href="entrada.html?entrada=' +e.id+ '">'+ e.nombre + '</a></h3>'
+				html +=	'<div class="menos">'
+				html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
+				html +=		'<h4>' + e.descripcion + '</h4>'
+				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
+				html +=	'</div>'
+				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
+				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
+				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
+				html +='</article>'
+			} //End for
+
+			document.querySelector('h2+div').innerHTML = html;
+		}//end if
+	}
+	xhr.send();
+	paginacion();
+	return false;
+}
+function paginacion_b(){
+	console.log("Paginas totales metodo paginacion: "+pag2);
+	let html= '';
+	html += ' Página '+(pag+1)+' de '+(pag2)+' ';
+	document.getElementById('paginacion').innerHTML = html;
+}
 
 function nuevaEntrada(frm){
-	console.log(frm.nombre.value);
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/entrada/',
 		text= frm.texto.value;
@@ -1084,7 +1275,7 @@ function nuevaEntrada(frm){
 			if(al.RESULTADO=='ok'){
 				mostrarMensajeNuevaEntrada();
 			}
-			};
+		};
 			algo.send(fd);		
 		}
 		else{
@@ -1095,27 +1286,51 @@ function nuevaEntrada(frm){
 	xhr.send(fd);
 	return false;
 }
+function PreviewImage(){
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+    document.getElementById("uploadPreview").src = oFREvent.target.result;
+    };
+};
 function anyadirfoto(id){
 	let nid=id+1;
 	console.log(nid);
 	let html="";
 	 	html+='<li>';
 		html+='<label>Foto <span class="required">*</span></label>';	
-		html+='<input type="file" name="foto" class="field-long" required=""/>';
-		html+='<img src="http://pre14.deviantart.net/26bb/th/pre/i/2015/362/2/7/jinx_by_nad4r-d9lrqss.jpg" width="200" height="200" alt="jinx_by_nad4r-d9lrqss">';
+		html+='<input id="uploadImage" type="file" name="foto" class="field-long" required="" onchange="PreviewImage();" />';
+		html+='<input type="hidden" name="MAX_FILE_SIZE" value="1"/>';
+		html+='<p>El tamaño máximo de una foto puede ser 500KB.</p>';
+		html+='<img id="uploadPreview" style="width: 100px; height: 100px;" />';
 		html+='</li>';
 		html+='<li>';
 		html+='<label>Descripcion de la foto <span class="required">*</span></label>';
 		html+='<textarea name="texto" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>';
 		html+='<li>';
-		html+= '<a href="" onclick="return anyadirfoto('+nid+');">Añadir foto</a>';
+		/*html+= '<a href="" onclick="return anyadirfoto('+nid+');">Añadir foto</a>';
 		html+='<div id="foto_entrada'+nid+'">';
-		html+='</div>';
+		html+='</div>';*/
 		console.log(html);
 		let string='foto_entrada'+id+'';
 		console.log(string);
 		document.getElementById(string).innerHTML = html;
 		return false;
+}
+function error_b(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>Entrada creada correctamente</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();mensaje_nueva_entrada();">Ir a Inicio</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
 }
 function mostrarMensajeNuevaEntrada(){
 	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
