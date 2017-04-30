@@ -1240,6 +1240,11 @@ function paginacion_b(){
 }
 
 function nuevaEntrada(frm){
+	
+	let input = document.getElementById('uploadImage');
+	file = input.files[0];
+	if(file.size<512000){
+
 	let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/entrada/',
 		text= frm.texto.value;
@@ -1284,6 +1289,10 @@ function nuevaEntrada(frm){
 		//Lo que hace es guardarlo en el sesion storage si ha funcionado
 	};
 	xhr.send(fd);
+	}
+	else{
+		alert("El tamaño de la foto es demasiado grande.");
+	}
 	return false;
 }
 function PreviewImage(){
@@ -1301,7 +1310,6 @@ function anyadirfoto(id){
 	 	html+='<li>';
 		html+='<label>Foto <span class="required">*</span></label>';	
 		html+='<input id="uploadImage" type="file" name="foto" class="field-long" required="" onchange="PreviewImage();" />';
-		html+='<input type="hidden" name="MAX_FILE_SIZE" value="1"/>';
 		html+='<p>El tamaño máximo de una foto puede ser 500KB.</p>';
 		html+='<img id="uploadPreview" style="width: 100px; height: 100px;" />';
 		html+='</li>';

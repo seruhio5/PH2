@@ -249,6 +249,8 @@
 
 					<li><p>Debe aparecer un mensaje avisando al usuario que el tamaño máximo de archivo es 500KB. Al seleccionar un fichero la foto se mostrará en el elemento img de la correspondiente ficha.</p></li>
 
+					<li><p>Se deberá comprobar que su tamaño no exceda los 500KB. Si su tamaño es mayor de 500KB, se mostrará un mensaje sobre la imagen de la ficha indicando el error.</p></li>
+
 					<li><p>Para crear una nueva entrada primero se envían los datos de la entrada mediante AJAX. Si todo ha ido bien (respuesta correcta del servidor) y se ha creado la entrada, entonces se enviarán las fotos una a una. Todo ello se hace mediante llamadas ajax. El servidor rest copiará las fotos subidas a la carpeta fotos. Cada foto se guardará con su id como nombre y la extensión del fichero subido.</p></li>
 					
 					<li><p>Al crear una nueva entrada y confirmar que todo ha finalizado correctamente, se debe mostrar el típico mensaje informativo sobre una capa semitransparente, superpuesta sobre toda la página, que impida interactuar con el formulario. El mensaje deberá tener un botón para que el usuario pueda cerrarlo, tras lo que será redirigido a index.html.</p></li>
@@ -262,7 +264,7 @@
 		<ul>
 			<li><p>Nueva Entrada: botón para poder eliminar la ficha del formulario. Cuando la ficha está vacía, debe aparecer la típica imagen que indica que no hay foto seleccionada.</p></li>
 
-			<li><p>Nueva Entrada: Se deberá comprobar que su tamaño no exceda los 500KB. Si su tamaño es mayor de 500KB, se mostrará un mensaje sobre la imagen de la ficha indicando el error. Además, se destacará la ficha de las demás mediante css poniendo, por ejemplo, el borde de la ficha en rojo.</p></li>
+			<li><p>Nueva Entrada: Además, se destacará la ficha de las demás mediante css poniendo, por ejemplo, el borde de la ficha en rojo.</p></li>
 
 			<li><p>Busqueda: Los resultados de la búsqueda se mostrarán paginados. El funcionamiento de la paginación será el mismo que el implementado en index.html pero, lógicamente, con respecto a los resultados de la búsqueda.</p></li>
 		</ul>
