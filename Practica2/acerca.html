@@ -13,8 +13,6 @@
     
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
-    <script src="script.js"></script>
-
     <title>Sobre Nosotros</title>
 </head>
 <body>
@@ -34,50 +32,14 @@
 			
 		
 		
-			<ul id="menu">
-					<li>
-						<label for="ckb-menu">&equiv;</label>
-					</li>
-					<li class="menu">
-						<a href="index.html">
-							<i class="demo-icon icon-home-1"></i>Inicio
-						</a>
-					</li>
-					<li class="menu">
-						<a href="login.html">
-							<i class="demo-icon icon-login"></i>Login
-						</a>
-					</li>
-					<li class="menu">
-						<a href="registro.html">
-							<i class="demo-icon icon-user-plus"></i>Registro
-						</a>
-					</li>
-					<li class="menu">
-						<a href="buscar.html">
-							<i class="demo-icon icon-search-1"></i>Buscar
-						</a>
-					</li>
-					<li class="menu">
-						<a href="#">
-							<i class="demo-icon icon-logout-1"></i>Logout
-						</a>
-					</li>
-					<li class="menu">
-						<a href="nueva-entrada.html">
-							<i class="demo-icon icon-doc"></i>Nueva entrada
-						</a>
-					</li>
-			</ul>
+		<ul id="menu">
+			<a href="#descripcion_p">Practica 1</a>
+			<a href="#descripcion_p2">Practica 2</a>
+		</ul>
 		
 	</nav>
 
 	<section id="alumnos">
-
-
-					<h2>Práctica 1 de la asignatura
-					Programación Hipermedia II, que pertenece al 3er curso de la
-					titulación de Ingeniería Multimedia</h2>
 					
 
 					<hr>
@@ -101,9 +63,14 @@
 					</ul>
 
 	</section>
+	
 	<hr>
 	<section id="descripcion_p">
 		
+		<h2>Práctica 1 de la asignatura
+					Programación Hipermedia II, que pertenece al 3er curso de la
+					titulación de Ingeniería Multimedia</h2>
+
 		<h2>Descripcion de la práctica:</h2>
 
 		<h3>-Partes de la práctica que han sido implementadas</h3>
@@ -184,6 +151,127 @@
 			<li><p>Mejora de los formularios</p></li>
 			<li><p>Mejora artistica y de usabilidad de la web</p></li>
 			<li><p>Faltaria mejorar el boton "ir arriba", ya que para ello seria usar javascript o similar</p></li>
+		</ul>
+
+
+	</section>
+
+
+
+
+	
+	<hr>
+	<section id="descripcion_p2">
+
+		<h2>Práctica 2 de la asignatura
+					Programación Hipermedia II, que pertenece al 3er curso de la
+					titulación de Ingeniería Multimedia</h2>
+		
+		<h2>Descripcion de la práctica:</h2>
+
+		<h3>-Partes de la práctica que han sido implementadas</h3>
+
+		<ul>
+			<li><p>Todas las páginas deben pasar la validación satisfactoriamente en http://validator.w3.org.</p></li>
+
+			<li><p>Se debe comprobar si el usuario está logueado (consultando sessionStorage) y hacer los cambios pertinentes en el menú de navegación.</p></li>
+
+			<li><p>Cuando el usuario no está logueado deben aparecer los enlaces para ir a Inicio; para hacer login; para buscar entradas; y para darse de alta como nuevo usuario.</p></li>
+
+			<li><p>Cuando el usuario está logueado, los enlaces para login y para alta de usuario deben desaparecer. Además, estando logueado aparecerá un enlace a la página nueva_entrada.html y un enlace que permita al usuario cerrar la sesión (limpiando la información de sessionStorage),
+			tras lo que será redirigido a index.html.</p></li>
+
+			<li><p>Comprobación de acceso en las páginas para las que se indique.</p></li>
+
+			<li><p>Implementar una alternativa a los input type="date" para que en Firefox el usuario pueda elegir la fecha sin tener que escribirla.
+			Nota: Hacer que el css sea bonito.</p></li>
+						
+			<li>
+
+				<h3>Index.html:</h3>
+				
+				<ul>
+					<li><p>Pedir y mostrar las últimas 6 entradas creadas. Al pinchar en cada una de ellas para ir a entrada.html, el id de la entrada se añadirá a la url del enlace para poder recuperarlo en la página de destino.</p></li>
+
+					<li><p>La zona de últimas entradas tendrá la típica botonera de paginación. En el pie de la zona aparecerán unos botones que permitirán ir a la primera página, a la siguiente, anterior o última. Además, junto a estos botones aparecerá información que le dirá al usuario la página de resultados en la que se encuentra del total, algo así como “Página X de N”.</p></li>
+
+					<li><p>Pedir y mostrar los 10 últimos comentarios escritos por los usuarios.</p></li>
+				</ul>
+
+				<h3>Login.html:</h3>
+				<ul>
+					<li><p>Si el usuario está logueado y se intenta acceder a esta página escribiendo la url en la barra de navegación, se debe redirigir a index.html.</p></li>
+
+					<li><p>El login se hace mediante la correspondiente petición ajax.</p></li>
+
+					<li><p>Si el proceso de login es incorrecto se debe mostrar un mensaje informativo al usuario. El mensaje informativo debe impedir la interacción con el formulario y tendrá un botón que cerrará el mensaje, tras lo que volverá a colocar el foco en el campo login.</p></li>
+
+					<li><p>Si el proceso de login es correcto: i)Se debe utilizar sessionStorage para guardar información del usuario que nos devuelva el servidor. Más tarde, se utilizará esta información para saber si el usuario está logueado. Se recomienda guardar toda la información que nos devuelve el servidor. ii)Se debe mostrar un mensaje de bienvenida al usuario que le informe de la última vez que estuvo conectado. Este mensaje debe impedir interactuar con el formulario y tendrá un botón para que el usuario lo pueda cerrar. Al cerrar este mensaje, se debe redireccionar a la página index.html.</p></li>
+				</ul>
+
+				<h3>Registro.html:</h3>
+				<ul>
+					<li><p>A la hora de introducir el login se debe ir comprobando si está disponible o no y mostrar un mensaje informativo al usuario junto al campo. Para comprobar si el login está disponible o no, se debe preguntar al servidor mediante ajax.</p></li>
+
+					<li><p>Si los campos password y repetir password no tienen el mismo valor, no se debe permitir la acción de registro y se debe mostrar un mensaje informativo junto al campo password o repetir password.</p></li>
+
+					<li><p>Al registrarse un usuario correctamente, se debe mostrar un mensaje en una capa semitransparente con una transición/animación indicando al usuario que el registro se ha efectuado correctamente. Este mensaje debe impedir interactuar con el formulario de registro y tendrá un botón para poder cerrarlo, tras lo que será redirigido a la página login.html.</p></li>
+				</ul>
+
+				<h3>Buscar.html:</h3>
+				<ul>
+					<li><p>Se debe implementar la llamada ajax al servidor para que realice la búsqueda con los valores indicados en el formulario de búsqueda. En el servidor la búsqueda se realiza utilizando el operador AND para combinar las condiciones.</p></li>
+
+					<li><p>Se podrá hacer una búsqueda por título, descripción, autor de la entrada y fecha (desde - hasta).</p></li>
+
+					<li><p>Los resultados de la búsqueda se mostrarán en la zona de resultados. Se recomienda mostrar las fichas como en la página index.html. El usuario podrá pinchar en una ficha, tras lo que será dirigido a entrada.html para ver toda la información de la misma.</p></li>
+				</ul>
+
+				<h3>Entrada.html:</h3>
+				<ul>
+					<li><p>Si en la url no se encuentra el id de la entrada (porque se intenta acceder directamente), se debe redirigir a index.html.</p></li>
+					
+					<li><p>Se utilizará el id de la entrada para realizar una petición ajax al servidor y mostrar toda su información. Además, se harán otras dos peticiones ajax para mostrar tanto las fotos, como los comentarios de los usuarios sobre la entrada.</p></li>
+					
+					<li><p>Carga condicional de contenido utilizando JavaScript y AJAX. 1)Si el usuario no está logueado, el formulario para dejar un comentario no estará disponible, ni siquiera estará oculto en el HTML. En su lugar aparecerá un mensaje con un texto similar a: “Para dejar un comentario debes estar logueado”. En este mensaje, la palabra “logueado” será un enlace que lleve a login.html. 2)Cuando el usuario esté logueado, el html del formulario se obtendrá mediante una llamada ajax y se incluirá en el lugar correspondiente de la página.</p></li>
+
+					<li><p>Guardar comentario. Se debe utilizar una petición ajax para enviar los datos del comentario al servidor. Se debe mostrar un mensaje al usuario mediante una transición/animación indicándole el resultado. Debe tener un botón que permita cerrar el mensaje. El mensaje impedirá que se pueda interactuar con el formulario hasta que se cierre. Si el comentario se guardó correctamente se debe limpiar el formulario y refrescar la lista de comentarios. Si el mensaje no se pudo guardar, tras cerrar el mensaje se devolverá el foco al formulario.</p></li>
+					
+					<li><p>Si el usuario está logueado, para cada comentario aparecerá un botón que permitirá al usuario responder al comentario. Al pinchar en este botón, en el campo “Título” del formulario aparecerá el mensaje “Re: “ acompañado del título del mensaje al que se está respondiendo y el foco se pasará al campo “Texto”.</p></li>
+				</ul>
+
+				<h3>Nueva-entrada.html:</h3>
+				<ul>
+					<li><p>Si se intenta acceder sin estar logueado se debe redirigir a index.html.</p></li>
+
+					<li><p>Al pinchar el botón Añadir foto, se añadirá en la zona de fotos una ficha en blanco para subir una foto. Recordad que en cada 
+					ficha aparecerá un elemento img que mostrará la foto en pequeño, un elemento textarea para escribir una descripción, un botón que abrirá el típico diálogo para poder seleccionar el fichero de la </p></li>
+
+					<li><p>Debe aparecer un mensaje avisando al usuario que el tamaño máximo de archivo es 500KB. Al seleccionar un fichero la foto se mostrará en el elemento img de la correspondiente ficha.</p></li>
+
+					<li><p>Para crear una nueva entrada primero se envían los datos de la entrada mediante AJAX. Si todo ha ido bien (respuesta correcta del servidor) y se ha creado la entrada, entonces se enviarán las fotos una a una. Todo ello se hace mediante llamadas ajax. El servidor rest copiará las fotos subidas a la carpeta fotos. Cada foto se guardará con su id como nombre y la extensión del fichero subido.</p></li>
+					
+					<li><p>Al crear una nueva entrada y confirmar que todo ha finalizado correctamente, se debe mostrar el típico mensaje informativo sobre una capa semitransparente, superpuesta sobre toda la página, que impida interactuar con el formulario. El mensaje deberá tener un botón para que el usuario pueda cerrarlo, tras lo que será redirigido a index.html.</p></li>
+
+					<li><p>Si se intenta acceder sin estar logueado se debe redirigir a index.html.</p></li>
+				</ul>
+			</li>
+		</ul>
+
+		<h3>Incompatibilidades y Problemas</h3>
+		<ul>
+			<li><p>Nueva Entrada: botón para poder eliminar la ficha del formulario. Cuando la ficha está vacía, debe aparecer la típica imagen que indica que no hay foto seleccionada.</p></li>
+
+			<li><p>Nueva Entrada: Se deberá comprobar que su tamaño no exceda los 500KB. Si su tamaño es mayor de 500KB, se mostrará un mensaje sobre la imagen de la ficha indicando el error. Además, se destacará la ficha de las demás mediante css poniendo, por ejemplo, el borde de la ficha en rojo.</p></li>
+
+			<li><p>Busqueda: Los resultados de la búsqueda se mostrarán paginados. El funcionamiento de la paginación será el mismo que el implementado en index.html pero, lógicamente, con respecto a los resultados de la búsqueda.</p></li>
+		</ul>
+
+
+
+		<h3>Mejoras e implementaciones adicionales</h3>
+		<ul>
+			<li><p>Alternativa a los input type="date" -> Faltaria hacerlo mas bonito, en formato de tres casillas.</p></li>
 		</ul>
 
 
