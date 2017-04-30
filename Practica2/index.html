@@ -29,7 +29,7 @@
 		
 	</header>
 	<div id="separador"></div>
-	<input type="checkbox" id="ckb-menu">
+	<input style="display: none" type="checkbox" id="ckb-menu">
 	<nav>
 			
 		
@@ -41,9 +41,9 @@
 	</nav>
 
 
-		<section id="entradas" class="menos" >
+		<section  class="menos" >
 		<h2>Entradas</h2>
-		<div>
+		<div id="entradas"> 
 			
 		</div>
 		</section>
@@ -57,7 +57,7 @@
 					<li onclick="return mostrarentradas(-1)">
 						<a> &lt; </a>
 					</li>
-					<span id=paginacion> </span>
+					<li id=paginacion> </li>
 					<li onclick="return mostrarentradas(1)">
 						<a>   >   </a>
 					</li>

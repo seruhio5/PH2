@@ -29,7 +29,7 @@
 		
 	</header>
 	<div id="separador"></div>
-	<input type="checkbox" id="ckb-menu">
+	<input style="display: none" type="checkbox" id="ckb-menu">
 	<nav>
 			
 		
@@ -57,12 +57,13 @@
 			        <textarea name="descripcion" class="field-long" cols="30" rows="5" maxlength="200" required=""></textarea>
 			    </li>
 
-			    <a href="" onclick="return anyadirfoto(0);">Añadir foto</a>
+			    <li><a href="" onclick="return anyadirfoto(0);">Añadir foto</a>
 
 			    <div id="foto_entrada0">
 			    	
 			    </div>
 			    <span id="error_foto"></span>
+			    </li>
 
 			    <li>
 			        <input type="submit" value="Crear Entrada" />

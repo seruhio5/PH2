@@ -47,7 +47,10 @@ header{
     color: #89c4d1;
     text-align: center;
 }
-
+#paginacion{
+    background-color:white; 
+    width:4em; 
+}
  body>nav>ul>li:first-of-type>label{ /*Primer hijo del tipo li*/
             
             display: inline-block;
@@ -69,6 +72,7 @@ header{
                 border-radius: 0.4em;
                 background: #333;
             }
+}
 
 /*MENU HAMBURGUESA*/
 

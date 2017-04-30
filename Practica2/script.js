@@ -55,13 +55,13 @@ function mostrarentradas_inicio(){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
 			} //End for
 
-			document.querySelector('h2+div').innerHTML = html;
+			document.getElementById('entradas').innerHTML = html;
 		}//end if
 	}
 	xhr.send();
@@ -93,13 +93,13 @@ function mostrarentradas_final(){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
 			} //End for
 
-			document.querySelector('h2+div').innerHTML = html;
+			document.getElementById('entradas').innerHTML = html;
 		}//end if
 	}
 	xhr.send();
@@ -137,13 +137,13 @@ function mostrarentradas(num){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
 			} //End for
 
-			document.querySelector('h2+div').innerHTML = html;
+			document.getElementById('entradas').innerHTML = html;
 		}//end if
 	}
 	xhr.send();
@@ -153,14 +153,14 @@ function mostrarentradas(num){
 function paginacion(){
 	console.log("Paginas totales metodo paginacion: "+pag2);
 	let html= '';
-	html += ' Página '+(pag+1)+' de '+(pag2)+' ';
+	html += ' '+(pag+1)+' de '+(pag2)+' ';
 	document.getElementById('paginacion').innerHTML = html;
 }
 function mostrarentrada(){
 	var id = getParameterByName('entrada');
 	console.log(id);
 	if(id!=null && id!=""){
-	let xhr = new XMLHttpRequest(),
+		let xhr = new XMLHttpRequest(),
 		url = 'http://localhost/PH2/Practica2/rest/entrada/';
 
 	xhr.open('GET', url, true);
@@ -181,7 +181,7 @@ function mostrarentrada(){
 					html += '<article>'
 					html +=	'<h3>'+ e.nombre + '</h3>'
 					html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-					html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+					html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 					//html +=	'<div>'
 					//html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
 					html +=	'<p>' + e.descripcion + '</p>'
@@ -202,7 +202,7 @@ function mostrarentrada(){
 	}
 	else
 		{
-			window.location="http://localhost/PH2/Practica2/index.html";
+			//window.location="http://localhost/PH2/Practica2/index.html";
 		}
 	return false;
 }
@@ -235,7 +235,7 @@ function mostrarcomentarios(){
 				html += '<article>'
 
 				html +=	'<h3><i class="demo-icon icon-user"></i> '+ e.login +' </h3>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				//html +=	'<div>'
 				//html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
 				//html +=		'<p>' + e.descripcion + '</p>'
@@ -276,7 +276,7 @@ function mostrarcomentariosid(){
 				html += '<article>'
 				
 				html +=	'<h3><i class="demo-icon icon-user"></i> '+ e.login +' </h3>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				//html +=	'<div>'
 				//html +=		'<img src="' + foto + '" alt="' + e.descripcion + '">'
 				//html +=		'<p>' + e.descripcion + '</p>'
@@ -1051,7 +1051,7 @@ function Busqueda(frm){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
@@ -1117,7 +1117,7 @@ function mostrarentradas_inicio_b(){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
@@ -1139,8 +1139,7 @@ function mostrar_piedepagina(){
 	html+='<li onclick="return mostrarentradas_b(-1)">';
 	html+='<a> &lt; </a>';
 	html+='</li>';
-	html+='<span id=paginacion> </span>';
-	html+='<span id=paginacion> </span>';
+	html+='<li id=paginacion> </li>';
 	html+='<li onclick="return mostrarentradas_b(1)">';
 	html+='<a>   >   </a>';
 	html+='</li>';
@@ -1175,7 +1174,7 @@ function mostrarentradas_final_b(){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
@@ -1219,7 +1218,7 @@ function mostrarentradas_b(num){
 				html += 	'<aside><a href="entrada.html?entrada=' +e.id+ '">Ver más</a></aside>'
 				html +=	'</div>'
 				html +=		'<p><i class="demo-icon icon-user"></i> '+ e.login +'</p>'
-				html +=		'<time><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</time>'
+				html +=		'<p><i class="demo-icon icon-calendar"></i> ' + e.fecha + '</p>'
 				html +=		'<p><i class="demo-icon icon-comment-empty"></i> Numero de comentarios: ' + e.ncomentarios + '</p>'
 				html +=		'<p><i class="demo-icon icon-picture"></i> Numero de fotos: '+ e.nfotos+' </p>'
 				html +='</article>'
@@ -1311,7 +1310,7 @@ function anyadirfoto(id){
 		html+='<label>Foto <span class="required">*</span></label>';	
 		html+='<input id="uploadImage" type="file" name="foto" class="field-long" required="" onchange="PreviewImage();" />';
 		html+='<p>El tamaño máximo de una foto puede ser 500KB.</p>';
-		html+='<img id="uploadPreview" style="width: 100px; height: 100px;" />';
+		html+='<img id="uploadPreview" style="width: 100px; height: 100px;" alt="" />';
 		html+='</li>';
 		html+='<li>';
 		html+='<label>Descripcion de la foto <span class="required">*</span></label>';
