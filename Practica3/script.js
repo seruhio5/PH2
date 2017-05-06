@@ -1,3 +1,5 @@
+var player1;
+var player2;
 //guardamos los nombres de los dos jugadores en sessionstorage
 function guardarNombres(frm){
 
@@ -9,6 +11,48 @@ function guardarNombres(frm){
 	mostrarBotonJuego();
 
 	return false
+}
+function mostrarFormu(){
+	let html= '';
+	if(sessionStorage['player1']!=undefined && sessionStorage['player2']!=undefined){
+		html += '<form onsubmit="return guardarNombres(this);">'
+		html +=	'<ul class="formu">'
+		html +=	'<li>'
+		html +=	'<label>Jugador 1 <span class="required">*</span></label>'
+		var p1=sessionStorage['player1'];
+		html +=	'<input type="text" value="'+p1+'" name="player1" class="field-long" required="" autofocus=""/>'
+		html += '</li>'
+		html +=	'<li>'
+		html +=	'<label>Jugador 2 <span class="required">*</span></label>'
+		var p2=sessionStorage['player2'];
+		html +=	'<input type="text" value="'+p2+'" name="player2" class="field-long" required="" />'
+		html +=	'</li>'
+		html +=	'<li>'
+		html += '<input type="submit" value="Guardar Jugadores" />'
+		html += '</li>'
+		html += '</ul>'
+		html += '</form>'
+		document.getElementById("formu").innerHTML=html;
+	}
+	else
+	{
+		html += '<form onsubmit="return guardarNombres(this);">'
+		html +=	'<ul class="formu">'
+		html +=	'<li>'
+		html +=	'<label>Jugador 1 <span class="required">*</span></label>'
+		html +=	'<input type="text" placeholder="Jugador1" name="player1" class="field-long" required="" autofocus=""/>'
+		html += '</li>'
+		html +=	'<li>'
+		html +=	'<label>Jugador 2 <span class="required">*</span></label>'
+		html +=	'<input type="text" placeholder="Jugador2" name="player2" class="field-long" required="" />'
+		html +=	'</li>'
+		html +=	'<li>'
+		html += '<input type="submit" value="Guardar Jugadores" />'
+		html += '</li>'
+		html += '</ul>'
+		html += '</form>'
+		document.getElementById("formu").innerHTML=html;
+	}	
 }
 function mostrarBotonJuego(){
 	let html="";

@@ -13,7 +13,7 @@
 
 	<title>Inicio</title>
 </head>
-<body>
+<body onload="mostrarFormu();">
 
 	<header>
 
@@ -29,24 +29,7 @@
 
 	<section id="content_login">
 		<h2>Nombres de los jugadores</h2>
-		<form onsubmit="return guardarNombres(this);">
-			<ul class="formu" >
-			    
-			    <li>
-			        <label>Jugador 1 <span class="required">*</span></label>
-			        <input type="text" placeholder="Jugador1" name="player1" class="field-long" required="" autofocus=""/>
-			    </li>
-
-			    <li>
-			        <label>Jugador 2 <span class="required">*</span></label>
-			        <input type="text" placeholder="Jugador2" name="player2" class="field-long" required="" />
-			    </li>
-			    
-			    <li>
-			        <input type="submit" value="Guardar Jugadores" />
-			    </li>			    
-			</ul>
-		</form>
+		<span id="formu"></span>
 	</section>
 
 	<div id="boton_juego"></div>
