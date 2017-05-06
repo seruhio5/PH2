@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="CSS.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <title>Sobre Nosotros</title>
+</head>
+<body>
+
+	<header>
+
+			<a href="index.html"><img id="logo" src="logoph2.png" width="300" height="150"  alt="logo"></a>
+		
+			<h1 id=descripcion>
+				Descripcion y nombre del juego.
+			</h1>	
+		
+	</header>
+	<div id="separador"></div>
+
+	<section id="alumnos">
+					<ul>
+						<li id="s">
+						<h2>Sergio Molero García</h2>
+						<p>DNI: 74369812W</p>
+						<p>Grupo: 3</p>
+						<p>sergiomolero5@gmail.com</p>
+						</li>
+
+						<li id="f">
+						<h2>Francisco Jose Lavale Narciso</h2>
+						<p>DNI: 74380399D</p>
+						<p>Grupo: 3</p>
+						<p>babioca7@hotmail.com</p>
+						</li>
+					</ul>
+
+	</section>
+	
+	<hr>
+	<section id="descripcion_p">
+		
+		<h2>Práctica 1 de la asignatura
+					Programación Hipermedia II, que pertenece al 3er curso de la
+					titulación de Ingeniería Multimedia</h2>
+
+		<h2>Descripcion de la práctica:</h2>
+
+		<h3>-Partes de la práctica que han sido implementadas</h3>
+
+		<ul>
+			<li><p>Todas las páginas han pasado la validación satisfactoriamente en http://validator.w3.org. El html a validar incluye el contenido generado con JavaScript.</p></li>
+			<li><p>Cabecera con: logotipo, nombre/título del sitio web y un pequeño texto explicativo del objetivo del sitio.</p></li>
+			<li><p>Barra de navegación con todos los enlaces.</p></li>
+			<li><p>Al pasar el ratón por encima de un enlace, éste deberá destacarse de los demás de alguna manera mediante CSS.</p></li>
+			<li><p>Pie con información de contacto.</p></li>
+			<li><p>Formularios: El campo que recibe el foco debe destacarse de los demás de alguna manera mediante CSS. Al pasar el ratón por encima de un campo, éste deberá destacarse de los demás de alguna manera mediante CSS.</p></li>
+			<li><p>En las reglas css, utilizar pseudo-elementos y pseudo-clases en combinación con los selectores CSS3 siempre que sea posible, reduciendo de esta manera el uso de identificadores y clases.</p></li>
+			<li><p>Uso de Web Fonts.</p></li>
+			<li><p>Uso de Icon Fonts</p></li>
+			<li><p>Realizar un diseño responsive basado en la técnica Mobile First.</p></li>
+			
+			<li>
+
+				<h3>Index.html:</h3>
+				
+				<ul>
+					<li><p>Últimas 6 entradas.</p></li>
+					<li><p>Al pasar el ratón por encima de la foto, aparecerá sobre ella el texto descriptivo de la entrada (sin salirse de la ficha), junto a un enlace Ver más...</p></li>
+					<li><p>La zona de últimas entradas tendrá un pie para la paginación de entradas.</p></li>
+					<li><p>Últimos 10 comentarios de los usuarios: Si el título de la entrada y/o el del comentario ocupa más de una línea, con css se deberá cortar y mostrar puntos suspensivos al final de la línea.</p>	</li>
+				</ul>
+
+				<h3>Login.html:</h3>
+				<ul>
+					<li><p>Se deben utilizar las etiquetas y atributos HTML5 para su validación.</p></li>
+					<li><p>Ninguno de los dos campos puede quedar vacío.</p></li>
+					<li><p>El campo de login debe tener el foco al cargar la página.</p></li>
+					<li><p>El login no debe contener espacios en blanco. Sólo se podrán utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número.</p></li>
+				</ul>
+
+				<h3>Registro.html:</h3>
+				<ul>
+					<li><p>Se deben utilizar las etiquetas y atributos HTML5 para su validación.</p></li>
+					<li><p>Ninguno de los campos puede quedar vacío.</p></li>
+					<li><p>El campo de login debe tener el foco al cargar la página.</p></li>
+					<li><p>El login no debe contener espacios en blanco y su longitud no puede ser mayor de 20 caracteres. Sólo se podrán utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número.</p></li>
+					<li><p>El password no debe tener espacios en blanco y sólo se pueden utilizar letras mayúsculas, minúsculas, números y los caracteres “_” y “-”. Su longitud no puede ser mayor de 20 caracteres</p></li>
+				</ul>
+
+				<h3>Buscar.html:</h3>
+				<ul>
+					<li><p>Cuando se carga la página, el formulario de búsqueda aparecerá vacío y en la zona de resultados se mostrarán las últimas 10 entradas dadas de alta. Para cada entrada se mostrarán los mismos datos que en la página index.html</p></li>
+				</ul>
+
+				<h3>Entrada.html:</h3>
+				<ul>
+					<li><p>Se debe mostrar toda la información de la entrada: fecha de alta, título, texto descriptivo completo, número de fotos, número de comentarios de los usuarios y autor. Tanto la información sobre el número de fotos, como la información sobre el número de comentarios serán enlaces a las correspondientes secciones en la página.</p></li>
+					<li><p>Zona de fotografías de la entrada. Cada una de ellas se mostrará con su texto explicativo asociado y un número de orden (1, 2, 3, …).</p></li>
+					<li><p>También se deben mostrar todos los comentarios realizados por losusuarios sobre la entrada, ordenados de más reciente a más antiguo. Para cada comentario aparecerá el autor, la fecha (en formato martes, 14/02/2017, 09:32h), el título, el texto y un botón/enlace que permitirá, a un usuario logueado, responder al mismo. Al pinchar en el botón de responder nos llevará al formulario para dejar un comentario</p></li>
+					<li><p>Debe haber un formulario que permita al usuario logueado escribir un comentario sobre la entrada. Este formulario tendrá un campo de texto para que el usuario escriba el título y un campo textarea para el texto del comentario. El título del comentario no permitirá más de 50 caracteres y ninguno de los dos campos podrá quedar vacío.</p></li>
+				</ul>
+
+				<h3>Nueva-entrada.html:</h3>
+				<ul>
+					<li><p>La página deberá mostrar un formulario con los siguientes campos: título (input de tipo texto) y descripción, que será un elemento textarea.</p></li>
+					<li><p>Además, habrá una zona en la que se podrán seleccionar las fotos que asociadas a la entrada. En esta zona aparecerá un botón Añadir foto, que permitirá (en la práctica 2) seleccionar el o los ficheros de fotos que se quieran subir. Para cada foto debe aparecer: un elemento img, que mostrará la foto en pequeño; un elemento textarea, para escribir una descripción; un botón que abrirá el típico diálogo para poder seleccionar el fichero de la foto; y un botón para poder eliminar la foto del formulario.</p></li>
+					<li><p>Además del botón para poder añadir más fotos, el formulario tendrá otro para enviar los datos del formulario.</p></li>
+					<li><p>Mediante los atributos de HTML5, para los elementos del formulario se deberá controlar lo siguiente: 1) Ningún campo se puede dejar en blanco. 2) El título del viaje admite como máximo 200 caracteres.</p>		</li>
+				</ul>
+			</li>
+		</ul>
+
+		<h3>Incompatibilidades y Problemas</h3>
+		<ul>
+			<li><p>La parte fija del "menú hamburguesa" no hemos podido implementarla, pero hemos puesto un boton para ir al inicio de la pagina en cuestion</p></li>
+			<li><p>(Buscar.html) El type date no funciona en todos los navegadores, y aparte nos da dos warnings (polyfill) y que no sabemos como usar eso.</p></li>
+			<li><p>Hay algunos warnigns de idiomas que no sabemos muy bien porque salen</p></li>
+		</ul>
+
+
+
+		<h3>Mejoras e implementaciones adicionales</h3>
+		<ul>
+			<li><p>Mejora de los formularios</p></li>
+			<li><p>Mejora artistica y de usabilidad de la web</p></li>
+			<li><p>Faltaria mejorar el boton "ir arriba", ya que para ello seria usar javascript o similar</p></li>
+		</ul>
+
+
+	</section>
+
+	<a href="#"><img id="arriba" src="https://ugc.kn3.net/i/origin/http://2.bp.blogspot.com/_U8ODEZi-HMk/TTiZIebtWkI/AAAAAAAAASI/Omatvm1ouVA/s1600/1295550917_go-up.png" title="Ir arriba" alt="arriba"/></a>
+</body>
+</html>

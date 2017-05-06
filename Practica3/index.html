@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="CSS.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <script src="script.js"></script>
+
+	<title>Inicio</title>
+</head>
+<body>
+
+	<header>
+
+			<a href="index.html"><img id="logo" src="logoph2.png" alt="logo"></a>
+		
+			<h1 id=descripcion>
+				Descripcion y nombre del juego.
+			</h1>	
+		
+	</header>
+
+	<!-- Formulario de login -->
+
+	<section id="content_login">
+		<h2>Nombres de los jugadores</h2>
+		<form onsubmit="return guardarNombres(this);">
+			<ul class="formu" >
+			    
+			    <li>
+			        <label>Jugador 1 <span class="required">*</span></label>
+			        <input type="text" placeholder="Jugador1" name="player1" class="field-long" required="" autofocus=""/>
+			    </li>
+
+			    <li>
+			        <label>Jugador 2 <span class="required">*</span></label>
+			        <input type="text" placeholder="Jugador2" name="player2" class="field-long" required="" />
+			    </li>
+			    
+			    <li>
+			        <input type="submit" value="Guardar Jugadores" />
+			    </li>			    
+			</ul>
+		</form>
+	</section>
+
+	<div id="boton_juego"></div>
+
+	<hr>
+	<footer>
+		
+        
+			<p>
+				&copy; Sergio Molero Garcia y Francisco Jose Lavale Narciso - <a href="acerca.html">Acerca de los autores</a> - <time datetime="2017">Año 2017</time>
+			</p>
+   
+	</footer>
+	
+</body>
+</html>

@@ -1,0 +1,66 @@
+/*----------------------------------------------------Formulario---------------------------------------------------------------*/
+input:focus{
+	color:#DA00FF;
+}
+input:hover{
+	background-color: pink;
+}
+
+.formu {
+    margin-top: 10em;
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+}
+.formu li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.formu label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.formu input[type=text],
+.formu input[type=password]
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    outline: none;  
+}
+.formu input[type=email]:focus,
+.formu input[type=text]:focus,
+.formu input[type=password]:focus,
+.formu textarea:focus, 
+.formu select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+
+.formu .field-long{
+    width: 100%;
+}
+.formu input[type=submit], .formu input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.formu input[type=submit]:hover, .formu input[type=button]:hover{
+    background: #DA00FF;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.formu .required{
+    color:red;
+}
