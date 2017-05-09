@@ -59,9 +59,35 @@ function mostrarBotonJuego(){
 	html += '<a href="juego.html">Ir al juego</a>';
 	document.getElementById("boton_juego").innerHTML=html;
 }
+
+//-------------------------------FIN DE INDEX--------------------------------------------------------
 function mostrarNombres(){
 	let html="";
 	html += '<p>Jugador 1: '+sessionStorage['player1']+'</p>';
 	html += '<p>Jugador 2: '+sessionStorage['player2']+'</p>';
 	document.getElementById("players").innerHTML=html;
+}
+function comprobar(){
+	if((sessionStorage.getItem('player1')==null || sessionStorage.getItem('player1')=="") && (sessionStorage.getItem('player2')==null || sessionStorage.getItem('player2')=="")){
+		window.location="http://localhost/PH2/Practica3/index.html";
+	}
+}
+
+var face0=new Image()
+face0.src="fotos/dado1.png"
+var face1=new Image()
+face1.src="fotos/dado2.png"
+var face2=new Image()
+face2.src="fotos/dado3.png"
+var face3=new Image()
+face3.src="fotos/dado4.png"
+var face4=new Image()
+face4.src="fotos/dado5.png"
+var face5=new Image()
+face5.src="fotos/dado6.png"
+
+function lanzar()
+{
+   var randomdice=Math.round(Math.random()*5);
+   document.images["mydice"].src=eval("face"+randomdice+".src");
 }
