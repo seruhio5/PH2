@@ -13,7 +13,7 @@
 
 	<title>Juego</title>
 </head>
-<body onload="mostrarNombres();comprobar();">
+<body onload="mostrarNombres();comprobar();dibujarCampo();"">
 
 	<div id="players"></div>
 
@@ -23,6 +23,13 @@
     <input type="button" value="Lanza dado" onClick="lanzar()">
     </form>
 
+
+    <section>
+        <h2>Canvas 1</h2>
+        <canvas id="cv01" width="1024" height="512" onmousemove="mouse_move(event);" onclick="mouse_click(event);"></canvas>
+    </section>
+
+
     <img src="circulorojo.svg" alt="Círculo" />
     <img src="circulorojo.svg" alt="Círculo" />
     <img src="circulorojo.svg" alt="Círculo" />
@@ -31,9 +38,9 @@
 
     <img src="circuloverde.svg" alt="Círculo" /> 
     <img src="circuloverde.svg" alt="Círculo" />
-     <img src="circuloverde.svg" alt="Círculo" />
-      <img src="circuloverde.svg" alt="Círculo" />
-       <img src="circuloverde.svg" alt="Círculo" />
+    <img src="circuloverde.svg" alt="Círculo" />
+    <img src="circuloverde.svg" alt="Círculo" />
+    <img src="circuloverde.svg" alt="Círculo" />
 	
 </body>
 </html>
