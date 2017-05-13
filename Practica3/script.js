@@ -69,7 +69,7 @@ function mostrarNombres(){
 }
 function comprobar(){
 	if((sessionStorage.getItem('player1')==null || sessionStorage.getItem('player1')=="") && (sessionStorage.getItem('player2')==null || sessionStorage.getItem('player2')=="")){
-		window.location="http://localhost/PH2/Practica3/index.html";
+		window.location="./PH2/Practica3/index.html";
 	}
 }
 
@@ -96,45 +96,42 @@ function lanzar()
 /********************************Canvas*************************************/
 function dibujarCampo(){
 	let cv = document.getElementById("cv01"),
-		ctx = cv.getContext("2d"),
+		ctx = cv.getContext("2d"),port1 = cv.getContext("2d"),port2 = cv.getContext("2d"),
 		dim = cv.width/20;
 
 	ctx.beginPath();
 	ctx.lineWidth = 2;
 	ctx.strokeStyle = '#000';
-
-	for(let i=0;i<=20;i++){
-		if(i==0)
-		{
-			//Lineas verticales
-			ctx.moveTo(i*dim, 0);
-			ctx.lineTo(i*dim, cv.height);
-			//Lineas horizontales
-			ctx.moveTo(0, i*dim);
-			ctx.lineTo(cv.height*3, i*dim);
-		}
-		else if(i==20)
-		{
-			//Lineas verticales
-			ctx.moveTo(i*dim, 0);
-			ctx.lineTo(i*dim, cv.height);
-			//Lineas horizontales
-			ctx.moveTo(0, i*dim);
-			ctx.lineTo(cv.height*3, i*dim);
-		}
-		else{
-		//Lineas verticales
-		ctx.moveTo(i*dim, 0);
-		ctx.lineTo(i*dim, cv.height);
-		//Lineas horizontales
-		ctx.moveTo(0, i*dim);
-		ctx.lineTo(cv.height*3, i*dim);
-		}
-
-	}
-
 	ctx.fillStyle="#32CD32";
-	ctx.fillRect(0,0,cv.width,cv.height);
+	
+	ctx.fillRect(dim,0,cv.width-dim*2,cv.height);
+	
+	port1.fillStyle="#B0B0B0";
+	port1.fillRect(0,dim*3,dim,dim*3);
+	port2.fillStyle="#B0B0B0";
+	port2.fillRect(cv.width-dim,dim*3,dim,dim*3);
+	for(let i=1;i<=19;i++){
+		
+		//Lineas verticales
+		
+			ctx.moveTo(i*dim, 0);
+			ctx.lineTo(i*dim, cv.height);
+		
+		//Lineas horizontales
+		if(i>2&&i<7){
+			ctx.moveTo(0,i*dim);
+			ctx.lineTo(cv.height*2+dim*2,i*dim);
+		}else{
+			ctx.moveTo(dim, i*dim);
+			ctx.lineTo(cv.height*2+dim, i*dim);
+		}
+	}
+			ctx.moveTo(0, dim*3);
+			ctx.lineTo(0, cv.height-dim*3);
+			ctx.moveTo(20*dim, dim*3);
+			ctx.lineTo(20*dim, cv.height-dim*3);
+
+
 	ctx.stroke();
 }
 
@@ -166,6 +163,14 @@ function mouse_click(e){
 		fila=9;
 	if(columna>=20)
 		columna=20;
+	if(fila>5&&columna==0)
+		fila=5;
+	if(fila<3&&columna==0)
+		fila=3;
+	if(fila>5&&columna==19)
+		fila=5;
+	if(fila<3&&columna==19)
+		fila=3;
 
 	//console.log(`Posicion: ${x} - ${y}`);
 	console.log(`Fila: ${fila} -  columna: ${columna}`);
