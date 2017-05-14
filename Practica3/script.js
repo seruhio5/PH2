@@ -65,11 +65,12 @@ function mostrarNombres(){
 	let html="";
 	html += '<p>Jugador 1: '+sessionStorage['player1']+'</p>';
 	html += '<p>Jugador 2: '+sessionStorage['player2']+'</p>';
+	html += '<p>Dado: '+sessionStorage['dado']+'</p>';
 	document.getElementById("players").innerHTML=html;
 }
 function comprobar(){
 	if((sessionStorage.getItem('player1')==null || sessionStorage.getItem('player1')=="") && (sessionStorage.getItem('player2')==null || sessionStorage.getItem('player2')=="")){
-		window.location="./PH2/Practica3/index.html";
+		window.location="./index.html";
 	}
 }
 
@@ -85,11 +86,11 @@ var face4=new Image()
 face4.src="fotos/dado5.png"
 var face5=new Image()
 face5.src="fotos/dado6.png"
-
 function lanzar()
 {
    var randomdice=Math.round(Math.random()*5);
    document.images["mydice"].src=eval("face"+randomdice+".src");
+   sessionStorage["dado"]=randomdice+1;
 }
 
 
@@ -130,6 +131,66 @@ function dibujarCampo(){
 			ctx.lineTo(0, cv.height-dim*3);
 			ctx.moveTo(20*dim, dim*3);
 			ctx.lineTo(20*dim, cv.height-dim*3);
+			ctx.stroke();
+
+			//Lineas del campo en rojo
+			ctx.beginPath();
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = '#FF0040';
+			ctx.moveTo(dim,0);
+			ctx.lineTo(dim, cv.height);
+
+			ctx.moveTo(19*dim,0);
+			ctx.lineTo(19*dim, cv.height);
+
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.lineWidth = 6;
+			ctx.moveTo(dim,0);
+			ctx.lineTo(cv.height*2+dim,0);
+
+			ctx.moveTo(dim,9*dim);
+			ctx.lineTo(cv.height*2+dim,9*dim);
+
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.strokeStyle = '#FFFFFF';
+			ctx.lineWidth = 5;
+			ctx.moveTo(10*dim,0);
+			ctx.lineTo(10*dim, cv.height);
+
+			//Lineas de las porterias en rojo
+			//PI
+			ctx.moveTo(dim,2*dim);
+			ctx.lineTo(4*dim, 2*dim);
+			ctx.lineTo(4*dim,7*dim);
+			ctx.lineTo(dim,7*dim);
+			//PD
+			ctx.moveTo(19*dim,2*dim);
+			ctx.lineTo(16*dim, 2*dim);
+			ctx.lineTo(16*dim,7*dim);
+			ctx.lineTo(19*dim,7*dim);
+
+			//Circulos
+			//central
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(10*dim, 4.5*dim, 50, 0,2*Math.PI, false);
+			ctx.stroke();
+			//CI
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(4*dim, 4.5*dim, 50, 3*Math.PI/2,Math.PI/2, false);
+			ctx.stroke();
+			//CD
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(16*dim, 4.5*dim, 50, 3*Math.PI/2,Math.PI/2, true);
+			ctx.stroke();
+
+
+
+
 
 
 	ctx.stroke();
@@ -185,4 +246,13 @@ function mouse_click(e){
 	ctx.lineWidth = 4;
 	ctx.strokeRect(columna*dim, fila*dim,dim, dim)
 
+
+	if(ficha){
+
+	}
+}
+
+var ficha=false;
+function colocarficha(){
+	ficha=true;
 }
