@@ -2,7 +2,7 @@
  width="80" height="80">
  <circle
  cx="40" cy="40"
- r="25"
+ r="20"
  fill="#a00"
  stroke="#234"
  stroke-width="5px"

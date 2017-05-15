@@ -1,5 +1,9 @@
 var player1;
 var player2;
+var imgr = new Image();
+var imgv = new Image();
+	imgr.src ="./circulorojo.svg";
+	imgv.src ="./circuloverde.svg";
 //guardamos los nombres de los dos jugadores en sessionstorage
 function guardarNombres(frm){
 
@@ -11,6 +15,11 @@ function guardarNombres(frm){
 	mostrarBotonJuego();
 
 	return false
+}
+//inicializar marcador
+function marcador(){
+	sessionStorage['goles1']=0;
+	sessionStorage['goles2']=0;
 }
 function mostrarFormu(){
 	let html= '';
@@ -66,6 +75,7 @@ function mostrarNombres(){
 	html += '<p>Jugador 1: '+sessionStorage['player1']+'</p>';
 	html += '<p>Jugador 2: '+sessionStorage['player2']+'</p>';
 	html += '<p>Dado: '+sessionStorage['dado']+'</p>';
+	html += '<p>Marcador: '+sessionStorage['goles1']+' - '+sessionStorage['goles2']+'</p>';
 	document.getElementById("players").innerHTML=html;
 }
 function comprobar(){
@@ -195,7 +205,7 @@ function dibujarCampo(){
 
 	ctx.stroke();
 }
-
+/*
 function mouse_move(e){
 	let cv 		= e.target,
 		dim 	= cv.width/20,
@@ -206,8 +216,7 @@ function mouse_move(e){
 
 	console.log(`Posicion: ${x} - ${y}`);
 	console.log(`Fila: ${fila} -  columna: ${columna}`);
-}
-
+}*/
 function mouse_click(e){
 	let cv 		= e.target,
 		dim 	= cv.width/20,
@@ -233,22 +242,26 @@ function mouse_click(e){
 	if(fila<3&&columna==19)
 		fila=3;
 
+
+
 	//console.log(`Posicion: ${x} - ${y}`);
 	console.log(`Fila: ${fila} -  columna: ${columna}`);
 
 	//Se limpia el canvas para pintar todo otra vez
-	cv.width = cv.width;
-	dibujarCampo();
+	//cv.width = cv.width;
+	//dibujarCampo();
 
 	let ctx = cv.getContext('2d');
 	ctx.beginPath();
-	ctx.strokeStyle = '#a00';
-	ctx.lineWidth = 4;
-	ctx.strokeRect(columna*dim, fila*dim,dim, dim)
 
-
-	if(ficha){
-
+	if(columna>=0 && columna<=9){
+		sessionStorage["ficha1x"]=(columna*dim-dim/4)-2;
+		sessionStorage["ficha1y"]=(fila*dim-dim/4)-2;
+		ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+		console.log(sessionStorage["ficha1x"]+'-'+sessionStorage["ficha1y"]);
+	}
+	if(columna>=10 && columna<=19){
+		ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 	}
 }
 
