@@ -101,6 +101,7 @@ function lanzar()
    var randomdice=Math.round(Math.random()*5);
    document.images["mydice"].src=eval("face"+randomdice+".src");
    sessionStorage["dado"]=randomdice+1;
+   mostrarNombres();
 }
 
 
@@ -217,6 +218,10 @@ function mouse_move(e){
 	console.log(`Posicion: ${x} - ${y}`);
 	console.log(`Fila: ${fila} -  columna: ${columna}`);
 }*/
+
+var cont_p1=0;
+var cont_p2=0;
+
 function mouse_click(e){
 	let cv 		= e.target,
 		dim 	= cv.width/20,
@@ -254,14 +259,86 @@ function mouse_click(e){
 	let ctx = cv.getContext('2d');
 	ctx.beginPath();
 
-	if(columna>=0 && columna<=9){
-		sessionStorage["ficha1x"]=(columna*dim-dim/4)-2;
-		sessionStorage["ficha1y"]=(fila*dim-dim/4)-2;
-		ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-		console.log(sessionStorage["ficha1x"]+'-'+sessionStorage["ficha1y"]);
+	/*ctx.drawImage(imgr, sessionStorage["ficha1_inicial_p1x"], sessionStorage["ficha1_inicial_p1y"]);
+	ctx.drawImage(imgr, sessionStorage["ficha2_inicial_p1x"], sessionStorage["ficha2_inicial_p1y"]);
+	ctx.drawImage(imgr, sessionStorage["ficha3_inicial_p1x"], sessionStorage["ficha3_inicial_p1y"]);
+	ctx.drawImage(imgr, sessionStorage["ficha4_inicial_p1x"], sessionStorage["ficha4_inicial_p1y"]);
+	ctx.drawImage(imgr, sessionStorage["ficha5_inicial_p1x"], sessionStorage["ficha5_inicial_p1y"]);
+
+	ctx.drawImage(imgv, sessionStorage["ficha1_inicial_p2x"], sessionStorage["ficha1_inicial_p2y"]);
+	ctx.drawImage(imgv, sessionStorage["ficha2_inicial_p2x"], sessionStorage["ficha2_inicial_p2y"]);
+	ctx.drawImage(imgv, sessionStorage["ficha3_inicial_p2x"], sessionStorage["ficha3_inicial_p2y"]);
+	ctx.drawImage(imgv, sessionStorage["ficha4_inicial_p2x"], sessionStorage["ficha4_inicial_p2y"]);
+	ctx.drawImage(imgv, sessionStorage["ficha5_inicial_p2x"], sessionStorage["ficha5_inicial_p2y"]);*/
+
+	if(columna>=0 && columna<=9 && cont_p1<5){
+		
+		switch(cont_p1){
+			case 0:
+				sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+				
+			case 1:
+				sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+			
+			case 2:
+				sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+			
+			case 3:
+				sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+			
+			case 4:
+				sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+		}
+		cont_p1++;
 	}
-	if(columna>=10 && columna<=19){
-		ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+	if(columna>=10 && columna<=19 && cont_p2<5){
+		switch(cont_p2){
+			case 0:
+				sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+				
+			case 1:
+				sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+			
+			case 2:
+				sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+			
+			case 3:
+				sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+			
+			case 4:
+				sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+				sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+			break;
+		}
+		cont_p2++;
 	}
 }
 
