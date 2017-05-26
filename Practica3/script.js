@@ -4,9 +4,29 @@ var imgr = new Image();
 var imgv = new Image();
 	imgr.src ="./circulorojo.svg";
 	imgv.src ="./circuloverde.svg";
+var fichas = new Array();
+var fila1=new Array(20);
+var fila2=new Array(20);
+var fila3=new Array(20);
+var fila4=new Array(20);
+var fila5=new Array(20);
+var fila6=new Array(20);
+var fila7=new Array(20);
+var fila8=new Array(20);
+var fila9=new Array(20);
+sessionStorage['fila1']=fila1;
+sessionStorage['fila2']=fila2;
+sessionStorage['fila3']=fila3;
+sessionStorage['fila4']=fila4;
+sessionStorage['fila5']=fila5;
+sessionStorage['fila6']=fila6;
+sessionStorage['fila7']=fila7;
+sessionStorage['fila8']=fila8;
+sessionStorage['fila9']=fila9;
 //guardamos los nombres de los dos jugadores en sessionstorage
 function guardarNombres(frm){
-
+	//array pa las fichas
+	
 	sessionStorage['player1'] = frm.player1.value;
 	sessionStorage['player2'] = frm.player2.value
 	console.log(sessionStorage['player1']);
@@ -270,79 +290,897 @@ function mouse_click(e){
 	ctx.drawImage(imgv, sessionStorage["ficha3_inicial_p2x"], sessionStorage["ficha3_inicial_p2y"]);
 	ctx.drawImage(imgv, sessionStorage["ficha4_inicial_p2x"], sessionStorage["ficha4_inicial_p2y"]);
 	ctx.drawImage(imgv, sessionStorage["ficha5_inicial_p2x"], sessionStorage["ficha5_inicial_p2y"]);*/
+	console.log(cont_p1);
+	//colocarficha(columna,fila,dim,ctx);
+	colocarficharandom_p1(dim,ctx);
+	colocarficharandom_p2(dim,ctx);
+	
+}
+function colocarficharandom_p1(dim,ctx){
+	columna=Math.floor((Math.random() * 9) + 1);
+	fila=Math.floor((Math.random() * 10));
 
-	if(columna>=0 && columna<=9 && cont_p1<5){
+	//while(cont_p1<5){
+	colocarficha(columna,fila,dim,ctx);
+	//}
+}
+function colocarficharandom_p2(dim,ctx){
+	columna=Math.floor((Math.random() * 9) + 10);
+	fila=Math.floor((Math.random() * 10));
+
+	//while(cont_p1<5){
+	colocarficha(columna,fila,dim,ctx);
+	//}
+}
+function colocarficha(columna,fila,dim,ctx){
+	if(columna>0 && columna<=9 && cont_p1<5){
 		
 		switch(cont_p1){
 			case 0:
-				sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p1++;
+					}
+					break;			
+				}
 			break;
 				
 			case 1:
-				sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p1++;
+					}
+					break;			
+				}
 			break;
 			
 			case 2:
-				sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p1++;
+					}
+					break;			
+				}
 			break;
 			
 			case 3:
-				sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p1++;
+					}
+					break;			
+				}
 			break;
 			
 			case 4:
-				sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p1++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						sessionStorage['cont_p1']++;
+					}
+					break;			
+				}
 			break;
 		}
-		cont_p1++;
+		
 	}
-	if(columna>=10 && columna<=19 && cont_p2<5){
+	if(columna>=10 && columna<19 && cont_p2<5){
 		switch(cont_p2){
 			case 0:
-				sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p2++;
+					}
+					break;			
+				}
 			break;
 				
 			case 1:
-				sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p2++;
+					}
+					break;			
+				}
 			break;
 			
 			case 2:
-				sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p2++;
+					}
+					break;			
+				}
 			break;
 			
 			case 3:
-				sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p2++;
+					}
+					break;			
+				}
 			break;
 			
 			case 4:
-				sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-				sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
-				ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+				switch(fila){
+					case 0:
+					if(fila1[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 1:
+					if(fila2[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=1;
+						cont_p2++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]!=1){
+						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=1;
+						cont_p2++;
+					}
+					break;			
+				}
 			break;
 		}
-		cont_p2++;
 	}
-}
-
-var ficha=false;
-function colocarficha(){
-	ficha=true;
 }
