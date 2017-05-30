@@ -85,19 +85,19 @@ function mostrarFormu(){
 }
 function mostrarBotonJuego(){
 	let html="";
-	html += '<a href="juego.html">Ir al juego</a>';
-	document.getElementById("boton_juego").innerHTML=html;
+	html += '<a id="boton_juego" href="juego.html">Ir al juego</a>';
+	document.getElementById("juego").innerHTML=html;
 }
 
 //-------------------------------FIN DE INDEX--------------------------------------------------------
-function mostrarNombres(){
+/*function mostrarNombres(){
 	let html="";
 	html += '<p>Jugador 1: '+sessionStorage['player1']+'</p>';
 	html += '<p>Jugador 2: '+sessionStorage['player2']+'</p>';
 	html += '<p>Dado: '+sessionStorage['dado']+'</p>';
 	html += '<p>Marcador: '+sessionStorage['goles1']+' - '+sessionStorage['goles2']+'</p>';
 	document.getElementById("players").innerHTML=html;
-}
+}*/
 function comprobar(){
 	if((sessionStorage.getItem('player1')==null || sessionStorage.getItem('player1')=="") && (sessionStorage.getItem('player2')==null || sessionStorage.getItem('player2')=="")){
 		window.location="./index.html";

@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="./css.css" rel="stylesheet" type="text/css"/>
+    <link href="./juego_css.css" rel="stylesheet" type="text/css"/>
     
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
@@ -13,19 +13,19 @@
 
 	<title>Juego</title>
 </head>
-<body onload="mostrarNombres();comprobar();dibujarCampo();marcador();">
+<body onload="comprobar();dibujarCampo();marcador();mostrarNombres();">
 
-	<div id="players"></div>
+	<header>
 
-	<img src="" name="mydice">
- 
-    <form>
-    <input type="button" value="Lanza dado" onClick="lanzar()">
-    </form>
-
+			<a href="index.html"><img id="logo" src="logoph2.png" alt="logo" ></a>
+		
+	</header>   
+	
+	<section id="marcador">
+		
+	</section>
 
     <section>
-        <h2>Canvas 1</h2>
         <canvas id="cv01" width="1024" height="461" onclick="mouse_click(event);"></canvas>
     </section>
 
@@ -41,6 +41,11 @@
     <img src="circuloverde.svg" alt="Círculo" />
     <img src="circuloverde.svg" alt="Círculo" />
     <img src="circuloverde.svg" alt="Círculo" />
+
+	<img src="" name="mydice">
+    <form>
+    <input type="button" value="Lanza dado" onClick="lanzar()">
+    </form>
 	
 </body>
 </html>
