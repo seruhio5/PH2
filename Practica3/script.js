@@ -14,6 +14,12 @@ var fila6=new Array(20);
 var fila7=new Array(20);
 var fila8=new Array(20);
 var fila9=new Array(20);
+var inicio;
+var inicioP1;
+var inicioP2;
+var turnoP1;
+var turnoP2;
+
 sessionStorage['fila1']=fila1;
 sessionStorage['fila2']=fila2;
 sessionStorage['fila3']=fila3;
@@ -101,6 +107,8 @@ function mostrarBotonJuego(){
 function comprobar(){
 	if((sessionStorage.getItem('player1')==null || sessionStorage.getItem('player1')=="") && (sessionStorage.getItem('player2')==null || sessionStorage.getItem('player2')=="")){
 		window.location="./index.html";
+	}else{
+		inicioP1=true;
 	}
 }
 
@@ -135,7 +143,6 @@ function dibujarCampo(){
 	ctx.lineWidth = 2;
 	ctx.strokeStyle = '#000';
 	ctx.fillStyle="#32CD32";
-	
 	ctx.fillRect(dim,0,cv.width-dim*2,cv.height);
 	
 	port1.fillStyle="#B0B0B0";
@@ -248,7 +255,8 @@ function mouse_click(e){
 		x 		= e.offsetX,
 		y 		= e.offsetY,
 		fila 	= Math.floor(y/dim),
-		columna	= Math.floor(x/dim);
+		columna	= Math.floor(x/dim),
+		ctx = cv.getContext("2d");
 
 	if(fila<0)
 		fila=0;
@@ -276,7 +284,6 @@ function mouse_click(e){
 	//cv.width = cv.width;
 	//dibujarCampo();
 
-	let ctx = cv.getContext('2d');
 	ctx.beginPath();
 
 	/*ctx.drawImage(imgr, sessionStorage["ficha1_inicial_p1x"], sessionStorage["ficha1_inicial_p1y"]);
@@ -292,25 +299,112 @@ function mouse_click(e){
 	ctx.drawImage(imgv, sessionStorage["ficha5_inicial_p2x"], sessionStorage["ficha5_inicial_p2y"]);*/
 	console.log(cont_p1);
 	//colocarficha(columna,fila,dim,ctx);
-	colocarficharandom_p1(dim,ctx);
-	colocarficharandom_p2(dim,ctx);
+	
+	colocarficharandom_p1(e);
+	colocarficharandom_p2(e);
 	
 }
-function colocarficharandom_p1(dim,ctx){
+function colocarficharandom_p1(e){
+	let cv = document.getElementById("cv01"),
+		dim 	= cv.width/20,
+		x 		= e.offsetX,
+		y 		= e.offsetY,
+		fila 	= Math.floor(y/dim),
+		columna	= Math.floor(x/dim),
+		ctx = cv.getContext("2d");
+	ctx.clearRect(0,0,ctx.width/2,ctx.height);
+	dibujarCampo();
+	for(var cont=0;cont<10;cont++){
+		fila1[cont]=0;
+		fila2[cont]=0;
+		fila3[cont]=0;
+		fila4[cont]=0;
+		fila5[cont]=0;
+		fila6[cont]=0;
+		fila7[cont]=0;
+		fila8[cont]=0;
+		fila9[cont]=0;
+	}
+	for(var cont=10;cont<20;cont++){
+		if(fila1[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
+		if(fila2[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
+		if(fila3[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
+		if(fila4[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
+		if(fila5[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
+		if(fila6[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
+		if(fila7[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
+		if(fila8[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
+		if(fila9[cont]==1)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+	}
 	columna=Math.floor((Math.random() * 9) + 1);
 	fila=Math.floor((Math.random() * 10));
+	console.log(cont_p1);
+	cont_p1=0;
 
-	//while(cont_p1<5){
-	colocarficha(columna,fila,dim,ctx);
-	//}
+	while(cont_p1<5){
+		columna=Math.floor((Math.random() * 9) + 1);
+		fila=Math.floor((Math.random() * 10));
+		colocarficha(columna,fila,dim,ctx);
+	}
 }
-function colocarficharandom_p2(dim,ctx){
+function colocarficharandom_p2(e){
+	let cv = document.getElementById("cv01"),
+		dim 	= cv.width/20,
+		x 		= e.offsetX,
+		y 		= e.offsetY,
+		fila 	= Math.floor(y/dim),
+		columna	= Math.floor(x/dim),
+		ctx = cv.getContext("2d");
+	ctx.clearRect(0,0,ctx.width,ctx.height);
+	dibujarCampo();
+	for(var cont=10;cont<20;cont++){
+		fila1[cont]=0;
+		fila2[cont]=0;
+		fila3[cont]=0;
+		fila4[cont]=0;
+		fila5[cont]=0;
+		fila6[cont]=0;
+		fila7[cont]=0;
+		fila8[cont]=0;
+		fila9[cont]=0;
+	}
+	for(var cont=0;cont<10;cont++){
+		if(fila1[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
+		if(fila2[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
+		if(fila3[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
+		if(fila4[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
+		if(fila5[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
+		if(fila6[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
+		if(fila7[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
+		if(fila8[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
+		if(fila9[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+	}
 	columna=Math.floor((Math.random() * 9) + 10);
 	fila=Math.floor((Math.random() * 10));
-
-	//while(cont_p1<5){
-	colocarficha(columna,fila,dim,ctx);
-	//}
+	cont_p2=0;
+	while(cont_p2<5){
+		columna=Math.floor((Math.random() * 9) + 10);
+		fila=Math.floor((Math.random() * 10));
+		colocarficha(columna,fila,dim,ctx);
+	}
 }
 function colocarficha(columna,fila,dim,ctx){
 	if(columna>0 && columna<=9 && cont_p1<5){
@@ -741,7 +835,7 @@ function colocarficha(columna,fila,dim,ctx){
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
-						sessionStorage['cont_p1']++;
+						cont_p1++;
 					}
 					break;			
 				}
