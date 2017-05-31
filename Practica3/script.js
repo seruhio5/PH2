@@ -316,13 +316,28 @@ function mouse_click(e){
 	ctx.drawImage(imgv, sessionStorage["ficha4_inicial_p2x"], sessionStorage["ficha4_inicial_p2y"]);
 	ctx.drawImage(imgv, sessionStorage["ficha5_inicial_p2x"], sessionStorage["ficha5_inicial_p2y"]);*/
 	console.log(cont_p1);
-	//colocarficha(columna,fila,dim,ctx);
+	if(columna<10 && inicioP1==true)
+	colocarficha(columna,fila,dim,ctx);
+	if(columna<20 && inicioP2==true)
+	colocarficha(columna,fila,dim,ctx);
 	
-	colocarficharandom_p1(e);
-	colocarficharandom_p2(e);
 	
 }
+function terminar_inicio1(){
+	if(cont_p1>=5){
+	inicioP2=true;
+	inicioP1=false;
+}
+}
+function terminar_inicio2(){
+	if(cont_p2>=5){
+	inicioP1=false;
+	inicioP2=false;
+	turnoP1=true;
+}
+}
 function colocarficharandom_p1(e){
+	if(inicioP1==true){
 	let cv = document.getElementById("cv01"),
 		dim 	= cv.width/20,
 		x 		= e.offsetX,
@@ -374,7 +389,9 @@ function colocarficharandom_p1(e){
 		colocarficha(columna,fila,dim,ctx);
 	}
 }
+}
 function colocarficharandom_p2(e){
+	if(inicioP2==true){
 	let cv = document.getElementById("cv01"),
 		dim 	= cv.width/20,
 		x 		= e.offsetX,
@@ -423,6 +440,7 @@ function colocarficharandom_p2(e){
 		fila=Math.floor((Math.random() * 10));
 		colocarficha(columna,fila,dim,ctx);
 	}
+}
 }
 function colocarficha(columna,fila,dim,ctx){
 	if(columna>0 && columna<=9 && cont_p1<5){
