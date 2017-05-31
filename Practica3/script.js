@@ -263,11 +263,6 @@ function lanzar()
    mostrarNombres();
 
 }
-
-
-
-
-
 /********************************Canvas*************************************/
 
 function fichas_p1(){
@@ -288,7 +283,8 @@ function fichas_p1(){
 
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 
-				html += '<id="aleatorio1" input type="button" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">'
 
 			break;
 
@@ -302,7 +298,8 @@ function fichas_p1(){
 
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 
-				html += '<id="aleatorio1" input type="button" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">'
 
 			break;
 
@@ -313,7 +310,8 @@ function fichas_p1(){
 
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 
-				html += '<id="aleatorio1" input type="button" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">'
 
 			break;
 
@@ -323,7 +321,8 @@ function fichas_p1(){
 
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 
-				html += '<id="aleatorio1" input type="button" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">'
 
 			break;
 
@@ -331,22 +330,18 @@ function fichas_p1(){
 
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 
-				html += '<id="aleatorio1" input type="button" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">'
 
 			break;
 
 			case 5:
 
-				html += '<id="aleatorio1" input type="button" value="random1" onClick="colocarficharandom_p1(event)">'
-
+			html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+			html += '<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">'
 			break;
-
-
-
-			}
-
-			document.getElementById('fichas_p1').innerHTML = html;
-
+	}
+	document.getElementById('fichas_p1').innerHTML = html;
 }
 
 function fichas_p2(){
@@ -367,7 +362,8 @@ function fichas_p2(){
 
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 
-				html += '<input type="button" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">'
 
 			break;
 
@@ -381,7 +377,8 @@ function fichas_p2(){
 
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 
-				html += '<input type="button" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">'
 
 			break;
 
@@ -393,7 +390,8 @@ function fichas_p2(){
 
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 
-				html += '<input type="button" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">'
 
 			break;
 
@@ -403,21 +401,23 @@ function fichas_p2(){
 
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 
-				html += '<input type="button" value="random2" onClick="colocarficharandom_p2(event)">'
-
+				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">'
 			break;
 
 			case 4:
 
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 
-				html += '<input type="button" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">'
 
 			break;
 
 			case 5:
 
-				html += '<input type="button" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">'
 
 			break;
 
