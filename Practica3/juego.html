@@ -1,49 +1,97 @@
-<!DOCTYPE html>
-
-<html lang="es">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./juego_css.css" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-    <script src="script.js"></script>
-    <title>Juego</title>
-
-</head>
-
-<body onload="comprobar();dibujarCampo();fichas_p1();fichas_p2();marcador();mostrarNombres();">
-
-	<header>
-
-			<img id="logo" src="logoph2.png" alt="logo">
-
-	</header>
-
-	<section id="marcador">
-
-	</section>
-
-    <section id="campo">
-
-        <canvas id="cv01" width="1024" height="461" onclick="mouse_click(event);"></canvas>
-
-    </section>
-
-    <div id="fichas_p1">
-    </div>
-
-    <div id="fichas_p2">
-    </div>
-	
-
-
-	    <!--<img src="" name="mydice"> <input type="button" value="Lanza dado" onClick="lanzar()">-->
-
-
-      <input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">
-<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">
-	
-
-</body>
-
+<!DOCTYPE html>
+
+
+
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="./juego_css.css" rel="stylesheet" type="text/css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <script src="script.js"></script>
+
+    <title>Juego</title>
+
+
+
+</head>
+
+
+
+<body onload="comprobar();dibujarCampo();fichas_p1();fichas_p2();marcador();mostrarNombres();">
+
+
+
+	<header>
+
+
+
+			<img id="logo" src="logoph2.png" alt="logo">
+
+
+
+	</header>
+
+
+
+	<section id="marcador">
+
+
+
+	</section>
+
+
+
+    <section id="campo">
+
+
+
+        <canvas id="cv01" width="1024" height="461" onclick="mouse_click(event);"></canvas>
+
+
+
+    </section>
+
+
+
+    <div id="fichas_p1">
+
+    </div>
+
+
+
+    <div id="fichas_p2">
+
+    </div>
+
+	
+
+
+
+
+
+	    <!--<img src="" name="mydice"> <input type="button" value="Lanza dado" onClick="lanzar()">-->
+
+
+
+
+	<input type="button" value="terminar_inicio1" onClick="terminar_inicio1()">
+    <input type="button" value="terminar_inicio2" onClick="terminar_inicio2()">
+
+
+
+	
+
+
+
+</body>
+
+
+
 </html>
