@@ -134,6 +134,24 @@ function lanzar()
 
 
 /********************************Canvas*************************************/
+function fichas_p1(){
+	let html= '';
+				html += '<img src="circulorojo.svg" alt="circulorojo" />'
+				html += '<img src="circulorojo.svg" alt="circulorojo" />'
+				html += '<img src="circulorojo.svg" alt="circulorojo" />'
+				html += '<img src="circulorojo.svg" alt="circulorojo" />'
+				html += '<img src="circulorojo.svg" alt="circulorojo" />'
+			document.getElementById('fichas_p1').innerHTML = html;
+}
+function fichas_p2(){
+	let html= '';
+				html += '<img src="circuloverde.svg" alt="Círculo" />'
+				html += '<img src="circuloverde.svg" alt="Círculo" />'
+				html += '<img src="circuloverde.svg" alt="Círculo" />'
+				html += '<img src="circuloverde.svg" alt="Círculo" />'
+				html += '<img src="circuloverde.svg" alt="Círculo" />'
+			document.getElementById('fichas_p2').innerHTML = html;
+}
 function dibujarCampo(){
 	let cv = document.getElementById("cv01"),
 		ctx = cv.getContext("2d"),port1 = cv.getContext("2d"),port2 = cv.getContext("2d"),

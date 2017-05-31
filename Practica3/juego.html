@@ -1,53 +1,45 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link href="./juego_css.css" rel="stylesheet" type="text/css"/>
-    
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-
-    <script src="script.js"></script>
-
-	<title>Juego</title>
-</head>
-<body onload="comprobar();dibujarCampo();marcador();mostrarNombres();">
-
-	<header>
-
-			<a href="index.html"><img id="logo" src="logoph2.png" alt="logo" ></a>
-		
-	</header>   
-	
-	<section id="marcador">
-		
-	</section>
-
-    <section>
-        <canvas id="cv01" width="1024" height="461" onclick="mouse_click(event);"></canvas>
-    </section>
-
-
-    <img onclick="colocarficha();" src="circulorojo.svg" alt="Círculo" />
-    <img src="circulorojo.svg" alt="Círculo" />
-    <img src="circulorojo.svg" alt="Círculo" />
-    <img src="circulorojo.svg" alt="Círculo" />
-    <img src="circulorojo.svg" alt="Círculo" />
-
-    <img src="circuloverde.svg" alt="Círculo" /> 
-    <img src="circuloverde.svg" alt="Círculo" />
-    <img src="circuloverde.svg" alt="Círculo" />
-    <img src="circuloverde.svg" alt="Círculo" />
-    <img src="circuloverde.svg" alt="Círculo" />
-
-	<img src="" name="mydice">
-    <form>
-    <input type="button" value="Lanza dado" onClick="lanzar()">
-     <input type="button" value="random1" onClick="colocarficharandom_p1(event)">
-      <input type="button" value="random2" onClick="colocarficharandom_p2(event)">
-    </form>
-	
-</body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="./juego_css.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <script src="script.js"></script>
+
+	<title>Juego</title>
+</head>
+<body onload="comprobar();dibujarCampo();fichas_p1();fichas_p2();marcador();mostrarNombres();">
+
+	<header>
+
+			<img id="logo" src="logoph2.png" alt="logo">
+		
+	</header>
+	
+	<section id="marcador">
+		
+	</section>
+
+    <section>
+        <canvas id="cv01" width="1024" height="461" onclick="mouse_click(event);"></canvas>
+    </section>
+
+
+    <div id="fichas_p1">
+    	
+    </div>
+	
+	<!--<img src="" name="mydice">
+    <form>
+    <input type="button" value="Lanza dado" onClick="lanzar()">
+     <input type="button" value="random1" onClick="colocarficharandom_p1(event)">
+      <input type="button" value="random2" onClick="colocarficharandom_p2(event)">
+    </form>
+	
+</body>
 </html>
