@@ -9,27 +9,30 @@ body{
 }
 /*---------------------------CANVAS------------------------------*/
 /*responsive*/
-#cv01{
+#campo{
   width: 60%;
   margin: 0 auto;
   display: block;
 }
 /*-------------------------------FICHAS_P1---------------------------------*/
 #fichas_p1{
-	margin: 0 auto;
-	display: inline-block;
+	width: 480px; 
+    height: 100px; 
+    float:left;
+	margin-left: 5%;
     text-align: center;
-    width: 27%;
     border-radius: 35px 0px 35px 0px;
     -moz-border-radius: 35px 0px 35px 0px;
     -webkit-border-radius: 35px 0px 35px 0px;
     border: 5px solid #333;
 }
 #fichas_p2{
-	margin: 0 auto;	
-	display: inline-block;
+	width: 480px; 
+    height: 100px; 
+    margin: auto; 
+    float:right; 
+	margin-right: 5%;
     text-align: center;
-    width: 27%;
     border-radius: 35px 0px 35px 0px;
     -moz-border-radius: 35px 0px 35px 0px;
     -webkit-border-radius: 35px 0px 35px 0px;
