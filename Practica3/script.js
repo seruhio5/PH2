@@ -17,10 +17,15 @@ var fila9=new Array(20);
 var inicio;
 var inicioP1;
 var inicioP2;
+var dado1;
+var dado2;
 var turnoP1;
 var turnoP2;
 var fila_aux;
 var columna_aux;
+var comprobarFicha;
+var goles1;
+var goles2;
 sessionStorage['fila1']=fila1;
 sessionStorage['fila2']=fila2;
 sessionStorage['fila3']=fila3;
@@ -35,8 +40,6 @@ function guardarNombres(frm){
 	//array pa las fichas
 	sessionStorage['player1'] = frm.player1.value;
 	sessionStorage['player2'] = frm.player2.value
-	console.log(sessionStorage['player1']);
-	console.log(sessionStorage['player2']);
 	mostrarBotonJuego();
 	return false
 }
@@ -125,6 +128,8 @@ function lanzar()
    var randomdice=Math.round(Math.random()*5);
    document.images["mydice"].src=eval("face"+randomdice+".src");
    sessionStorage["dado"]=randomdice+1;
+   dado1=false;
+   dado2=false;
    mostrarNombres();
 }
 /********************************Canvas*************************************/
@@ -299,6 +304,537 @@ function dibujarCampo(){
 			ctx.stroke();
 	ctx.stroke();
 }
+function comprobar_ficha(fila,columna,fila_aux,columna_aux){
+	comprobarFicha=false;
+	let dado=parseInt(sessionStorage['dado']);
+	let aux=true;
+	let dadoaux=dado;
+	if(columna_aux-columna==0){
+		if(fila<fila_aux){
+			if(fila_aux-fila<=dado){
+				dado=dado-(fila_aux-fila);
+			}
+		}else{//de abajo a arriba
+			if(fila-fila_aux<=dado){
+				dado=dado-(fila-fila_aux);
+			}
+		}
+	}
+	if(dado==0){
+		for(var cont=0;cont<dadoaux;cont++){
+			console.log(dadoaux);
+			console.log(fila);
+			console.log(cont);
+			console.log(fila-cont);
+			if(fila<fila_aux){//de arriba a abajo
+				if(turnoP1==true){//jugador 1
+					console.log("algo2)adsf");
+					switch(fila-cont){
+						case 0:
+						if(fila1[columna]==2){
+							aux=false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna]==2){
+							aux= false;console.log("algo2)");
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna]==2){
+							aux= false;console.log("algo2)");
+							comprobarFicha=false;
+						}console.log("algo");
+						break;
+						case 6:
+						if(fila7[columna]==2){
+							aux= false;console.log("algo2)");
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}else{//jugador 2
+					switch(fila-cont){
+						case 0:
+						if(fila1[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}
+		}else{//de abajo a arriba
+			if(turnoP1==true){//jugador 1
+				switch(fila+cont){
+						case 0:
+						if(fila1[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}else{//jugador 2
+					switch(fila+cont){
+						case 0:
+						if(fila1[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}
+		}
+		comprobarFicha=true;
+		aux= false;
+	}}if(aux==true){
+		dado=dadoaux;
+		if(columna<columna_aux){//horizontal
+			if(columna_aux-columna<=dado){
+				dado=dado-(columna_aux-columna);
+			}
+		}else{
+			if(columna-columna_aux<=dado){
+				dado=dado-(columna-columna_aux);
+			}
+		}
+	}else{
+		dado=100;
+	}
+	if(dado==0){
+		for(var cont=0;cont<dadoaux;cont++){
+			if(columna<columna_aux){//caso de derecha a izquierda
+				if(turnoP1==true){//jugador 1
+					switch(fila){
+						case 0:
+						if(fila1[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna+cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}else{//jugador 2
+					switch(fila){
+						case 0:
+						if(fila1[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna+cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}
+			}else{//caso de izquierda a derecha
+				if(turnoP1==true){//jugador 1
+					switch(fila){
+						case 0:
+						if(fila1[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna-cont]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}else{//jugador 2
+					switch(fila){
+						case 0:
+						if(fila1[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna-cont]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna-cont]==1){
+							comprobarFicha=false;
+							aux= false;
+						}
+						break;
+					}
+				}
+			}
+		}
+		comprobarFicha=true;
+	}else{//diagonal
+		if(aux==true){
+			dado=dadoaux;
+			if(fila<fila_aux){
+				if(fila_aux-fila<=dado){
+					dado=dado-(fila_aux-fila);
+				}
+			}else{
+				if(fila-fila_aux<=dado){
+					dado=dado-(fila-fila_aux);
+				}
+			}
+		}else{
+			dado=100;
+		}
+	}
+	if(dado==0){
+		comprobarFicha=true;
+	}else{
+		comprobarFicha=false;
+	}
+}
 /*
 function mouse_move(e){
 	let cv 		= e.target,
@@ -337,7 +873,7 @@ function mouse_click(e){
 	if(fila<3&&columna==19)
 		fila=3;
 	//console.log(`Posicion: ${x} - ${y}`);
-	console.log(`Fila: ${fila} -  columna: ${columna}`);
+	//console.log(`Fila: ${fila} -  columna: ${columna}`);
 	//Se limpia el canvas para pintar todo otra vez
 	//cv.width = cv.width;
 	//dibujarCampo();
@@ -353,28 +889,86 @@ function mouse_click(e){
 	ctx.drawImage(imgv, sessionStorage["ficha4_inicial_p2x"], sessionStorage["ficha4_inicial_p2y"]);
 	ctx.drawImage(imgv, sessionStorage["ficha5_inicial_p2x"], sessionStorage["ficha5_inicial_p2y"]);*/
 	if(inicioP1==true || inicioP2==true){
-	if(columna<10 && inicioP1==true)
-	colocarficha(columna,fila,dim,ctx);
-	if(columna<20 && inicioP2==true)
-	colocarficha(columna,fila,dim,ctx);
-	fichas_p1();
-	fichas_p2();
-}
+		if(columna<10 && inicioP1==true)
+			colocarficha(columna,fila,dim,ctx);
+		if(columna<20 && inicioP2==true)
+			colocarficha(columna,fila,dim,ctx);
+		fichas_p1();
+		fichas_p2();
+	}
 	if(turnoP1){
-		if(fila_aux==undefined){
-			console.log(fila_aux);
+		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
 			fila_aux=fila;
 			columna_aux=columna;
-		}else{
-			console.log(cont_p1);
-			colocarficha(columna,fila,dim,ctx);console.log(cont_p1);
+			switch(fila_aux){//comprobar que se selecciona una ficha
+					case 0:
+					if(fila1[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 1:
+					if(fila2[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 2:
+					if(fila3[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 3:
+					if(fila4[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 4:
+					if(fila5[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 5:
+					if(fila6[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 6:
+					if(fila7[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 7:
+					if(fila8[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 8:
+					if(fila9[columna_aux]!=1){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+				}
+			
+			
+		}else{//cuando hay una ficha seleccionada
+			comprobar_ficha(fila,columna,fila_aux,columna_aux);
+			if(comprobarFicha==true){
+				colocarficha(columna,fila,dim,ctx);
+			}
 			if(cont_p1==6){
 				ctx.clearRect(0,0,ctx.width/2,ctx.height);
 				dibujarCampo();
 			switch(fila_aux){
 					case 0:
-					if(fila1[columna_aux]!=0){console.log("fila-columna_aux");
-console.log(fila_aux);console.log(columna_aux);
+					if(fila1[columna_aux]!=0){
 						fila1[columna_aux]=0;
 						cont_p1--;
 					}
@@ -428,8 +1022,7 @@ console.log(fila_aux);console.log(columna_aux);
 					}
 					break;
 				}
-			}
-			for(var cont=0;cont<10;cont++){
+			for(var cont=0;cont<20;cont++){
 				if(fila1[cont]==1)
 					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
 				if(fila2[cont]==1)
@@ -448,32 +1041,30 @@ console.log(fila_aux);console.log(columna_aux);
 					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
 				if(fila9[cont]==1)
 					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
-			}
-			for(var cont=10;cont<20;cont++){
-				if(fila1[cont]==1)
+				if(fila1[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
-				if(fila2[cont]==1)
+				if(fila2[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
-				if(fila3[cont]==1)
+				if(fila3[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
-				if(fila4[cont]==1)
+				if(fila4[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
-				if(fila5[cont]==1)
+				if(fila5[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
-				if(fila6[cont]==1)
+				if(fila6[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
-				if(fila7[cont]==1)
+				if(fila7[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
-				if(fila8[cont]==1)
+				if(fila8[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
-				if(fila9[cont]==1)
+				if(fila9[cont]==2)
 					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+			}
 			}
 			fila_aux=undefined;
 			columna_aux=undefined;
 			/*turnoP1=false;
 			turnoP2=true;*/
-			console.log(fila_aux);
 		}
 	}
 }
@@ -482,6 +1073,8 @@ function terminar_inicio1(){
 	inicioP2=true;
 	inicioP1=false;
 }
+goles1=0;
+goles2=0;
 }
 function terminar_inicio2(){
 	if(cont_p2>=5){
@@ -512,29 +1105,8 @@ function colocarficharandom_p1(e){
 		fila8[cont]=0;
 		fila9[cont]=0;
 	}
-	for(var cont=10;cont<20;cont++){
-		if(fila1[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
-		if(fila2[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
-		if(fila3[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
-		if(fila4[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
-		if(fila5[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
-		if(fila6[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
-		if(fila7[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
-		if(fila8[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
-		if(fila9[cont]==1)
-			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
-	}
 	columna=Math.floor((Math.random() * 9) + 1);
 	fila=Math.floor((Math.random() * 10));
-	console.log(cont_p1);
 	cont_p1=0;
 	while(cont_p1<5){
 		columna=Math.floor((Math.random() * 9) + 1);
@@ -598,14 +1170,12 @@ function colocarficharandom_p2(e){
 }
 }
 function colocarficha(columna,fila,dim,ctx){
-console.log(turnoP1);
-	if(columna>0 && columna<=9 && (cont_p1<5 || turnoP1==true)){
-		console.log(turnoP1);
+	if((columna>0 && columna<=9 && cont_p1<5) || (turnoP1==true)){
 		switch(cont_p1){
 			case 0:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -614,7 +1184,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -623,7 +1193,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -632,7 +1202,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -641,7 +1211,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -650,7 +1220,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -659,7 +1229,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -668,7 +1238,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -677,7 +1247,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -690,7 +1260,7 @@ console.log(turnoP1);
 			case 1:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -699,7 +1269,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -708,7 +1278,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -717,7 +1287,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -726,7 +1296,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -735,7 +1305,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -744,7 +1314,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -753,7 +1323,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -762,7 +1332,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -775,7 +1345,7 @@ console.log(turnoP1);
 			case 2:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -784,7 +1354,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -793,7 +1363,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -802,7 +1372,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -811,7 +1381,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -820,7 +1390,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -829,7 +1399,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -838,7 +1408,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -847,7 +1417,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -860,7 +1430,7 @@ console.log(turnoP1);
 			case 3:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -869,7 +1439,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -878,7 +1448,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -887,7 +1457,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -896,7 +1466,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -905,7 +1475,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -914,7 +1484,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -923,7 +1493,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -932,7 +1502,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -945,7 +1515,7 @@ console.log(turnoP1);
 			case 4:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -954,7 +1524,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -963,7 +1533,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -972,7 +1542,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -981,7 +1551,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -990,7 +1560,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -999,7 +1569,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1008,7 +1578,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1017,7 +1587,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1030,7 +1600,7 @@ console.log(turnoP1);
 			case 5:
 			switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1039,7 +1609,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1048,7 +1618,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1057,7 +1627,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1066,7 +1636,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1075,7 +1645,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1084,7 +1654,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1093,7 +1663,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1102,7 +1672,7 @@ console.log(turnoP1);
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
@@ -1119,83 +1689,83 @@ console.log(turnoP1);
 			case 0:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila1[columna]=1;
+						fila1[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila2[columna]=1;
+						fila2[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila3[columna]=1;
+						fila3[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila4[columna]=1;
+						fila4[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila5[columna]=1;
+						fila5[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila6[columna]=1;
+						fila6[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila7[columna]=1;
+						fila7[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila8[columna]=1;
+						fila8[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila9[columna]=1;
+						fila9[columna]=2;
 						cont_p2++;
 					}
 					break;
@@ -1204,83 +1774,83 @@ console.log(turnoP1);
 			case 1:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila1[columna]=1;
+						fila1[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila2[columna]=1;
+						fila2[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila3[columna]=1;
+						fila3[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila4[columna]=1;
+						fila4[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila5[columna]=1;
+						fila5[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila6[columna]=1;
+						fila6[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila7[columna]=1;
+						fila7[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila8[columna]=1;
+						fila8[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila9[columna]=1;
+						fila9[columna]=2;
 						cont_p2++;
 					}
 					break;
@@ -1289,83 +1859,83 @@ console.log(turnoP1);
 			case 2:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila1[columna]=1;
+						fila1[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila2[columna]=1;
+						fila2[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila3[columna]=1;
+						fila3[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila4[columna]=1;
+						fila4[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila5[columna]=1;
+						fila5[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila6[columna]=1;
+						fila6[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila7[columna]=1;
+						fila7[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila8[columna]=1;
+						fila8[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila9[columna]=1;
+						fila9[columna]=2;
 						cont_p2++;
 					}
 					break;
@@ -1374,83 +1944,83 @@ console.log(turnoP1);
 			case 3:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila1[columna]=1;
+						fila1[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila2[columna]=1;
+						fila2[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila3[columna]=1;
+						fila3[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila4[columna]=1;
+						fila4[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila5[columna]=1;
+						fila5[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila6[columna]=1;
+						fila6[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila7[columna]=1;
+						fila7[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila8[columna]=1;
+						fila8[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila9[columna]=1;
+						fila9[columna]=2;
 						cont_p2++;
 					}
 					break;
@@ -1459,83 +2029,83 @@ console.log(turnoP1);
 			case 4:
 				switch(fila){
 					case 0:
-					if(fila1[columna]!=1){
+					if(fila1[columna]==0 || fila1[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila1[columna]=1;
+						fila1[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 1:
-					if(fila2[columna]!=1){
+					if(fila2[columna]==0 || fila2[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila2[columna]=1;
+						fila2[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 2:
-					if(fila3[columna]!=1){
+					if(fila3[columna]==0 || fila3[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila3[columna]=1;
+						fila3[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 3:
-					if(fila4[columna]!=1){
+					if(fila4[columna]==0 || fila4[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila4[columna]=1;
+						fila4[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 4:
-					if(fila5[columna]!=1){
+					if(fila5[columna]==0 || fila5[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila5[columna]=1;
+						fila5[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 5:
-					if(fila6[columna]!=1){
+					if(fila6[columna]==0 || fila6[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila6[columna]=1;
+						fila6[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 6:
-					if(fila7[columna]!=1){
+					if(fila7[columna]==0 || fila7[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila7[columna]=1;
+						fila7[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 7:
-					if(fila8[columna]!=1){
+					if(fila8[columna]==0 || fila8[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila8[columna]=1;
+						fila8[columna]=2;
 						cont_p2++;
 					}
 					break;
 					case 8:
-					if(fila9[columna]!=1){
+					if(fila9[columna]==0 || fila9[columna]==undefined){
 						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
 						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
-						fila9[columna]=1;
+						fila9[columna]=2;
 						cont_p2++;
 					}
 					break;
