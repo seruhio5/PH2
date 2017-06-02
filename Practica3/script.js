@@ -900,7 +900,7 @@ function mouse_click(e){
 	}
 	if(turnoP1){
 		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
-			fila_aux=fila;
+			fila_aux=fila;console.log("añlskdjfañlskjdfñlaksdjfñlaksdjfñalksdjf");
 			columna_aux=columna;
 			switch(fila_aux){//comprobar que se selecciona una ficha
 					case 0:
@@ -961,9 +961,20 @@ function mouse_click(e){
 			
 			
 		}else{//cuando hay una ficha seleccionada
+			
+			console.log(turnoP2);
 			comprobar_ficha(fila,columna,fila_aux,columna_aux);
 			if(comprobarFicha==true){
 				colocarficha(columna,fila,dim,ctx);
+				if(turnoP1==true){
+					turnoP1=false;
+					turnoP2=true;
+					console.log(turnoP1);
+					console.log(turnoP2);
+				}else if(turnoP2==true){
+					turnoP1=true;
+					turnoP2=false;
+				}
 			}
 			if(cont_p1==6){
 				ctx.clearRect(0,0,ctx.width/2,ctx.height);
@@ -1021,6 +1032,187 @@ function mouse_click(e){
 					if(fila9[columna_aux]!=0){
 						fila9[columna_aux]=0;
 						cont_p1--;
+					}
+					break;
+				}
+			for(var cont=0;cont<20;cont++){
+				if(fila1[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
+				if(fila2[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
+				if(fila3[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
+				if(fila4[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
+				if(fila5[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
+				if(fila6[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
+				if(fila7[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
+				if(fila8[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
+				if(fila9[cont]==1)
+					ctx.drawImage(imgr, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+				if(fila1[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
+				if(fila2[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
+				if(fila3[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
+				if(fila4[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
+				if(fila5[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
+				if(fila6[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
+				if(fila7[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
+				if(fila8[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
+				if(fila9[cont]==2)
+					ctx.drawImage(imgv, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+			}
+			}
+			fila_aux=undefined;
+			columna_aux=undefined;
+			/*turnoP1=false;
+			turnoP2=true;*/
+		}
+	}else if(turnoP2){console.log("se mete en el if de p2");
+		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
+			fila_aux=fila;
+			columna_aux=columna;
+			switch(fila_aux){//comprobar que se selecciona una ficha
+					case 0:
+					if(fila1[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 1:
+					if(fila2[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 2:
+					if(fila3[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 3:
+					if(fila4[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 4:
+					if(fila5[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 5:
+					if(fila6[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 6:
+					if(fila7[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 7:
+					if(fila8[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+					case 8:
+					if(fila9[columna_aux]!=2){
+						fila_aux=undefined;
+						columna_aux=undefined;
+					}
+					break;
+				}
+			
+			
+		}else{//cuando hay una ficha seleccionada
+			console.log("añlskdjfañlskjdfñlaksdjfñlaksdjfñalksdjf");
+			console.log(turnoP2);
+			comprobar_ficha(fila,columna,fila_aux,columna_aux);
+			if(comprobarFicha==true){console.log("añlskdjfañlskjdfñlaksdjfñlaksdjfñalksdjficha p2");
+				colocarficha(columna,fila,dim,ctx);
+				if(turnoP1==true){
+					turnoP1=false;
+					turnoP2=true;
+					console.log(turnoP1);
+					console.log(turnoP2);
+				}else if(turnoP2==true){
+					turnoP1=true;
+					turnoP2=false;
+				}
+			}
+			if(cont_p2==6){
+				ctx.clearRect(0,0,ctx.width/2,ctx.height);
+				dibujarCampo();
+			switch(fila_aux){
+					case 0:
+					if(fila1[columna_aux]!=0){
+						fila1[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 1:
+					if(fila2[columna_aux]!=0){
+						fila2[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 2:
+					if(fila3[columna_aux]!=0){
+						fila3[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 3:
+					if(fila4[columna_aux]!=0){
+						fila4[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 4:
+					if(fila5[columna_aux]!=0){
+						fila5[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 5:
+					if(fila6[columna_aux]!=0){
+						fila6[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 6:
+					if(fila7[columna_aux]!=0){
+						fila7[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 7:
+					if(fila8[columna_aux]!=0){
+						fila8[columna_aux]=0;
+						cont_p2--;
+					}
+					break;
+					case 8:
+					if(fila9[columna_aux]!=0){
+						fila9[columna_aux]=0;
+						cont_p2--;
 					}
 					break;
 				}
@@ -1172,14 +1364,15 @@ function colocarficharandom_p2(e){
 }
 }
 function colocarficha(columna,fila,dim,ctx){
+	console.log(goles2);
 	if((columna>0 && columna<=9 && cont_p1<5) || (turnoP1==true)){
 		switch(cont_p1){
 			case 0:
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=1;
 						cont_p1++;
@@ -1187,8 +1380,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=1;
 						cont_p1++;
@@ -1196,8 +1389,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=1;
 						cont_p1++;
@@ -1205,8 +1398,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=1;
 						cont_p1++;
@@ -1214,8 +1407,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=1;
 						cont_p1++;
@@ -1223,8 +1416,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=1;
 						cont_p1++;
@@ -1232,8 +1425,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=1;
 						cont_p1++;
@@ -1241,8 +1434,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=1;
 						cont_p1++;
@@ -1250,8 +1443,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha1_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p1x"]=columna;
+						sessionStorage["ficha1_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
 						cont_p1++;
@@ -1263,8 +1456,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=1;
 						cont_p1++;
@@ -1272,8 +1465,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=1;
 						cont_p1++;
@@ -1281,8 +1474,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=1;
 						cont_p1++;
@@ -1290,8 +1483,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=1;
 						cont_p1++;
@@ -1299,8 +1492,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=1;
 						cont_p1++;
@@ -1308,8 +1501,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=1;
 						cont_p1++;
@@ -1317,8 +1510,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=1;
 						cont_p1++;
@@ -1326,8 +1519,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=1;
 						cont_p1++;
@@ -1335,8 +1528,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p1x"]=columna;
+						sessionStorage["ficha2_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
 						cont_p1++;
@@ -1348,8 +1541,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=1;
 						cont_p1++;
@@ -1357,8 +1550,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=1;
 						cont_p1++;
@@ -1366,8 +1559,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=1;
 						cont_p1++;
@@ -1375,8 +1568,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=1;
 						cont_p1++;
@@ -1384,8 +1577,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=1;
 						cont_p1++;
@@ -1393,8 +1586,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=1;
 						cont_p1++;
@@ -1402,8 +1595,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=1;
 						cont_p1++;
@@ -1411,8 +1604,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=1;
 						cont_p1++;
@@ -1420,8 +1613,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha3_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p1x"]=columna;
+						sessionStorage["ficha3_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
 						cont_p1++;
@@ -1433,8 +1626,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=1;
 						cont_p1++;
@@ -1442,8 +1635,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=1;
 						cont_p1++;
@@ -1451,8 +1644,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=1;
 						cont_p1++;
@@ -1460,8 +1653,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=1;
 						cont_p1++;
@@ -1469,8 +1662,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=1;
 						cont_p1++;
@@ -1478,8 +1671,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=1;
 						cont_p1++;
@@ -1487,8 +1680,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=1;
 						cont_p1++;
@@ -1496,8 +1689,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=1;
 						cont_p1++;
@@ -1505,8 +1698,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha4_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p1x"]=columna;
+						sessionStorage["ficha4_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
 						cont_p1++;
@@ -1518,8 +1711,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=1;
 						cont_p1++;
@@ -1527,8 +1720,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=1;
 						cont_p1++;
@@ -1536,8 +1729,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=1;
 						cont_p1++;
@@ -1545,8 +1738,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=1;
 						cont_p1++;
@@ -1554,8 +1747,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=1;
 						cont_p1++;
@@ -1563,8 +1756,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=1;
 						cont_p1++;
@@ -1572,8 +1765,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=1;
 						cont_p1++;
@@ -1581,8 +1774,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=1;
 						cont_p1++;
@@ -1590,8 +1783,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha5_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p1y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p1x"]=columna;
+						sessionStorage["ficha5_inicial_p1y"]=fila;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
 						cont_p1++;
@@ -1600,11 +1793,9 @@ function colocarficha(columna,fila,dim,ctx){
 				}
 			break;
 			case 5:
-			switch(fila){
+					switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=1;
 						cont_p1++;
@@ -1612,8 +1803,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=1;
 						cont_p1++;
@@ -1621,8 +1810,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=1;
 						cont_p1++;
@@ -1630,8 +1817,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=1;
 						cont_p1++;
@@ -1639,8 +1824,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=1;
 						cont_p1++;
@@ -1648,8 +1831,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=1;
 						cont_p1++;
@@ -1657,8 +1838,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=1;
 						cont_p1++;
@@ -1666,8 +1845,6 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=1;
 						cont_p1++;
@@ -1675,25 +1852,26 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha2_inicial_p1x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p1y"]=(fila*dim-dim/4)-2;
 						ctx.drawImage(imgr, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=1;
 						cont_p1++;
 					}
 					break;
 				}
+				if(columna==19){
+					meter_gol(1);
+				}
 				break;
 		}
 	}
-	if(columna>=10 && columna<19 && (cont_p2<5 || turnoP2==true)){
+	if((columna>=10 && columna<19 && cont_p2<5) || (turnoP2==true)){
 		switch(cont_p2){
 			case 0:
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=2;
 						cont_p2++;
@@ -1701,8 +1879,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=2;
 						cont_p2++;
@@ -1710,8 +1888,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=2;
 						cont_p2++;
@@ -1719,8 +1897,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=2;
 						cont_p2++;
@@ -1728,8 +1906,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=2;
 						cont_p2++;
@@ -1737,8 +1915,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=2;
 						cont_p2++;
@@ -1746,8 +1924,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=2;
 						cont_p2++;
@@ -1755,8 +1933,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=2;
 						cont_p2++;
@@ -1764,8 +1942,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha1_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha1_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha1_inicial_p2x"]=columna;
+						sessionStorage["ficha1_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=2;
 						cont_p2++;
@@ -1777,8 +1955,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=2;
 						cont_p2++;
@@ -1786,8 +1964,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=2;
 						cont_p2++;
@@ -1795,8 +1973,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=2;
 						cont_p2++;
@@ -1804,8 +1982,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=2;
 						cont_p2++;
@@ -1813,8 +1991,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=2;
 						cont_p2++;
@@ -1822,8 +2000,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=2;
 						cont_p2++;
@@ -1831,8 +2009,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=2;
 						cont_p2++;
@@ -1840,8 +2018,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=2;
 						cont_p2++;
@@ -1849,8 +2027,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha2_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha2_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha2_inicial_p2x"]=columna;
+						sessionStorage["ficha2_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=2;
 						cont_p2++;
@@ -1862,8 +2040,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=2;
 						cont_p2++;
@@ -1871,8 +2049,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=2;
 						cont_p2++;
@@ -1880,8 +2058,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=2;
 						cont_p2++;
@@ -1889,8 +2067,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=2;
 						cont_p2++;
@@ -1898,8 +2076,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=2;
 						cont_p2++;
@@ -1907,8 +2085,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=2;
 						cont_p2++;
@@ -1916,8 +2094,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=2;
 						cont_p2++;
@@ -1925,8 +2103,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=2;
 						cont_p2++;
@@ -1934,8 +2112,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha3_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha3_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha3_inicial_p2x"]=columna;
+						sessionStorage["ficha3_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=2;
 						cont_p2++;
@@ -1947,8 +2125,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=2;
 						cont_p2++;
@@ -1956,8 +2134,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=2;
 						cont_p2++;
@@ -1965,8 +2143,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=2;
 						cont_p2++;
@@ -1974,8 +2152,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=2;
 						cont_p2++;
@@ -1983,8 +2161,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=2;
 						cont_p2++;
@@ -1992,8 +2170,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=2;
 						cont_p2++;
@@ -2001,8 +2179,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=2;
 						cont_p2++;
@@ -2010,8 +2188,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=2;
 						cont_p2++;
@@ -2019,8 +2197,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha4_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha4_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha4_inicial_p2x"]=columna;
+						sessionStorage["ficha4_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=2;
 						cont_p2++;
@@ -2032,8 +2210,8 @@ function colocarficha(columna,fila,dim,ctx){
 				switch(fila){
 					case 0:
 					if(fila1[columna]==0 || fila1[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila1[columna]=2;
 						cont_p2++;
@@ -2041,8 +2219,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 1:
 					if(fila2[columna]==0 || fila2[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila2[columna]=2;
 						cont_p2++;
@@ -2050,8 +2228,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 2:
 					if(fila3[columna]==0 || fila3[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila3[columna]=2;
 						cont_p2++;
@@ -2059,8 +2237,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 3:
 					if(fila4[columna]==0 || fila4[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila4[columna]=2;
 						cont_p2++;
@@ -2068,8 +2246,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 4:
 					if(fila5[columna]==0 || fila5[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila5[columna]=2;
 						cont_p2++;
@@ -2077,8 +2255,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 5:
 					if(fila6[columna]==0 || fila6[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila6[columna]=2;
 						cont_p2++;
@@ -2086,8 +2264,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 6:
 					if(fila7[columna]==0 || fila7[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila7[columna]=2;
 						cont_p2++;
@@ -2095,8 +2273,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 7:
 					if(fila8[columna]==0 || fila8[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila8[columna]=2;
 						cont_p2++;
@@ -2104,8 +2282,8 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 					case 8:
 					if(fila9[columna]==0 || fila9[columna]==undefined){
-						sessionStorage["ficha5_inicial_p2x"]=(columna*dim-dim/4)-2;
-						sessionStorage["ficha5_inicial_p2y"]=(fila*dim-dim/4)-2;
+						sessionStorage["ficha5_inicial_p2x"]=columna;
+						sessionStorage["ficha5_inicial_p2y"]=fila;
 						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
 						fila9[columna]=2;
 						cont_p2++;
@@ -2113,6 +2291,164 @@ function colocarficha(columna,fila,dim,ctx){
 					break;
 				}
 			break;
+			case 5:
+				
+				switch(fila){
+					case 0:
+					if(fila1[columna]==0 || fila1[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila1[columna]=2;
+						cont_p2++;
+						
+					}
+					break;
+					case 1:
+					if(fila2[columna]==0 || fila2[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila2[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 2:
+					if(fila3[columna]==0 || fila3[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila3[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 3:
+					if(fila4[columna]==0 || fila4[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila4[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 4:
+					if(fila5[columna]==0 || fila5[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila5[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 5:
+					if(fila6[columna]==0 || fila6[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila6[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 6:
+					if(fila7[columna]==0 || fila7[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila7[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 7:
+					if(fila8[columna]==0 || fila8[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila8[columna]=2;
+						cont_p2++;
+					}
+					break;
+					case 8:
+					if(fila9[columna]==0 || fila9[columna]==undefined){
+						ctx.drawImage(imgv, (columna*dim-dim/4)-2, (fila*dim-dim/4)-2);
+						fila9[columna]=2;
+						cont_p2++;
+					}
+					break;
+				}
+				if(columna==0){
+					meter_gol(2);
+				}
+			break;
 		}
 	}
+}
+function meter_gol(jug){
+	if(jug==2){
+		goles2++;
+	}
+	if(jug==1){
+		goles1++;
+	}
+	for(var cont=0;cont<=20;cont++){
+		if(fila1[cont]==1)
+			fila1[cont]=0;
+		if(fila2[cont]==1)
+			fila2[cont]=0;
+		if(fila3[cont]==1)
+			fila3[cont]=0;
+		if(fila4[cont]==1)
+			fila4[cont]=0;
+		if(fila5[cont]==1)
+			fila5[cont]=0;
+		if(fila6[cont]==1)
+			fila6[cont]=0;
+		if(fila7[cont]==1)
+			fila7[cont]=0;
+		if(fila8[cont]==1)
+			fila8[cont]=0;
+		if(fila9[cont]==1)
+			fila9[cont]=0;
+		if(fila1[cont]==2)
+			fila1[cont]=0;
+		if(fila2[cont]==2)
+			fila2[cont]=0;
+		if(fila3[cont]==2)
+			fila3[cont]=0;
+		if(fila4[cont]==2)
+			fila4[cont]=0;
+		if(fila5[cont]==2)
+			fila5[cont]=0;
+		if(fila6[cont]==2)
+			fila6[cont]=0;
+		if(fila7[cont]==2)
+			fila7[cont]=0;
+		if(fila8[cont]==2)
+			fila8[cont]=0;
+		if(fila9[cont]==2)
+			fila9[cont]=0;
+	}
+	colocarficharandom_p1(e);
+	colocarficharandom_p2(e);
+	/*for(var cont=0;cont<20;cont++){
+		if(fila1[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
+		if(fila2[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
+		if(fila3[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
+		if(fila4[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
+		if(fila5[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
+		if(fila6[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
+		if(fila7[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
+		if(fila8[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
+		if(fila9[cont]==1)
+			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+		if(fila1[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
+		if(fila2[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (1*dim-dim/4)-2);
+		if(fila3[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (2*dim-dim/4)-2);
+		if(fila4[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (3*dim-dim/4)-2);
+		if(fila5[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (4*dim-dim/4)-2);
+		if(fila6[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (5*dim-dim/4)-2);
+		if(fila7[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (6*dim-dim/4)-2);
+		if(fila8[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (7*dim-dim/4)-2);
+		if(fila9[cont]==2)
+			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
+	}*/
 }
