@@ -321,15 +321,17 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		}
 	}
 	if(dado==0){
+		comprobarFicha=true;
+		aux= false;
 		for(var cont=0;cont<dadoaux;cont++){
 			console.log(dadoaux);
 			console.log(fila);
 			console.log(cont);
 			console.log(fila-cont);
-			if(fila<fila_aux){//de arriba a abajo
+			if(fila<fila_aux){//de abajo a arriba
 				if(turnoP1==true){//jugador 1
 					console.log("algo2)adsf");
-					switch(fila-cont){
+					switch(fila+cont){
 						case 0:
 						if(fila1[columna]==2){
 							aux=false;
@@ -369,122 +371,6 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 						case 6:
 						if(fila7[columna]==2){
 							aux= false;console.log("algo2)");
-							comprobarFicha=false;
-						}
-						break;
-						case 7:
-						if(fila8[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 8:
-						if(fila9[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-					}
-				}else{//jugador 2
-					switch(fila-cont){
-						case 0:
-						if(fila1[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 1:
-						if(fila2[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 2:
-						if(fila3[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 3:
-						if(fila4[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 4:
-						if(fila5[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 5:
-						if(fila6[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 6:
-						if(fila7[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 7:
-						if(fila8[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 8:
-						if(fila9[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-					}
-				}
-		}else{//de abajo a arriba
-			if(turnoP1==true){//jugador 1
-				switch(fila+cont){
-						case 0:
-						if(fila1[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 1:
-						if(fila2[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 2:
-						if(fila3[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 3:
-						if(fila4[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 4:
-						if(fila5[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 5:
-						if(fila6[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 6:
-						if(fila7[columna]==2){
-							aux= false;
 							comprobarFicha=false;
 						}
 						break;
@@ -559,10 +445,125 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 						break;
 					}
 				}
+		}else{//de arriba a abajo
+			if(turnoP1==true){//jugador 1
+				switch(fila-cont){
+						case 0:
+						if(fila1[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna]==2){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}else{//jugador 2
+					switch(fila-cont){
+						case 0:
+						if(fila1[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 1:
+						if(fila2[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 2:
+						if(fila3[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 3:
+						if(fila4[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 4:
+						if(fila5[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 5:
+						if(fila6[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 6:
+						if(fila7[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 7:
+						if(fila8[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+						case 8:
+						if(fila9[columna]==1){
+							aux= false;
+							comprobarFicha=false;
+						}
+						break;
+					}
+				}
 		}
-		comprobarFicha=true;
-		aux= false;
-	}}if(aux==true){
+		
+	}}if(aux==true){console.log("horizontal");
 		dado=dadoaux;
 		if(columna<columna_aux){//horizontal
 			if(columna_aux-columna<=dado){
@@ -577,6 +578,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		dado=100;
 	}
 	if(dado==0){
+		comprobarFicha=true;
 		for(var cont=0;cont<dadoaux;cont++){
 			if(columna<columna_aux){//caso de derecha a izquierda
 				if(turnoP1==true){//jugador 1
@@ -812,7 +814,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 				}
 			}
 		}
-		comprobarFicha=true;
+		
 	}else{//diagonal
 		if(aux==true){
 			dado=dadoaux;
@@ -829,11 +831,11 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 			dado=100;
 		}
 	}
-	if(dado==0){
+	/*if(dado==0){
 		comprobarFicha=true;
 	}else{
 		comprobarFicha=false;
-	}
+	}*/
 }
 /*
 function mouse_move(e){
