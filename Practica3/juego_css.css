@@ -2,7 +2,7 @@ body{
     background-color: #d7ffc7;
 }
 #logo{
-		display: block;
+	  display: block;
       margin-left: auto;
       margin-right: auto;
       border:none;
@@ -10,14 +10,25 @@ body{
 /*---------------------------CANVAS------------------------------*/
 /*responsive*/
 #campo{
-  width: 60%;
   margin: 0 auto;
   display: block;
+  text-align: center;
+}
+#marcador{
+	text-align: center;
+	margin: auto;
+	margin: 0; padding: 0;
+}
+h2{
+	margin: 0; padding: 0;
 }
 /*-------------------------------FICHAS_P1---------------------------------*/
+#contenedor{
+	text-align: center;
+}
 #fichas_p1{
 	width: 480px;
-    height: 100px;
+    height: 150px;
     float:left;
 	margin-left: 5%;
     text-align: center;
@@ -28,7 +39,7 @@ body{
 }
 #fichas_p2{
 	width: 480px;
-    height: 100px;
+    height: 150px;
     margin: auto;
     float:right;
 	margin-right: 5%;
@@ -37,6 +48,13 @@ body{
     -moz-border-radius: 35px 0px 35px 0px;
     -webkit-border-radius: 35px 0px 35px 0px;
     border: 5px solid #333;
+}
+#dado{
+	width: 200px;
+    height: 200px;
+    margin: auto;
+	display: inline-block;
+	text-align: center;
 }
 #aleatorio1{
 	margin: 0 auto;
@@ -47,4 +65,30 @@ body{
 	margin: 0 auto;
 	margin-top: 8%;
 	align-self: center;
+}
+/*------------------------------------Mensaje emergente----------------------------------------------------------------------------*/
+.capa-fondo{
+    background-color: rgba(255,255,255,.8);
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+.capa-frente{
+    width: 20em;
+    border:.2em solid #234;
+    /*padding: 1em;*/
+    position:fixed;
+    top:5em;
+    transform: translateX(-50%);
+    left:50%;
+    text-align:center;
+    background: #ddd;
+}
+.capa-frente>h2{
+    margin:0;
+    padding: .2em;
+    background-color:#00a;
+    color:#fff;
 }
