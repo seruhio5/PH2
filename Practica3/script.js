@@ -966,34 +966,23 @@ function mouse_click(e){
 
 		}else{//cuando hay una ficha seleccionada
 
-			console.log(turnoP2);
 			comprobar_ficha(fila,columna,fila_aux,columna_aux);
 			if(comprobarFicha==true){
 				colocarficha(columna,fila,dim,ctx);
 				if(turnoP1==true){
 					turnoP1=false;
 					turnoP2=true;
-					console.log(turnoP1);
-					console.log(turnoP2);
-					/*let html1='';
+					let html1='';
 					html1 += '<h2>'+sessionStorage['player2']+'</h2>'
 					html1 += '<img src="circuloverde.svg" alt="circuloverde" />'
 					document.getElementById('fichas_p2').innerHTML = html1;
 					let html2='';
 					html2 += '<h2>'+sessionStorage['player1']+'</h2>'
-					document.getElementById('fichas_p1').innerHTML = html2;*/
+					document.getElementById('fichas_p1').innerHTML = html2;
 				}else if(turnoP2==true){
 					turnoP1=true;
 					turnoP2=false;
-					console.log(turnoP1);
-					console.log(turnoP2);
-					/*let html1='';
-					html1 += '<h2>'+sessionStorage['player2']+'</h2>'
-					document.getElementById('fichas_p2').innerHTML = html1;
-					let html2='';
-					html2 += '<h2>'+sessionStorage['player1']+'</h2>'
-					html2 += '<img src="circulorojo.svg" alt="circulorojo" />'
-					document.getElementById('fichas_p1').innerHTML = html2;*/
+
 				}
 			}
 			if(cont_p1==6){
@@ -1162,19 +1151,23 @@ function mouse_click(e){
 
 
 		}else{//cuando hay una ficha seleccionada
-			console.log("añlskdjfañlskjdfñlaksdjfñlaksdjfñalksdjf");
-			console.log(turnoP2);
 			comprobar_ficha(fila,columna,fila_aux,columna_aux);
-			if(comprobarFicha==true){console.log("añlskdjfañlskjdfñlaksdjfñlaksdjfñalksdjficha p2");
+			if(comprobarFicha==true){
 				colocarficha(columna,fila,dim,ctx);
 				if(turnoP1==true){
 					turnoP1=false;
 					turnoP2=true;
-					console.log(turnoP1);
-					console.log(turnoP2);
+
 				}else if(turnoP2==true){
 					turnoP1=true;
 					turnoP2=false;
+					let html1='';
+					html1 += '<h2>'+sessionStorage['player2']+'</h2>'
+					document.getElementById('fichas_p2').innerHTML = html1;
+					let html2='';
+					html2 += '<h2>'+sessionStorage['player1']+'</h2>'
+					html2 += '<img src="circulorojo.svg" alt="circulorojo" />'
+					document.getElementById('fichas_p1').innerHTML = html2;
 				}
 			}
 			if(cont_p2==6){
@@ -1297,11 +1290,17 @@ function terminar_inicio2(){
 	inicioP1=false;
 	inicioP2=false;
 	turnoP1=true;
-	}
 	let html = '<img src="" name="mydice"> <input type="button" value="Lanza dado" onClick="lanzar()">';
 	document.getElementById("dado").innerHTML=html;
-	let html2='<h2>'+sessionStorage['player2']+'</h2>';
-	document.getElementById("fichas_p2").innerHTML=html2;
+	let html1='';
+	html1 += '<h2>'+sessionStorage['player2']+'</h2>'
+	document.getElementById('fichas_p2').innerHTML = html1;
+	let html2='';
+	html2 += '<h2>'+sessionStorage['player1']+'</h2>'
+	html2 += '<img src="circulorojo.svg" alt="circulorojo" />'
+	document.getElementById('fichas_p1').innerHTML = html2;
+	}
+
 }
 function colocarficharandom_p1(e){
 	if(inicioP1==true){
