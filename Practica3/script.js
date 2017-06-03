@@ -1,3 +1,5 @@
+sessionStorage['goles1']=0;
+sessionStorage['goles2']=0;
 var player1;
 var player2;
 var imgr = new Image();
@@ -45,8 +47,6 @@ function guardarNombres(frm){
 }
 //inicializar marcador
 function marcador(){
-	sessionStorage['goles1']=0;
-	sessionStorage['goles2']=0;
 	let html='<h1><p>'+sessionStorage['goles1']+' - '+sessionStorage['goles2']+'</p></h1>';
 	document.getElementById("marcador").innerHTML=html;
 }
@@ -127,12 +127,26 @@ var face5=new Image()
 face5.src="fotos/dado6.png"
 function lanzar()
 {
-   var randomdice=Math.round(Math.random()*5);
-   document.images["mydice"].src=eval("face"+randomdice+".src");
-   sessionStorage["dado"]=randomdice+1;
-   dado1=false;
-   dado2=false;
-   //mostrarMensajeDado();
+	if(dado1==false && dado2==false){
+   		mostrarMensajeDado();
+	}
+	if(dado1==true){
+		turnoP1=true;
+		var randomdice=Math.round(Math.random()*5);
+   		document.images["mydice"].src=eval("face"+randomdice+".src");
+   		sessionStorage["dado"]=randomdice+1;
+   		dado1=false;
+   		dado2=false;
+	}
+	if(dado2==true){
+		turnoP2=true;
+		var randomdice=Math.round(Math.random()*5);
+   		document.images["mydice"].src=eval("face"+randomdice+".src");
+   		sessionStorage["dado"]=randomdice+1;
+   		dado1=false;
+   		dado2=false;
+	}
+
 }
 /********************************Canvas*************************************/
 function fichas_p1(){
@@ -328,246 +342,129 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		comprobarFicha=true;
 		aux= false;
 		for(var cont=0;cont<dadoaux;cont++){
-			console.log(dadoaux);
-			console.log(fila);
-			console.log(cont);
-			console.log(fila-cont);
+
 			if(fila<fila_aux){//de abajo a arriba
-				if(turnoP1==true){//jugador 1
-					console.log("algo2)adsf");
+
+
 					switch(fila+cont){
 						case 0:
-						if(fila1[columna]==2){
+						if(fila1[columna]!=0){
 							aux=false;
 							comprobarFicha=false;
 						}
 						break;
 						case 1:
-						if(fila2[columna]==2){
+						if(fila2[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 2:
-						if(fila3[columna]==2){
+						if(fila3[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 3:
-						if(fila4[columna]==2){
+						if(fila4[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 4:
-						if(fila5[columna]==2){
-							aux= false;console.log("algo2)");
+						if(fila5[columna]!=0){
+							aux= false;c
 							comprobarFicha=false;
 						}
 						break;
 						case 5:
-						if(fila6[columna]==2){
-							aux= false;console.log("algo2)");
-							comprobarFicha=false;
-						}console.log("algo");
-						break;
-						case 6:
-						if(fila7[columna]==2){
-							aux= false;console.log("algo2)");
-							comprobarFicha=false;
-						}
-						break;
-						case 7:
-						if(fila8[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 8:
-						if(fila9[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-					}
-				}else{//jugador 2
-					switch(fila+cont){
-						case 0:
-						if(fila1[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 1:
-						if(fila2[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 2:
-						if(fila3[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 3:
-						if(fila4[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 4:
-						if(fila5[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 5:
-						if(fila6[columna]==1){
+						if(fila6[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 6:
-						if(fila7[columna]==1){
+						if(fila7[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 7:
-						if(fila8[columna]==1){
+						if(fila8[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 8:
-						if(fila9[columna]==1){
+						if(fila9[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 					}
-				}
+
 		}else{//de arriba a abajo
-			if(turnoP1==true){//jugador 1
+
 				switch(fila-cont){
 						case 0:
-						if(fila1[columna]==2){
+						if(fila1[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 1:
-						if(fila2[columna]==2){
+						if(fila2[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 2:
-						if(fila3[columna]==2){
+						if(fila3[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 3:
-						if(fila4[columna]==2){
+						if(fila4[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 4:
-						if(fila5[columna]==2){
+						if(fila5[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 5:
-						if(fila6[columna]==2){
+						if(fila6[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 6:
-						if(fila7[columna]==2){
+						if(fila7[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 7:
-						if(fila8[columna]==2){
+						if(fila8[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 8:
-						if(fila9[columna]==2){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-					}
-				}else{//jugador 2
-					switch(fila-cont){
-						case 0:
-						if(fila1[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 1:
-						if(fila2[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 2:
-						if(fila3[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 3:
-						if(fila4[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 4:
-						if(fila5[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 5:
-						if(fila6[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 6:
-						if(fila7[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 7:
-						if(fila8[columna]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 8:
-						if(fila9[columna]==1){
+						if(fila9[columna]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 					}
 				}
-		}
 
-	}}if(aux==true){console.log("horizontal");
+
+	}}if(aux==true){
 		dado=dadoaux;
 		if(columna<columna_aux){//horizontal
 			if(columna_aux-columna<=dado){
@@ -585,237 +482,123 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		comprobarFicha=true;
 		for(var cont=0;cont<dadoaux;cont++){
 			if(columna<columna_aux){//caso de derecha a izquierda
-				if(turnoP1==true){//jugador 1
+
 					switch(fila){
 						case 0:
-						if(fila1[columna+cont]==2){
+						if(fila1[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 1:
-						if(fila2[columna+cont]==2){
+						if(fila2[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 2:
-						if(fila3[columna+cont]==2){
+						if(fila3[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 3:
-						if(fila4[columna+cont]==2){
+						if(fila4[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 4:
-						if(fila5[columna+cont]==2){
+						if(fila5[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 5:
-						if(fila6[columna+cont]==2){
+						if(fila6[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 6:
-						if(fila7[columna+cont]==2){
+						if(fila7[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 7:
-						if(fila8[columna+cont]==2){
+						if(fila8[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 8:
-						if(fila9[columna+cont]==2){
+						if(fila9[columna+cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 					}
-				}else{//jugador 2
-					switch(fila){
-						case 0:
-						if(fila1[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 1:
-						if(fila2[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 2:
-						if(fila3[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 3:
-						if(fila4[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 4:
-						if(fila5[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 5:
-						if(fila6[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 6:
-						if(fila7[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 7:
-						if(fila8[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 8:
-						if(fila9[columna+cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-					}
-				}
+
 			}else{//caso de izquierda a derecha
-				if(turnoP1==true){//jugador 1
+
 					switch(fila){
 						case 0:
-						if(fila1[columna-cont]==2){
+						if(fila1[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 1:
-						if(fila2[columna-cont]==2){
+						if(fila2[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 2:
-						if(fila3[columna-cont]==2){
+						if(fila3[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 3:
-						if(fila4[columna-cont]==2){
+						if(fila4[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 4:
-						if(fila5[columna-cont]==2){
+						if(fila5[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 5:
-						if(fila6[columna-cont]==2){
+						if(fila6[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 6:
-						if(fila7[columna-cont]==2){
+						if(fila7[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 7:
-						if(fila8[columna-cont]==2){
+						if(fila8[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 						case 8:
-						if(fila9[columna-cont]==2){
+						if(fila9[columna-cont]!=0){
 							aux= false;
 							comprobarFicha=false;
 						}
 						break;
 					}
-				}else{//jugador 2
-					switch(fila){
-						case 0:
-						if(fila1[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 1:
-						if(fila2[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 2:
-						if(fila3[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 3:
-						if(fila4[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 4:
-						if(fila5[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 5:
-						if(fila6[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 6:
-						if(fila7[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 7:
-						if(fila8[columna-cont]==1){
-							aux= false;
-							comprobarFicha=false;
-						}
-						break;
-						case 8:
-						if(fila9[columna-cont]==1){
-							comprobarFicha=false;
-							aux= false;
-						}
-						break;
-					}
-				}
+
 			}
 		}
 
@@ -852,6 +635,13 @@ function mouse_move(e){
 	console.log(`Posicion: ${x} - ${y}`);
 	console.log(`Fila: ${fila} -  columna: ${columna}`);
 }*/
+function resaltarCasilla(columna,fila,ctx){
+	let d1,d2,d3,d4;
+	d1=columna+parseInt(sessionStorage['dado']); //abajo
+	d2=columna-parseInt(sessionStorage['dado']); //arriba
+	d3=fila+parseInt(sessionStorage['dado']);//derecha
+	d4=fila-parseInt(sessionStorage['dado']);//izquierda
+}
 var cont_p1=0;
 var cont_p2=0;
 function mouse_click(e){
@@ -904,7 +694,7 @@ function mouse_click(e){
 	}
 	if(turnoP1){
 		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
-			fila_aux=fila;console.log("añlskdjfañlskjdfñlaksdjfñlaksdjfñalksdjf");
+			fila_aux=fila;
 			columna_aux=columna;
 			switch(fila_aux){//comprobar que se selecciona una ficha
 					case 0:
@@ -971,7 +761,7 @@ function mouse_click(e){
 				colocarficha(columna,fila,dim,ctx);
 				if(turnoP1==true){
 					turnoP1=false;
-					turnoP2=true;
+					dado2=true;
 					let html1='';
 					html1 += '<h2>'+sessionStorage['player2']+'</h2>'
 					html1 += '<img src="circuloverde.svg" alt="circuloverde" />'
@@ -980,10 +770,13 @@ function mouse_click(e){
 					html2 += '<h2>'+sessionStorage['player1']+'</h2>'
 					document.getElementById('fichas_p1').innerHTML = html2;
 				}else if(turnoP2==true){
-					turnoP1=true;
+					dado1=true;
 					turnoP2=false;
 
 				}
+			}
+			else{
+				mostrarMensajeMovimientoErroneo();
 			}
 			if(cont_p1==6){
 				ctx.clearRect(0,0,ctx.width/2,ctx.height);
@@ -1088,7 +881,7 @@ function mouse_click(e){
 			/*turnoP1=false;
 			turnoP2=true;*/
 		}
-	}else if(turnoP2){console.log("se mete en el if de p2");
+	}else if(turnoP2){
 		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
 			fila_aux=fila;
 			columna_aux=columna;
@@ -1156,10 +949,10 @@ function mouse_click(e){
 				colocarficha(columna,fila,dim,ctx);
 				if(turnoP1==true){
 					turnoP1=false;
-					turnoP2=true;
+					dado2=true;
 
 				}else if(turnoP2==true){
-					turnoP1=true;
+					dado1=true;
 					turnoP2=false;
 					let html1='';
 					html1 += '<h2>'+sessionStorage['player2']+'</h2>'
@@ -1169,6 +962,9 @@ function mouse_click(e){
 					html2 += '<img src="circulorojo.svg" alt="circulorojo" />'
 					document.getElementById('fichas_p1').innerHTML = html2;
 				}
+			}
+			else{
+				mostrarMensajeMovimientoErroneo();
 			}
 			if(cont_p2==6){
 				ctx.clearRect(0,0,ctx.width/2,ctx.height);
@@ -1289,7 +1085,7 @@ function terminar_inicio2(){
 	if(cont_p2>=5){
 	inicioP1=false;
 	inicioP2=false;
-	turnoP1=true;
+	dado1=true;
 	let html = '<img src="" name="mydice"> <input type="button" value="Lanza dado" onClick="lanzar()">';
 	document.getElementById("dado").innerHTML=html;
 	let html1='';
@@ -1306,10 +1102,7 @@ function colocarficharandom_p1(e){
 	if(inicioP1==true){
 	let cv = document.getElementById("cv01"),
 		dim 	= cv.width/20,
-		x 		= e.offsetX,
-		y 		= e.offsetY,
-		fila 	= Math.floor(y/dim),
-		columna	= Math.floor(x/dim),
+
 		ctx = cv.getContext("2d");
 	ctx.clearRect(0,0,ctx.width/2,ctx.height);
 	dibujarCampo();
@@ -1339,10 +1132,7 @@ function colocarficharandom_p2(e){
 	if(inicioP2==true){
 	let cv = document.getElementById("cv01"),
 		dim 	= cv.width/20,
-		x 		= e.offsetX,
-		y 		= e.offsetY,
-		fila 	= Math.floor(y/dim),
-		columna	= Math.floor(x/dim),
+
 		ctx = cv.getContext("2d");
 	ctx.clearRect(0,0,ctx.width,ctx.height);
 	dibujarCampo();
@@ -1389,7 +1179,7 @@ function colocarficharandom_p2(e){
 }
 }
 function colocarficha(columna,fila,dim,ctx){
-	console.log(goles2);
+
 	if((columna>0 && columna<=9 && cont_p1<5) || (turnoP1==true)){
 		switch(cont_p1){
 			case 0:
@@ -2394,52 +2184,47 @@ function colocarficha(columna,fila,dim,ctx){
 function meter_gol(jug){
 	if(jug==2){
 		goles2++;
-		mostrarMensajeGol(jug);
+		sessionStorage['goles2']=goles2;
+		marcador();
+		if(goles2-goles1>=2 && goles2>=5){
+			mostrarMensajeFin(jug);
+		}
+		else{
+			mostrarMensajeGol(jug);
+			turnoP1=false;
+			turnoP2=false;
+			dado1=true;
+			let html1='';
+			html1 += '<h2>'+sessionStorage['player1']+'</h2>'
+			html1 += '<img src="circulorojo.svg" alt="circulorojo" />'
+			document.getElementById('fichas_p1').innerHTML = html1;
+			let html2='';
+			html2 += '<h2>'+sessionStorage['player2']+'</h2>'
+			document.getElementById('fichas_p2').innerHTML = html2;
+		}
 	}
 	if(jug==1){
 		goles1++;
-		mostrarMensajeGol(jug);
+		sessionStorage['goles1']=goles1;
+		marcador();
+		if(goles1-goles2>=2 && goles1>=5){
+			mostrarMensajeFin(jug);
+		}
+		else{
+			mostrarMensajeGol(jug);
+			turnoP2=false;
+			turnoP1=false;
+			dado2=true;
+			let html1='';
+			html1 += '<h2>'+sessionStorage['player2']+'</h2>'
+			html1 += '<img src="circuloverde.svg" alt="circuloverde" />'
+			document.getElementById('fichas_p2').innerHTML = html1;
+			let html2='';
+			html2 += '<h2>'+sessionStorage['player1']+'</h2>'
+			document.getElementById('fichas_p1').innerHTML = html2;
+		}
 	}
-	for(var cont=0;cont<=20;cont++){
-		if(fila1[cont]==1)
-			fila1[cont]=0;
-		if(fila2[cont]==1)
-			fila2[cont]=0;
-		if(fila3[cont]==1)
-			fila3[cont]=0;
-		if(fila4[cont]==1)
-			fila4[cont]=0;
-		if(fila5[cont]==1)
-			fila5[cont]=0;
-		if(fila6[cont]==1)
-			fila6[cont]=0;
-		if(fila7[cont]==1)
-			fila7[cont]=0;
-		if(fila8[cont]==1)
-			fila8[cont]=0;
-		if(fila9[cont]==1)
-			fila9[cont]=0;
-		if(fila1[cont]==2)
-			fila1[cont]=0;
-		if(fila2[cont]==2)
-			fila2[cont]=0;
-		if(fila3[cont]==2)
-			fila3[cont]=0;
-		if(fila4[cont]==2)
-			fila4[cont]=0;
-		if(fila5[cont]==2)
-			fila5[cont]=0;
-		if(fila6[cont]==2)
-			fila6[cont]=0;
-		if(fila7[cont]==2)
-			fila7[cont]=0;
-		if(fila8[cont]==2)
-			fila8[cont]=0;
-		if(fila9[cont]==2)
-			fila9[cont]=0;
-	}
-	colocarficharandom_p1(e);
-	colocarficharandom_p2(e);
+	random_inicio();
 	/*for(var cont=0;cont<20;cont++){
 		if(fila1[cont]==1)
 			ctx.drawImage(imgr, (cont*dim-dim/4)-2, (0*dim-dim/4)-2);
@@ -2479,6 +2264,42 @@ function meter_gol(jug){
 			ctx.drawImage(imgv, (cont*dim-dim/4)-2, (8*dim-dim/4)-2);
 	}*/
 }
+function random_inicio(){
+let cv = document.getElementById("cv01"),
+		dim 	= cv.width/20,
+
+		ctx = cv.getContext("2d");
+	ctx.clearRect(0,0,ctx.width/2,ctx.height);
+	dibujarCampo();
+	for(var cont=0;cont<20;cont++){
+		fila1[cont]=0;
+		fila2[cont]=0;
+		fila3[cont]=0;
+		fila4[cont]=0;
+		fila5[cont]=0;
+		fila6[cont]=0;
+		fila7[cont]=0;
+		fila8[cont]=0;
+		fila9[cont]=0;
+	}
+	columna=Math.floor((Math.random() * 9) + 1);
+	fila=Math.floor((Math.random() * 10));
+	cont_p1=0;
+	while(cont_p1<5){
+		columna=Math.floor((Math.random() * 9) + 1);
+		fila=Math.floor((Math.random() * 10));
+		colocarficha(columna,fila,dim,ctx);
+	}
+	columna=Math.floor((Math.random() * 9) + 10);
+	fila=Math.floor((Math.random() * 10));
+	cont_p2=0;
+	while(cont_p2<5){
+		columna=Math.floor((Math.random() * 9) + 10);
+		fila=Math.floor((Math.random() * 10));
+		colocarficha(columna,fila,dim,ctx);
+	}
+}
+
 //mensajes del juego
 function mostrarMensajeDado(){
 	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
@@ -2525,4 +2346,27 @@ function mostrarMensajeGol(jug){
 	capa_frente.classList.add('capa-frente');
 
 	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeFin(jug){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+	if(jug==2){
+		html +='<h2>'+sessionStorage['player2']+' ha ganado el partido!</h2>';
+	}
+	if(jug==1){
+		html +='<h2>'+sessionStorage['player1']+' ha ganado el partido!</h2>';
+	}
+	html += '<button onclick="this.parentNode.parentNode.remove();reinicio();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+//hacer toda la session a null/0 y volvemos al index
+function reinicio(){
+	sessionStorage.clear();
+	window.location="./index.html";
 }
