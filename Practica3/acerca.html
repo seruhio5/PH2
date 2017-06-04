@@ -5,9 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="CSS.css" rel="stylesheet" type="text/css"/>
-    
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="./index_css.css" rel="stylesheet" type="text/css"/>
 
     <title>Sobre Nosotros</title>
 </head>
@@ -15,12 +13,8 @@
 
 	<header>
 
-			<a href="index.html"><img id="logo" src="logoph2.png" width="300" height="150"  alt="logo"></a>
-		
-			<h1 id=descripcion>
-				Descripcion y nombre del juego.
-			</h1>	
-		
+			<img id="logo" src="logoph2.png" alt="logo">
+
 	</header>
 	<div id="separador"></div>
 
@@ -42,11 +36,11 @@
 					</ul>
 
 	</section>
-	
+
 	<hr>
 	<section id="descripcion_p">
-		
-		<h2>Práctica 1 de la asignatura
+
+		<h2>Práctica 3 de la asignatura
 					Programación Hipermedia II, que pertenece al 3er curso de la
 					titulación de Ingeniería Multimedia</h2>
 
@@ -55,82 +49,48 @@
 		<h3>-Partes de la práctica que han sido implementadas</h3>
 
 		<ul>
-			<li><p>Todas las páginas han pasado la validación satisfactoriamente en http://validator.w3.org. El html a validar incluye el contenido generado con JavaScript.</p></li>
-			<li><p>Cabecera con: logotipo, nombre/título del sitio web y un pequeño texto explicativo del objetivo del sitio.</p></li>
-			<li><p>Barra de navegación con todos los enlaces.</p></li>
-			<li><p>Al pasar el ratón por encima de un enlace, éste deberá destacarse de los demás de alguna manera mediante CSS.</p></li>
-			<li><p>Pie con información de contacto.</p></li>
-			<li><p>Formularios: El campo que recibe el foco debe destacarse de los demás de alguna manera mediante CSS. Al pasar el ratón por encima de un campo, éste deberá destacarse de los demás de alguna manera mediante CSS.</p></li>
-			<li><p>En las reglas css, utilizar pseudo-elementos y pseudo-clases en combinación con los selectores CSS3 siempre que sea posible, reduciendo de esta manera el uso de identificadores y clases.</p></li>
-			<li><p>Uso de Web Fonts.</p></li>
-			<li><p>Uso de Icon Fonts</p></li>
-			<li><p>Realizar un diseño responsive basado en la técnica Mobile First.</p></li>
-			
+			<li><p>(0,25) Todas las páginas han pasado la validación satisfactoriamente en http://validator.w3.org. El html a validar incluye el contenido generado con JavaScript.</p></li>
+			<li><p>(0,25~) Se deberá tener, como mínimo, una cabecera en la que aparezca el nombre del juego y un pie de página que contendrá, al menos, un enlace a la página acerca.html.</p></li>
+			<li><p>(0,25) Todos los mensajes que se deban mostrar al usuario se mostrarán mediante mensaje emergente o parecido, nunca con alert(). El mensaje deberá tener un botón para cerrarlo.</p></li>
 			<li>
 
 				<h3>Index.html:</h3>
-				
+
 				<ul>
-					<li><p>Últimas 6 entradas.</p></li>
-					<li><p>Al pasar el ratón por encima de la foto, aparecerá sobre ella el texto descriptivo de la entrada (sin salirse de la ficha), junto a un enlace Ver más...</p></li>
-					<li><p>La zona de últimas entradas tendrá un pie para la paginación de entradas.</p></li>
-					<li><p>Últimos 10 comentarios de los usuarios: Si el título de la entrada y/o el del comentario ocupa más de una línea, con css se deberá cortar y mostrar puntos suspensivos al final de la línea.</p>	</li>
+					<li><p>(0,25) Debe haber dos cajas de texto para recoger el nombre de los equipos.</p></li>
+					<li><p>(0,5) Los nombres de los equipos deberán guardarse en sessionStorage para que estén disponibles en la página de juego. Si cuando se (re)carga la página i ndex.html , los nombres de los equipos están en sessionStorage , deben rellenarse las cajas de texto con los nombres correspondientes.</p></li>
+					<li><p>(0,25) Una vez guardados los nombres de los equipos en sessionStorage , se mostrará un enlace/botón para poder acceder a la página de juego.</p></li>
 				</ul>
 
-				<h3>Login.html:</h3>
+				<h3>Juego.html:</h3>
 				<ul>
-					<li><p>Se deben utilizar las etiquetas y atributos HTML5 para su validación.</p></li>
-					<li><p>Ninguno de los dos campos puede quedar vacío.</p></li>
-					<li><p>El campo de login debe tener el foco al cargar la página.</p></li>
-					<li><p>El login no debe contener espacios en blanco. Sólo se podrán utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número.</p></li>
+					<li><p>(0,25) Si al cargar la página, no se tienen los nombres de los equipos se debe redirigir automáticamente a index.html .</p></li>
+					<li><p>(1) Zona de campo de juego . Será un canvas con un tamaño de 9x18 cuadros que representará un campo de fútbol. Además, deberán dibujarse las dos porterías como tres cuadros (filas 3, 4 y 5) y las líneas del campo, tal y como se muestra en la imagen al principio del enunciado.</p></li>
+					<li><p>(0,5) Zona de fichas de jugadores . En esta zona se mostrarán las cinco fichas disponibles por jugador. Hay que tener en cuenta lo siguiente: Cada ficha será un elemento <img> cuya imagen se habrá creado mediante elementos svg y estará guardada en un fichero imagen con extensión *.svg . Por simplicidad, es suficiente con crear una ficha redonda verde para un equipo y roja para el otro.</p></li>
+					<li><p>(0,5) Zona de marcador . En esta zona se mostrará el resultado del partido y se informará de a quién le corresponde el turno. Aparecerá el botón para lanzar el dado, así como un lugar para mostrar el resultado del mismo. Además, habrá un botón que permitirá abortar el partido, eliminando toda la información guardada en sessionStorage , tras lo que se redirigirá a i ndex.html para empezar uno nuevo. Hay que tener en cuenta que hasta que no se lance el dado no se podrá mover ninguna ficha y que, una vez lanzado, sólo se podrán mover las fichas del jugador al que le corresponde el turno.</p></li>
+					<li><p>Colocación de las fichas:</p></li>
+					<li><p>(0,75 ~) Haciendo click sobre la ficha a colocar . Primero se hará click sobre la ficha en la zona de fichas de jugadores. Esta ficha pasará a estar seleccionada, destacándola de las demás, por ejemplo, poniéndole un recuadro rojo. A continuación se pinchará sobre el cuadro del campo en el que se quiere colocar. Hay que tener en cuenta que sólo se puede colocar en los cuadros de su campo y que no se puede colocar en un cuadro ya ocupado. Si el cuadro en el que se ha pinchado es correcto, la ficha seleccionada desaparecerá de la zona de fichas de jugadores y aparecerá en dicho cuadro del campo de juego.</p></li>
+					<li><p>(1,25 ~) Arrastrando la ficha al campo . Mediante Drag and Drop se podrán arrastrar las fichas al campo de juego. Hay que tener en cuenta los mismos requerimientos que en el caso de hacerlo mediante click: al pinchar sobre la ficha a arrastrar, ésta se destacará de las demás y sólo se podrá soltar la ficha en un cuadro vacío de la parte del campo que le corresponda. Además, según se vaya arrastrando la ficha por el campo, el cuadro correspondiente por el que se pase deberá destacarse de los demás, por ejemplo, pintando su borde en rojo.</p></li>
+					<li><p>(0,5) Además, para cada jugador se mostrará un botón que le permitirá colocar las piezas en el campo de forma aleatoria.</p></li>
+					<li><p>(0,5 ~) Una vez colocadas todas las fichas en el campo de juego, se mostrará un botón que permitirá empezar a jugar. En todo momento, y mientras no se pulse este botón, los jugadores podrán mover sus fichas dentro de su campo teniendo en cuenta las reglas de colocación anteriores. Al pinchar en el botón para empezar a jugar, se ocultará la zona de fichas de jugadores y se mostrará la zona de marcador.</p></li>
+					<li><p>(2 ~) Movimiento de las fichas en el campo . Las fichas se podrán mover haciendo click con el ratón o arrastrando, teniendo en cuenta las siguientes reglas: la ficha se moverá tantos cuadros como indique la puntuación del dado; no se podrá“saltar” ninguna otra ficha; y, por último, no se podrá mover a un cuadro ya ocupado:</p></li>
+					<li><p>Mover mediante click de ratón . Primero se hará click sobre la ficha a mover. Ésta se destacará de las demás, por ejemplo, pintando el borde del cuadro en rojo. Además, también se resaltarán los cuadros de destino posibles, teniendo en cuenta las reglas de movimiento. A continuación, se hará click sobre el cuadro destino correspondiente, comprobando si es correcto.</p></li>
+					<li><p>Mover arrastrando la ficha . Se pulsará con el botón izquierdo del ratón sobre la ficha a mover y, sin soltar el botón del ratón, se “arrastrará” la ficha hasta el cuadro deseado. Los cuadros por donde vaya pasando la ficha se destacarán de los demás, por ejemplo, pintando el borde del cuadro en rojo. Cuando se llegue al cuadro destino deseado se soltará el botón del ratón, comprobando si es correcto.</p></li>
+					<li><p>Si el cuadro destino elegido no se encuentra entre los posibles cuadros de destino, no se hará nada y se mostrará un mensaje emergente al usuario informándole del movimiento erróneo y pidiéndole que vuelva a intentarlo.</p></li>
+					<li><p>Si la ficha se pudo mover correctamente: 1) Primero, se pintará la ficha en la casilla de destino. 2) A continuación, se comprobará si se ha marcado gol. Si es así, se mostrará un mensaje emergente indicándolo y se comprobará si es final de partido. Si es final de partido, se mostrará un mensaje emergente diciendo que se ha acabado el partido y mostrando el resultado del mismo y el nombre del equipo ganador. Tras cerrar este mensaje emergente, se limpiará toda la información guardada en sessionStorage y se redirigirá a i ndex.html , es decir, se hará lo mismo que si se pulsa en el botón para abortar el partido. Si no es fin de partido, se pasa el turno al otro jugador reiniciando la puntuación del dado y cambiando el indicador de turno en la zona de marcador.</p></li>
+					<li><p>(0,5 ~) Recordar el estado del juego . En todo momento el estado del juego (posición de las fichas, turno y resultado) estará guardado en sessionStorage . De esta manera, si se recarga la página no se pierde el estado en el que se encuentra el partido y se puede seguir jugando.</p></li>
 				</ul>
 
-				<h3>Registro.html:</h3>
-				<ul>
-					<li><p>Se deben utilizar las etiquetas y atributos HTML5 para su validación.</p></li>
-					<li><p>Ninguno de los campos puede quedar vacío.</p></li>
-					<li><p>El campo de login debe tener el foco al cargar la página.</p></li>
-					<li><p>El login no debe contener espacios en blanco y su longitud no puede ser mayor de 20 caracteres. Sólo se podrán utilizar números y letras (mayúsculas y/o minúsculas). No puede empezar por un número.</p></li>
-					<li><p>El password no debe tener espacios en blanco y sólo se pueden utilizar letras mayúsculas, minúsculas, números y los caracteres “_” y “-”. Su longitud no puede ser mayor de 20 caracteres</p></li>
-				</ul>
 
-				<h3>Buscar.html:</h3>
-				<ul>
-					<li><p>Cuando se carga la página, el formulario de búsqueda aparecerá vacío y en la zona de resultados se mostrarán las últimas 10 entradas dadas de alta. Para cada entrada se mostrarán los mismos datos que en la página index.html</p></li>
-				</ul>
-
-				<h3>Entrada.html:</h3>
-				<ul>
-					<li><p>Se debe mostrar toda la información de la entrada: fecha de alta, título, texto descriptivo completo, número de fotos, número de comentarios de los usuarios y autor. Tanto la información sobre el número de fotos, como la información sobre el número de comentarios serán enlaces a las correspondientes secciones en la página.</p></li>
-					<li><p>Zona de fotografías de la entrada. Cada una de ellas se mostrará con su texto explicativo asociado y un número de orden (1, 2, 3, …).</p></li>
-					<li><p>También se deben mostrar todos los comentarios realizados por losusuarios sobre la entrada, ordenados de más reciente a más antiguo. Para cada comentario aparecerá el autor, la fecha (en formato martes, 14/02/2017, 09:32h), el título, el texto y un botón/enlace que permitirá, a un usuario logueado, responder al mismo. Al pinchar en el botón de responder nos llevará al formulario para dejar un comentario</p></li>
-					<li><p>Debe haber un formulario que permita al usuario logueado escribir un comentario sobre la entrada. Este formulario tendrá un campo de texto para que el usuario escriba el título y un campo textarea para el texto del comentario. El título del comentario no permitirá más de 50 caracteres y ninguno de los dos campos podrá quedar vacío.</p></li>
-				</ul>
-
-				<h3>Nueva-entrada.html:</h3>
-				<ul>
-					<li><p>La página deberá mostrar un formulario con los siguientes campos: título (input de tipo texto) y descripción, que será un elemento textarea.</p></li>
-					<li><p>Además, habrá una zona en la que se podrán seleccionar las fotos que asociadas a la entrada. En esta zona aparecerá un botón Añadir foto, que permitirá (en la práctica 2) seleccionar el o los ficheros de fotos que se quieran subir. Para cada foto debe aparecer: un elemento img, que mostrará la foto en pequeño; un elemento textarea, para escribir una descripción; un botón que abrirá el típico diálogo para poder seleccionar el fichero de la foto; y un botón para poder eliminar la foto del formulario.</p></li>
-					<li><p>Además del botón para poder añadir más fotos, el formulario tendrá otro para enviar los datos del formulario.</p></li>
-					<li><p>Mediante los atributos de HTML5, para los elementos del formulario se deberá controlar lo siguiente: 1) Ningún campo se puede dejar en blanco. 2) El título del viaje admite como máximo 200 caracteres.</p>		</li>
-				</ul>
-			</li>
-		</ul>
-
-		<h3>Incompatibilidades y Problemas</h3>
+		<h3>Descripcion del juego,Incompatibilidades,Problemas y Mejoras</h3>
 		<ul>
-			<li><p>La parte fija del "menú hamburguesa" no hemos podido implementarla, pero hemos puesto un boton para ir al inicio de la pagina en cuestion</p></li>
-			<li><p>(Buscar.html) El type date no funciona en todos los navegadores, y aparte nos da dos warnings (polyfill) y que no sabemos como usar eso.</p></li>
-			<li><p>Hay algunos warnigns de idiomas que no sabemos muy bien porque salen</p></li>
-		</ul>
-
-
-
-		<h3>Mejoras e implementaciones adicionales</h3>
-		<ul>
-			<li><p>Mejora de los formularios</p></li>
-			<li><p>Mejora artistica y de usabilidad de la web</p></li>
-			<li><p>Faltaria mejorar el boton "ir arriba", ya que para ello seria usar javascript o similar</p></li>
+			<li><p>La parte flexbox o Mobile First no la hemos podido implementar del todo por problemas con el canvas y las posiciones internas de la fichas.</p></li>
+			<li><p>La parte de la colocacion de las fichas, tenemos el drag and drop directo, clicar directamente en el canvas y el boton aleatorio. Una vez pulsado aleatorio NO podremos volver a colocar la fichas manualmente, pero siempre podremos seleccionar diferentes azares. El flujo de la colocacion se basa en colocar primero las fichas del jugador 1, darle a terminar intento y luego que repita el proceso el jugador 2. Cuando el jugador 2 le de a terminar intento empezara el juego. El turno de los jugadores se muestra mediante una ficha debajo de su nombre de su color, y acto seguido tendran que lanzar el dado, el cual controlamos que siempre se lance y solo una vez</p></li>
+			<li><p>En la parte de la colocacion de las fichas y la de jugar no hemos podido implementar la parte de que se iluminen las casillas en css.</p></li>
+			<li><p>El movimiento de la ficha no hemos podido implementarlo en drag and drop.</p></li>
+			<li><p>La parte de recordar el estado del juego no la tenemos 100% ya que recordamos nombres, goles, dado, etc, pero no las fichas.</p></li>
+			<li><p>El movimiento en diagonal no esta controlado, pero si implementado.</p></li>
+			<li><p>Todo lo que no se ha podido completar quedaria como posible mejora en un futuro.</p></li>
 		</ul>
 
 

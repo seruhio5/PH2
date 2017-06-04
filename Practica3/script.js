@@ -16,6 +16,17 @@ var fila6=new Array(20);
 var fila7=new Array(20);
 var fila8=new Array(20);
 var fila9=new Array(20);
+for(var cont=0;cont<20;cont++){
+		fila1[cont]=0;
+		fila2[cont]=0;
+		fila3[cont]=0;
+		fila4[cont]=0;
+		fila5[cont]=0;
+		fila6[cont]=0;
+		fila7[cont]=0;
+		fila8[cont]=0;
+		fila9[cont]=0;
+}
 var inicio;
 var inicioP1;
 var inicioP2;
@@ -161,7 +172,7 @@ function fichas_p1(){
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
-				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="Azar" onClick="colocarficharandom_p1(event)">'
 			break;
 			case 1:
 				html += '<h2>'+sessionStorage['player1']+'</h2>'
@@ -169,30 +180,30 @@ function fichas_p1(){
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
-				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="Azar" onClick="colocarficharandom_p1(event)">'
 			break;
 			case 2:
 				html += '<h2>'+sessionStorage['player1']+'</h2>'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
-				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="Azar" onClick="colocarficharandom_p1(event)">'
 			break;
 			case 3:
 				html += '<h2>'+sessionStorage['player1']+'</h2>'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
-				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="Azar" onClick="colocarficharandom_p1(event)">'
 			break;
 			case 4:
 				html += '<h2>'+sessionStorage['player1']+'</h2>'
 				html += '<img src="circulorojo.svg" alt="circulorojo" />'
-				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="Azar" onClick="colocarficharandom_p1(event)">'
 			break;
 			case 5:
 				html += '<h2>'+sessionStorage['player1']+'</h2>'
 				if(inicioP1==true){
-				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
+				html += '<input type="button" id="aleatorio1" value="Azar" onClick="colocarficharandom_p1(event)">'
 				html += '<input type="button" value="Terminar turno" onClick="terminar_inicio1()">'
 				}
 			break;
@@ -209,7 +220,7 @@ function fichas_p2(){
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
-				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="Azar" onClick="colocarficharandom_p2(event)">'
 			break;
 			case 1:
 				html += '<h2>'+sessionStorage['player2']+'</h2>'
@@ -217,29 +228,29 @@ function fichas_p2(){
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
-				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="Azar" onClick="colocarficharandom_p2(event)">'
 			break;
 			case 2:
 				html += '<h2>'+sessionStorage['player2']+'</h2>'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
-				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="Azar" onClick="colocarficharandom_p2(event)">'
 			break;
 			case 3:
 				html += '<h2>'+sessionStorage['player2']+'</h2>'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
-				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="Azar" onClick="colocarficharandom_p2(event)">'
 			break;
 			case 4:
 				html += '<h2>'+sessionStorage['player2']+'</h2>'
 				html += '<img src="circuloverde.svg" alt="circuloverde" />'
-				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="Azar" onClick="colocarficharandom_p2(event)">'
 			break;
 			case 5:
 				html += '<h2>'+sessionStorage['player2']+'</h2>'
-				html += '<input type="button" id="aleatorio2" value="random2" onClick="colocarficharandom_p2(event)">'
+				html += '<input type="button" id="aleatorio2" value="Azar" onClick="colocarficharandom_p2(event)">'
 				html += '<input type="button" value="Terminar turno" onClick="terminar_inicio2()">'
 			break;
 			}
@@ -268,13 +279,6 @@ function dragFichas(){
 
     section.ondrop = function(e)
     {
-        /*e.preventDefault();
-        e.stopPropagation();//para prevenir , por si la primera
-        let id_li = e.dataTransfer.getData('text/plain');
-        console.log("DROP: "+id_li);
-        //AÑADIR COMO HIJO EL ELEMENTO QUE SE HA SACADO DEL
-        //PRIMER SECTION A LA LISTA DEL SEGUNDO.
-        section.querySelector('cv01').appendChild(document.getElementById(id_li));*/
         mouse_move(e);
     }
 }
@@ -376,7 +380,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		}
 	}
 	if(dado==0){
-		console.log("vertical");
+
 		comprobarFicha=true;
 		aux= false;
 		for(var cont=0;cont<dadoaux;cont++){
@@ -517,7 +521,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		dado=100;
 	}
 	if(dado==0){
-		console.log("horizontal");
+
 		comprobarFicha=true;
 		for(var cont=0;cont<dadoaux;cont++){
 			if(columna<columna_aux){//caso de derecha a izquierda
@@ -525,6 +529,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 					switch(fila){
 						case 0:
 						if(fila1[columna+cont]!=0){
+
 							aux= false;
 							comprobarFicha=false;
 						}
@@ -665,7 +670,6 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 }
 
 function mouse_move(e){
-	console.log(e);
 	let cv 		= e.target,
 		dim 	= cv.width/20,
 		x 		= e.offsetX,
@@ -694,10 +698,18 @@ function mouse_move(e){
 	ctx.beginPath();
 
 	if(inicioP1==true || inicioP2==true){
-		if(columna<10 && inicioP1==true)
+		if(columna<10 && inicioP1==true){
 			colocarficha(columna,fila,dim,ctx);
-		if(columna<20 && inicioP2==true)
+		}
+		else if(inicioP1==true){
+			mostrarMensajeColocacionCampo();
+		}
+		if(columna>=10 && inicioP2==true){
 			colocarficha(columna,fila,dim,ctx);
+		}
+		else if(inicioP2==true){
+			mostrarMensajeColocacionCampo();
+		}
 		fichas_p1();
 		fichas_p2();
 	}
@@ -712,6 +724,9 @@ function resaltarCasilla(columna,fila,ctx){
 var cont_p1=0;
 var cont_p2=0;
 function mouse_click(e){
+	if(dado1==true || dado2==true){
+		mostrarMensajeDadoL();
+	}
 	let cv 		= e.target,
 		dim 	= cv.width/20,
 		x 		= e.offsetX,
@@ -745,7 +760,7 @@ function mouse_click(e){
 		else if(inicioP1==true){
 			mostrarMensajeColocacionCampo();
 		}
-		if(columna<20 && inicioP2==true){
+		if(columna>=10 && inicioP2==true){
 			colocarficha(columna,fila,dim,ctx);
 		}
 		else if(inicioP2==true){
@@ -754,9 +769,6 @@ function mouse_click(e){
 		fichas_p1();
 		fichas_p2();
 	}
-	console.log(cont_p1);
-	console.log(fila_aux);
-	console.log(cont_p2);
 	if(turnoP1){
 		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
 			fila_aux=fila;
@@ -2396,24 +2408,6 @@ function mostrarMensajeColocacionCampo(){
 
 	document.body.appendChild(capa_fondo);
 }
-function mostrarMensajeTurnoInicio(){
-	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
-	capa_fondo.appendChild(capa_frente);
-	let html="";
-	if(inicioP1==false){
-		html +='<h2>No es tu turno, es el turno de '+sessionStorage['player2']+'.</h2>';
-	}
-	if(inicioP2==false){
-		html +='<h2>No es tu turno, es el turno de '+sessionStorage['player1']+'.</h2>';
-	}
-	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
-
-	capa_frente.innerHTML=html;
-	capa_fondo.classList.add('capa-fondo');
-	capa_frente.classList.add('capa-frente');
-
-	document.body.appendChild(capa_fondo);
-}
 function mostrarMensajeMovimientoErroneo(){
 	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
 	capa_fondo.appendChild(capa_frente);
@@ -2438,6 +2432,19 @@ function mostrarMensajeGol(jug){
 	if(jug==1){
 		html +='<h2>'+sessionStorage['player1']+' ha marcado gol!</h2>';
 	}
+	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeDadoL(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+	html +='<h2>Lanza el dado primero!</h2>';
 	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
 
 	capa_frente.innerHTML=html;

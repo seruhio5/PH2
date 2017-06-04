@@ -50,12 +50,12 @@ input:hover{
     border:1px solid #BEBEBE;
     padding: 7px;
     margin:0px;
-    outline: none;  
+    outline: none;
 }
 .formu input[type=email]:focus,
 .formu input[type=text]:focus,
 .formu input[type=password]:focus,
-.formu textarea:focus, 
+.formu textarea:focus,
 .formu select:focus{
     -moz-box-shadow: 0 0 8px #88D5E9;
     -webkit-box-shadow: 0 0 8px #88D5E9;
@@ -97,4 +97,18 @@ input:hover{
 }
 [id=juego]{
     margin-left: 40%;
+}
+
+
+/*--------------------------------ACERCA--------------------------------------------*/
+[id=alumnos]>ul>li{
+    margin-right: 8%;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 5px solid #333;
 }
