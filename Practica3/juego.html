@@ -9,7 +9,7 @@
     <title>Juego</title>
 </head>
 
-<body onload="comprobar();dibujarCampo();fichas_p1();fichas_p2();marcador();mostrarNombres();">
+<body onload="comprobar();dibujarCampo();fichas_p1();fichas_p2();marcador();">
 
 	<header>
 			<img id="logo" src="logoph2.png" alt="logo">
@@ -19,6 +19,7 @@
 	</section>
 
     <section id="campo">
+    <h2>*</h2>
         <canvas id="cv01" width="1024" height="461" onclick="mouse_click(event);"></canvas>
     </section>
 
@@ -35,6 +36,10 @@
 	<footer>
 		<button onclick="reinicio();">Abortar Partido</button>
 	</footer>
+
+	<script>
+		dragFichas();
+	</script>
 
 </body>
 </html>

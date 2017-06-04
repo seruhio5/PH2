@@ -47,7 +47,7 @@ function guardarNombres(frm){
 }
 //inicializar marcador
 function marcador(){
-	let html='<h1><p>'+sessionStorage['goles1']+' - '+sessionStorage['goles2']+'</p></h1>';
+	let html='<h1>'+sessionStorage['goles1']+' - '+sessionStorage['goles2']+'</h1>';
 	document.getElementById("marcador").innerHTML=html;
 }
 function mostrarFormu(){
@@ -125,6 +125,8 @@ var face4=new Image()
 face4.src="fotos/dado5.png"
 var face5=new Image()
 face5.src="fotos/dado6.png"
+var face6=new Image()
+face6.src="fotos/dado0.png"
 function lanzar()
 {
 	if(dado1==false && dado2==false){
@@ -189,8 +191,10 @@ function fichas_p1(){
 			break;
 			case 5:
 				html += '<h2>'+sessionStorage['player1']+'</h2>'
+				if(inicioP1==true){
 				html += '<input type="button" id="aleatorio1" value="random1" onClick="colocarficharandom_p1(event)">'
 				html += '<input type="button" value="Terminar turno" onClick="terminar_inicio1()">'
+				}
 			break;
 	}
 	document.getElementById('fichas_p1').innerHTML = html;
@@ -240,6 +244,39 @@ function fichas_p2(){
 			break;
 			}
 			document.getElementById('fichas_p2').innerHTML = html;
+}
+function dragFichas(){
+
+    //PREPARAR EL DRAG END DROP
+    //ZONA DRAGGABLE
+    //SERAN LOS LI
+
+    let v = document.querySelectorAll('#fichas_p1>img');
+    for(let i = 0 ; i<v.length;i++){
+        v[i].setAttribute('draggable','true');
+        v[i].ondragstart = function(e){
+            e.dataTransfer.setData('text/plain',v[i].id);
+        }
+    }
+    //ZONA DROPPABLE
+    let section = document.getElementById('cv01');
+    section.ondragover = function(e)
+    {
+        e.preventDefault();
+        e.stopPropagation();//para prevenir , por si la primera
+    }
+
+    section.ondrop = function(e)
+    {
+        /*e.preventDefault();
+        e.stopPropagation();//para prevenir , por si la primera
+        let id_li = e.dataTransfer.getData('text/plain');
+        console.log("DROP: "+id_li);
+        //AÑADIR COMO HIJO EL ELEMENTO QUE SE HA SACADO DEL
+        //PRIMER SECTION A LA LISTA DEL SEGUNDO.
+        section.querySelector('cv01').appendChild(document.getElementById(id_li));*/
+        mouse_move(e);
+    }
 }
 function dibujarCampo(){
 	let cv = document.getElementById("cv01"),
@@ -339,6 +376,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		}
 	}
 	if(dado==0){
+		console.log("vertical");
 		comprobarFicha=true;
 		aux= false;
 		for(var cont=0;cont<dadoaux;cont++){
@@ -479,6 +517,7 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		dado=100;
 	}
 	if(dado==0){
+		console.log("horizontal");
 		comprobarFicha=true;
 		for(var cont=0;cont<dadoaux;cont++){
 			if(columna<columna_aux){//caso de derecha a izquierda
@@ -624,17 +663,45 @@ function comprobar_ficha(fila,columna,fila_aux,columna_aux){
 		comprobarFicha=false;
 	}*/
 }
-/*
+
 function mouse_move(e){
+	console.log(e);
 	let cv 		= e.target,
 		dim 	= cv.width/20,
 		x 		= e.offsetX,
 		y 		= e.offsetY,
 		fila 	= Math.floor(y/dim),
-		columna	= Math.floor(x/dim);
-	console.log(`Posicion: ${x} - ${y}`);
-	console.log(`Fila: ${fila} -  columna: ${columna}`);
-}*/
+		columna	= Math.floor(x/dim),
+		ctx = cv.getContext("2d");
+
+	if(fila<0)
+		fila=0;
+	if(columna<0)
+		columna=0;
+	if(fila>=9)
+		fila=9;
+	if(columna>=20)
+		columna=20;
+	if(fila>5&&columna==0)
+		fila=5;
+	if(fila<3&&columna==0)
+		fila=3;
+	if(fila>5&&columna==19)
+		fila=5;
+	if(fila<3&&columna==19)
+		fila=3;
+
+	ctx.beginPath();
+
+	if(inicioP1==true || inicioP2==true){
+		if(columna<10 && inicioP1==true)
+			colocarficha(columna,fila,dim,ctx);
+		if(columna<20 && inicioP2==true)
+			colocarficha(columna,fila,dim,ctx);
+		fichas_p1();
+		fichas_p2();
+	}
+}
 function resaltarCasilla(columna,fila,ctx){
 	let d1,d2,d3,d4;
 	d1=columna+parseInt(sessionStorage['dado']); //abajo
@@ -668,30 +735,28 @@ function mouse_click(e){
 		fila=5;
 	if(fila<3&&columna==19)
 		fila=3;
-	//console.log(`Posicion: ${x} - ${y}`);
-	//console.log(`Fila: ${fila} -  columna: ${columna}`);
-	//Se limpia el canvas para pintar todo otra vez
-	//cv.width = cv.width;
-	//dibujarCampo();
+
 	ctx.beginPath();
-	/*ctx.drawImage(imgr, sessionStorage["ficha1_inicial_p1x"], sessionStorage["ficha1_inicial_p1y"]);
-	ctx.drawImage(imgr, sessionStorage["ficha2_inicial_p1x"], sessionStorage["ficha2_inicial_p1y"]);
-	ctx.drawImage(imgr, sessionStorage["ficha3_inicial_p1x"], sessionStorage["ficha3_inicial_p1y"]);
-	ctx.drawImage(imgr, sessionStorage["ficha4_inicial_p1x"], sessionStorage["ficha4_inicial_p1y"]);
-	ctx.drawImage(imgr, sessionStorage["ficha5_inicial_p1x"], sessionStorage["ficha5_inicial_p1y"]);
-	ctx.drawImage(imgv, sessionStorage["ficha1_inicial_p2x"], sessionStorage["ficha1_inicial_p2y"]);
-	ctx.drawImage(imgv, sessionStorage["ficha2_inicial_p2x"], sessionStorage["ficha2_inicial_p2y"]);
-	ctx.drawImage(imgv, sessionStorage["ficha3_inicial_p2x"], sessionStorage["ficha3_inicial_p2y"]);
-	ctx.drawImage(imgv, sessionStorage["ficha4_inicial_p2x"], sessionStorage["ficha4_inicial_p2y"]);
-	ctx.drawImage(imgv, sessionStorage["ficha5_inicial_p2x"], sessionStorage["ficha5_inicial_p2y"]);*/
+
 	if(inicioP1==true || inicioP2==true){
-		if(columna<10 && inicioP1==true)
+		if(columna<10 && inicioP1==true){
 			colocarficha(columna,fila,dim,ctx);
-		if(columna<20 && inicioP2==true)
+		}
+		else if(inicioP1==true){
+			mostrarMensajeColocacionCampo();
+		}
+		if(columna<20 && inicioP2==true){
 			colocarficha(columna,fila,dim,ctx);
+		}
+		else if(inicioP2==true){
+			mostrarMensajeColocacionCampo();
+		}
 		fichas_p1();
 		fichas_p2();
 	}
+	console.log(cont_p1);
+	console.log(fila_aux);
+	console.log(cont_p2);
 	if(turnoP1){
 		if(fila_aux==undefined){//cuando no hay ninguna ficha seleccionada
 			fila_aux=fila;
@@ -1086,8 +1151,10 @@ function terminar_inicio2(){
 	inicioP1=false;
 	inicioP2=false;
 	dado1=true;
-	let html = '<img src="" name="mydice"> <input type="button" value="Lanza dado" onClick="lanzar()">';
+
+	let html = '<img src="" id="mydice" alt="dado"> <input type="button" value="Lanza dado" onClick="lanzar()">';
 	document.getElementById("dado").innerHTML=html;
+	document.images["mydice"].src=eval("face6.src");
 	let html1='';
 	html1 += '<h2>'+sessionStorage['player2']+'</h2>'
 	document.getElementById('fichas_p2').innerHTML = html1;
@@ -2307,6 +2374,38 @@ function mostrarMensajeDado(){
 	let html="";
 
 	html +='<h2>Solo puedes lanzar el dado una vez por turno.</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeColocacionCampo(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+
+	html +='<h2>No puedes colocar tus fichas en el campo contrario.</h2>';
+	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
+
+	capa_frente.innerHTML=html;
+	capa_fondo.classList.add('capa-fondo');
+	capa_frente.classList.add('capa-frente');
+
+	document.body.appendChild(capa_fondo);
+}
+function mostrarMensajeTurnoInicio(){
+	let capa_fondo=document.createElement('div'),capa_frente=document.createElement('article');
+	capa_fondo.appendChild(capa_frente);
+	let html="";
+	if(inicioP1==false){
+		html +='<h2>No es tu turno, es el turno de '+sessionStorage['player2']+'.</h2>';
+	}
+	if(inicioP2==false){
+		html +='<h2>No es tu turno, es el turno de '+sessionStorage['player1']+'.</h2>';
+	}
 	html += '<button onclick="this.parentNode.parentNode.remove();">Cerrar</button>';
 
 	capa_frente.innerHTML=html;
